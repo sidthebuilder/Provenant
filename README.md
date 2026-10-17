@@ -147,18 +147,18 @@ Every number in an answer cites its step as `[s<n>]`, and the UI links each cita
 
 **Finding:** 73% of the messages an agent needed were written by *another* agent. Memory kept separately per agent could have held at most about a quarter of what agents went on to search for, so memory has to be shared.
 
-**Benchmark** (`scripts/bench_memory.py`). Each retriever answers as of the search time, using only messages written before it. Hybrid weights were chosen on the earlier half of searches (dev) from a fixed grid; the table reports the later half (test), which the grid search never saw.
-
-> **Note on these figures.** They were measured on 17 October, when the graph still contained human viewers' messages as retrieval candidates. Human messages were then removed (see above) and the graph rebuilt, but the benchmark was not re-run before this README was written. The citations themselves are unchanged (4,354, all agent messages); only the candidate pool shrinks. Running `scripts/bench_memory.py` regenerates `reports/bench_memory.json` with current figures.
+**Benchmark** (`scripts/bench_memory.py`, results in `reports/bench_memory.json`). Each retriever answers as of the search time, using only messages written before it. Hybrid weights were chosen on the earlier half of searches (510, dev) from a fixed grid; the table reports the later half (510, test), which the grid search never saw.
 
 | Retriever | recall@10 | recall@20 | recall@50 | searches with ≥1 hit in top 20 | median ms |
 |---|---|---|---|---|---|
-| Latest messages (context-window baseline) | 30.9% | 40.8% | 53.3% | 50.6% | 3 |
-| Full-text only | 4.9% | 8.1% | 14.1% | 15.9% | 22 |
-| Graph context only | 14.0% | 21.0% | 32.1% | 31.4% | 37 |
-| **Hybrid: recency + graph** | **41.5%** | **49.4%** | **59.6%** | **61.0%** | 59 |
+| Latest messages (context-window baseline) | 31.9% | 41.7% | 53.9% | 51.0% | 3 |
+| Full-text only | 5.2% | 8.4% | 14.6% | 17.1% | 19 |
+| Graph context only | 14.8% | 21.3% | 32.8% | 32.8% | 30 |
+| **Hybrid: recency + graph** | **44.2%** | **52.3%** | **63.4%** | **65.1%** | 46 |
 
-The hybrid ranks recent messages and adds graph evidence: messages by or mentioning the agents named in the question, messages addressed to the asker, and the room the asker last spoke in. At 20 results it recovers about a fifth more of the needed messages than the recency baseline, at about 60 ms per lookup. Keyword matching was nearly useless here, and the grid search gave it zero weight. Agents' questions are about people, rooms and recent events, which are relations in the graph rather than shared words.
+Weights chosen on dev: recency half-life 1 hour, named-agent bonus 0.5, addressed-to-asker bonus 0.25, same-room bonus 0.6, full-text weight 0.
+
+The hybrid ranks recent messages and adds graph evidence: messages by or mentioning the agents named in the question, messages addressed to the asker, and the room the asker last spoke in. At 20 results it recovers about a quarter more of the needed messages than the recency baseline (52.3% against 41.7%), at about 46 ms per lookup. Keyword matching was nearly useless here, and the grid search gave it zero weight. Agents' questions are about people, rooms and recent events, which are relations in the graph rather than shared words.
 
 The UI replays any of these searches: what the graph retrieved, which of those the real search cited, and what was missed.
 
@@ -220,7 +220,7 @@ The village works like a company: agents with roles (individual goals), shared g
 | Who asks this agent for help? | `handoffs` | GPT-5.2 is asked most by DeepSeek-V3.2 (251 requests) |
 | Show me the source | `message` | opens any cited message with sender, room and goal |
 
-These examples were measured before human messages were removed from the graph. They come from agent messages only, so they should be unchanged, but they were not re-checked after the rebuild.
+The `who_owns` and `sites_of` results above are re-checked by the tests on the current graph. The other example figures were measured before human messages were removed; they count agent messages only, so they should be unchanged.
 
 "Ownership" means who first linked a site in chat and who links it most. Repository permissions are not in the data, and `who_owns` says so in its answer. "Decision" and "handoff" messages are found with a keyword rule (for example "we decided", "can you"), so they are leads to read, not a complete list.
 
@@ -267,6 +267,8 @@ FalkorDB Browser at http://localhost:3000 shows the same graphs.
 There is no live deployment. The AI Village data cannot be redistributed, and the API has no authentication, so the project is run locally and shown in the demo video.
 
 ## Checks
+
+All 15 tests pass (`python -m pytest tests -q`, about 12 s), and `scripts/check_mcp.py` lists 16 MCP tools and calls two of them successfully.
 
 - `tests/test_track1.py` builds a small graph with hand-computed answers and checks detection, owner attribution, steering and block-replay counts exactly. It also checks that the real graph is untouched by a replay and that the fork is deleted, that reads cannot write, that the real graph reproduces the mint campaign (442 agents, 5,942 posts, 278 owners), and runs the API end to end.
 - `tests/test_village.py` checks the site parser and keyword extraction, that recall never returns a message from after the search, that citations point to earlier messages, that the brain tools return sources, that no human message is in the graph, and the village API.
