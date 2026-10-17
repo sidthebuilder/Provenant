@@ -142,7 +142,7 @@ def run_planner(question: str, graph: str | None = None, hours: float = 6.0) -> 
 
 # ---------------------------------------------------------------- LLM mode
 _SCHEMAS = {
-    "list_swarms": {"limit": "integer", "kind": "string"},
+    "list_swarms": {"limit": "integer", "kind": "string", "search": "string"},
     "swarm_profile": {"swarm": "integer"},
     "steering_channels": {"swarm": "integer"},
     "channel_reach": {"channel": "string"},
@@ -155,10 +155,17 @@ _REQUIRED = {"swarm_profile": ["swarm"], "steering_channels": ["swarm"], "channe
              "owner_spread": ["swarm"], "operation_of": ["swarm"], "block_impact": ["channel"]}
 
 SYSTEM = (
-    "You investigate coordinated AI-agent swarms using graph tools over a FalkorDB graph of real Moltbook posts. "
-    "Use tools to gather evidence; never invent numbers. Before recommending any block, call block_impact for it and "
-    "weigh swarm posts prevented against collateral posts. In the final answer cite the step of every number as [s<n>], "
-    "and state the limit that block replays assume agents do not adapt."
+    "You investigate coordinated AI-agent swarms using graph tools over a FalkorDB graph of real Moltbook posts.\n"
+    "Rules:\n"
+    "1. Swarm ids are large numbers (e.g. 205267227). Never invent one. Always start with list_swarms, using "
+    "search='<word from the question>' (e.g. 'clawtasks', 'mint', 'chatr'), and use the `swarm` id it returns.\n"
+    "2. If a tool returns an error or nothing, call list_swarms again with a different search or none; do not guess.\n"
+    "3. To judge a link: call steering_channels for the swarm, then block_impact with that channel AND the swarm id.\n"
+    "4. collateral_posts are ordinary posts in no swarm that the block would also hit. Recommend a block only if "
+    "swarm_posts_prevented > 0 and at least half of blocked_posts are swarm posts.\n"
+    "5. owner_spread tells you whether one human operator runs the swarm.\n"
+    "6. Never invent numbers. In the final answer cite the step of every number as [s<n>] and state that block "
+    "replays assume agents do not switch to another link."
 )
 
 
@@ -179,30 +186,49 @@ def run_llm(question: str, graph: str | None = None, max_steps: int = 8) -> dict
     msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": question}]
     steps: list[dict] = []
     t0 = time.perf_counter()
-    with httpx.Client(timeout=60) as http:
-        for _ in range(max_steps + 1):
+    # Small local models (e.g. Ollama on an 8 GB GPU) have short context windows,
+    # so tool results are trimmed. LLM_MAX_TOOL_CHARS raises it for hosted models.
+    max_chars = int(os.environ.get("LLM_MAX_TOOL_CHARS", "3500"))
+    with httpx.Client(timeout=float(os.environ.get("LLM_TIMEOUT_S", "180"))) as http:
+        for turn in range(max_steps + 1):
             r = http.post(f"{base}/chat/completions", headers={"Authorization": f"Bearer {key}"},
                           json={"model": model, "messages": msgs, "tools": _tool_specs(), "temperature": 0})
+            if r.status_code == 404:
+                raise RuntimeError(f"LLM endpoint {base} returned 404 for model '{model}'. "
+                                   f"For Ollama, run: ollama pull {model}")
             r.raise_for_status()
             m = r.json()["choices"][0]["message"]
-            msgs.append(m)
             calls = m.get("tool_calls") or []
+            msgs.append({k: v for k, v in m.items() if k in ("role", "content", "tool_calls")})
             if not calls or len(steps) >= max_steps:
                 return {"question": question, "mode": "llm", "model": model, "answer": m.get("content") or "",
                         "steps": steps, "ms": round((time.perf_counter() - t0) * 1000, 1)}
-            for c in calls:
-                name = c["function"]["name"]
-                args = json.loads(c["function"].get("arguments") or "{}")
-                args = {k: v for k, v in args.items() if k in _SCHEMAS.get(name, {})}
+            for i, c in enumerate(calls):
+                fn = c.get("function") or {}
+                name = fn.get("name", "")
+                raw = fn.get("arguments") or "{}"
+                try:
+                    args = raw if isinstance(raw, dict) else json.loads(raw)  # some servers send a dict
+                except json.JSONDecodeError:
+                    args = {}
+                args = {k: v for k, v in (args or {}).items() if k in _SCHEMAS.get(name, {}) and v is not None}
                 if name not in T.TOOLS:
                     content = json.dumps({"error": f"unknown tool {name}"})
                 else:
-                    st = _step(steps, name, {**args, "graph": graph})
-                    content = json.dumps({"step": st["n"], "result": st["result"]}, default=str)[:12000]
-                msgs.append({"role": "tool", "tool_call_id": c["id"], "content": content})
-    return {"question": question, "mode": "llm", "answer": "step limit reached", "steps": steps}
+                    try:
+                        st = _step(steps, name, {**args, "graph": graph})
+                        content = json.dumps({"step": st["n"], "result": st["result"]}, default=str)[:max_chars]
+                    except Exception as e:  # bad arguments from the model: report back, let it retry
+                        content = json.dumps({"error": f"{type(e).__name__}: {e}"[:300]})
+                msgs.append({"role": "tool", "tool_call_id": c.get("id") or f"call_{turn}_{i}", "name": name,
+                             "content": content})
+    return {"question": question, "mode": "llm", "model": model, "answer": "step limit reached", "steps": steps}
 
 
 def investigate(question: str, graph: str | None = None, mode: str | None = None) -> dict:
-    mode = mode or ("llm" if os.environ.get("LLM_API_KEY") else "planner")
+    # Planner is the default even when a key is set: it is deterministic and is what the
+    # tests and README figures use. Ask for mode="llm" (or set PROVENANT_AGENT_MODE=llm).
+    mode = mode or os.environ.get("PROVENANT_AGENT_MODE", "planner")
+    if mode == "llm" and not os.environ.get("LLM_API_KEY"):
+        mode = "planner"
     return run_llm(question, graph) if mode == "llm" else run_planner(question, graph)

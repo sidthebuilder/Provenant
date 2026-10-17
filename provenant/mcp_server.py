@@ -20,9 +20,9 @@ def _j(x) -> str:
 
 
 @mcp.tool()
-def list_swarms(limit: int = 15, kind: str | None = None) -> str:
-    """List the largest agent swarms detected in the Moltbook graph."""
-    return _j(t1.list_swarms(limit=limit, kind=kind))
+def list_swarms(limit: int = 15, kind: str | None = None, search: str | None = None) -> str:
+    """List detected swarms with their real ids. `search` matches kinds and steering channels (e.g. 'clawtasks')."""
+    return _j(t1.list_swarms(limit=limit, kind=kind, search=search))
 
 
 @mcp.tool()

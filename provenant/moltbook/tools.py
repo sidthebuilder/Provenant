@@ -24,19 +24,39 @@ def _g(graph: str | None) -> Graph:
     return Graph(graph or DEFAULT_GRAPH)
 
 
-def list_swarms(graph: str | None = None, limit: int = 15, kind: str | None = None) -> dict:
-    """Largest detected swarms with size, owners, kind and top steering channel."""
+KINDS = ["payload campaign", "copy-paste wave", "agent-recruitment", "single-owner fleet"]
+
+
+def list_swarms(graph: str | None = None, limit: int = 15, kind: str | None = None,
+                search: str | None = None) -> dict:
+    """Largest detected swarms with their real numeric ids, size, owners, kind and steering channels.
+
+    `search` matches a word against swarm kinds and steering channels (e.g. 'clawtasks', 'mint',
+    'skill', 'chatr'). `kind` is one of: payload campaign, copy-paste wave, agent-recruitment,
+    single-owner fleet. Use the returned `swarm` id in every other tool; never invent ids.
+    """
+    term = (search or "").strip().lower()
+    if term in ("mint", "token", "token mint", "payload"):
+        kind, term = "payload campaign", ""
     def f():
         return _g(graph).read_dicts(
-            "MATCH (s:Swarm) WHERE $kind IS NULL OR s.kind = $kind "
+            "MATCH (s:Swarm) WHERE ($kind IS NULL OR toLower(s.kind) CONTAINS toLower($kind)) "
+            "OPTIONAL MATCH (s)-[r0:STEERED_BY]->(c0:Channel) "
+            "WITH s, collect(c0.id) AS all_ch "
+            "WHERE $term = '' OR toLower(s.kind) CONTAINS $term OR any(x IN all_ch WHERE toLower(x) CONTAINS $term) "
             "OPTIONAL MATCH (s)-[r:STEERED_BY]->(c:Channel) "
             "WITH s, r, c ORDER BY r.share DESC "
             "WITH s, collect(c.id) AS chans, collect(r.share)[0] AS top_share "
             "RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, "
             "s.distinct_owners AS owners, round(1000 * s.top_owner_share) / 1000 AS top_owner_share, "
             "s.operation AS operation, chans[0] AS top_channel, top_share, chans AS channels "
-            "ORDER BY agents DESC LIMIT $limit", {"limit": int(limit), "kind": kind})
+            "ORDER BY agents DESC LIMIT $limit", {"limit": int(limit), "kind": kind, "term": term})
     return _run(f)
+
+
+def _no_swarm(swarm) -> dict:
+    return {"error": f"no swarm with id {swarm}. Swarm ids are large numbers returned by list_swarms; "
+                     f"call list_swarms (optionally with search='clawtasks', 'mint', ...) to get a real id."}
 
 
 def swarm_profile(swarm: int, graph: str | None = None) -> dict:
@@ -50,7 +70,7 @@ def swarm_profile(swarm: int, graph: str | None = None) -> dict:
             "s.families AS key_families, s.text_similarity AS text_similarity, s.operation AS operation",
             {"s": int(swarm)})
         if not head:
-            return {"error": f"no swarm {swarm}"}
+            return _no_swarm(swarm)
         keys = g.read_dicts(
             "MATCH (s:Swarm {id: $s})-[:DEFINED_BY]->(k:Key) "
             "RETURN k.id AS key, k.family AS family, k.n_agents AS agents, left(k.sample, 160) AS sample "
@@ -65,11 +85,15 @@ def swarm_profile(swarm: int, graph: str | None = None) -> dict:
 def steering_channels(swarm: int, graph: str | None = None) -> dict:
     """Outside links/handles a swarm carries far more than the rest of the platform (Fisher, Bonferroni)."""
     def f():
-        return _g(graph).read_dicts(
+        g = _g(graph)
+        if not g.read("MATCH (s:Swarm {id: $s}) RETURN 1", {"s": int(swarm)}):
+            return _no_swarm(swarm)
+        rows = g.read_dicts(
             "MATCH (s:Swarm {id: $s})-[r:STEERED_BY]->(c:Channel) "
             "RETURN c.id AS channel, c.kind AS kind, r.share AS share_of_swarm_posts, r.enrichment AS enrichment, "
             "r.p_adj AS p_bonferroni, r.agents AS agents, r.owners AS owners "
             "ORDER BY share_of_swarm_posts DESC", {"s": int(swarm)})
+        return rows  # empty list = no statistically significant steering channel (UI and planner expect a list)
     return _run(f)
 
 
@@ -133,7 +157,9 @@ def block_impact(channel: str, hours_after_first_seen: float = 6.0, swarm: int |
         at = None
         if swarm is not None:
             rows = g.read("MATCH (s:Swarm {id: $s}) RETURN s.first_ts", {"s": int(swarm)})
-            if rows and rows[0][0]:
+            if not rows:
+                return _no_swarm(swarm)
+            if rows[0][0]:
                 at = rows[0][0] + float(hours_after_first_seen) * 3600
         r = _block_impact(g, channel, at_ts=at, hours_after_first=float(hours_after_first_seen))
         if at is not None and "error" not in r:

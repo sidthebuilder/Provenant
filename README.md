@@ -132,8 +132,18 @@ Every tool returns its result plus the exact Cypher, parameters, row count and t
 
 The agent (`provenant/moltbook/agent.py`) has two modes:
 
-- **planner** (default, no API key): a fixed investigation plan. It picks the swarm, profiles it, checks owners, finds steering channels, replays a block of each, and recommends one only if it prevents swarm posts and at least half of what it blocks is swarm traffic. It is deterministic, so the demo and tests reproduce. This is the mode that was tested.
-- **llm**: with `LLM_API_KEY` set (any OpenAI-compatible endpoint via `LLM_BASE_URL` and `LLM_MODEL`), a model chooses tools by function calling. It sees only tool results and cannot run Cypher. **This mode is implemented but was not run against a real model during the event.**
+- **planner** (default, also when an API key is set): a fixed investigation plan. It picks the swarm, profiles it, checks owners, finds steering channels, replays a block of each, and recommends one only if it prevents swarm posts and at least half of what it blocks is swarm traffic. It is deterministic, so the demo and tests reproduce. This is the mode that was tested.
+- **llm**: a model chooses the tools itself by function calling, through any OpenAI-compatible endpoint (`LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY`). It sees only tool results and cannot run Cypher. Run it with `scripts/ask_llm.py`, `PROVENANT_AGENT_MODE=llm`, or `{"mode": "llm"}` on `/api/ask`.
+
+**LLM mode, tested with a small local model.** On 18 October I ran `scripts/ask_llm.py` with `qwen2.5:7b` through Ollama on a laptop RTX 5050 (8 GB). Transcripts are in `reports/agent_answers_llm.json`.
+
+| Question | Tools the model chose | Verdict | Problems |
+|---|---|---|---|
+| What steers the clawtasks skill-file swarm, should we block it? | `list_swarms(search)` → `steering_channels` → `block_impact` | Block `clawtasks.com` (58% of blocked posts are swarm posts) | Did not try the narrower `skill.md`, which hits fewer ordinary posts; restated one figure inconsistently (167 vs 172) |
+| Who is behind the token-mint campaign, is there a link to block? | `list_swarms` → `swarm_profile` → `steering_channels` → `owner_spread` → `operation_of` → `channel_reach` | Correct: 442 agents, 278 owners, no single operator, no significant link, no block | One unneeded `channel_reach` call |
+| Is iili.io a good link to block? | `channel_pagerank` → `block_impact` | Correct: do not block, most blocked posts are ordinary | Timed the replay from the start of an unrelated swarm |
+
+All three verdicts were right, but the 7B model never wrote `[s<n>]` citations, and its reasoning was less careful than the planner's. On the first run, before `list_swarms` gained a `search` argument and errors that point back to it, the model invented swarm ids and two of three answers failed. That change is what made it work. A larger model would likely do better; none was tested.
 
 Every number in an answer cites its step as `[s<n>]`, and the UI links each citation to the queries behind it.
 
@@ -220,7 +230,7 @@ The village works like a company: agents with roles (individual goals), shared g
 | Who asks this agent for help? | `handoffs` | GPT-5.2 is asked most by DeepSeek-V3.2 (251 requests) |
 | Show me the source | `message` | opens any cited message with sender, room and goal |
 
-The `who_owns` and `sites_of` results above are re-checked by the tests on the current graph. The other example figures were measured before human messages were removed; they count agent messages only, so they should be unchanged.
+All figures in this table were re-measured on the final graph (agent messages only) with `scripts/smoke_brain.py`; `who_owns` and `sites_of` are also checked by the tests.
 
 "Ownership" means who first linked a site in chat and who links it most. Repository permissions are not in the data, and `who_owns` says so in its answer. "Decision" and "handoff" messages are found with a keyword rule (for example "we decided", "can you"), so they are leads to read, not a complete list.
 
@@ -268,7 +278,7 @@ There is no live deployment. The AI Village data cannot be redistributed, and th
 
 ## Checks
 
-All 15 tests pass (`python -m pytest tests -q`, about 12 s), and `scripts/check_mcp.py` lists 16 MCP tools and calls two of them successfully.
+All 16 tests pass (`python -m pytest tests -q`, about 13 s), and `scripts/check_mcp.py` lists 16 MCP tools and calls two of them successfully.
 
 - `tests/test_track1.py` builds a small graph with hand-computed answers and checks detection, owner attribution, steering and block-replay counts exactly. It also checks that the real graph is untouched by a replay and that the fork is deleted, that reads cannot write, that the real graph reproduces the mint campaign (442 agents, 5,942 posts, 278 owners), and runs the API end to end.
 - `tests/test_village.py` checks the site parser and keyword extraction, that recall never returns a message from after the search, that citations point to earlier messages, that the brain tools return sources, that no human message is in the graph, and the village API.

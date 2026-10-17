@@ -1,0 +1,1211 @@
+[
+ {
+  "question": "What is steering the skill-file swarm on clawtasks.com, and should we block it? Check the collateral first.",
+  "mode": "llm",
+  "model": "qwen2.5:7b",
+  "answer": "Blocking the `dom:clawtasks.com` channel would have the following impact:\n\n- **Blocked Posts**: 297\n  - **Blocked Swarm Posts**: 172\n  - **Collateral Posts**: 125 (42.09% of the collateral posts are outside the swarm)\n\n- **Swarm Impact**:\n  - **Agents Cut Off**: 132\n  - **Posts Prevented**: 167 (84.34% of the swarm's posts are prevented)\n\n- **Other Swarms Affected**:\n  - Swarm 227771747: 4 agents cut off, 4 posts prevented (80% of its posts are prevented)\n  - Swarm 165708381: 1 agent cut off, 1 post prevented (25% of its posts are prevented)\n\n- **Evidence Paths**:\n  - `zhizuibao001` verified their ClawTasks agent on `293eb648-3158-4488-85e9-1792ab273fc1`\n  - `Claudius_AI` verified their ClawTasks agent on `52719d7a-eada-4977-921a-5d30560f19bd`\n  - `Bubble` verified their ClawTasks agent on `8008819b-3196-4705-ae7d-3b7846fba04d`\n\n### Analysis\n- **Swarm Posts Prevented**: 172 (84.34% of the swarm's posts are prevented)\n- **Collateral Posts**: 125 (42.09% of the collateral posts are outside the swarm)\n\nGiven that more than half of the blocked posts (172 out of 297) are swarm posts, and the swarm posts prevented (172) are significant, it is reasonable to proceed with the block.\n\n### Recommendation\nWe should block the `dom:clawtasks.com` channel. The block will cut off a large number of swarm agents and posts, and the collateral impact is manageable.\n\n### Assumptions\n- Block replays assume agents do not switch to another link after the block.\n\nWould you like to proceed with the block, or do you need further analysis?",
+  "steps": [
+   {
+    "n": 1,
+    "tool": "list_swarms",
+    "args": {
+     "search": "skill-file clawtasks",
+     "graph": null
+    },
+    "result": [],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE ($kind IS NULL OR toLower(s.kind) CONTAINS toLower($kind)) OPTIONAL MATCH (s)-[r0:STEERED_BY]->(c0:Channel) WITH s, collect(c0.id) AS all_ch WHERE $term = '' OR toLower(s.kind) CONTAINS $term OR any(x IN all_ch WHERE toLower(x) CONTAINS $term) OPTIONAL MATCH (s)-[r:STEERED_BY]->(c:Channel) WITH s, r, c ORDER BY r.share DESC WITH s, collect(c.id) AS chans, collect(r.share)[0] AS top_share RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.distinct_owners AS owners, round(1000 * s.top_owner_share) / 1000 AS top_owner_share, s.operation AS operation, chans[0] AS top_channel, top_share, chans AS channels ORDER BY agents DESC LIMIT $limit",
+      "params": {
+       "limit": 15,
+       "kind": null,
+       "term": "skill-file clawtasks"
+      },
+      "rows": 0,
+      "ms": 1.51,
+      "mode": "read"
+     }
+    ],
+    "ms": 13.4
+   },
+   {
+    "n": 2,
+    "tool": "list_swarms",
+    "args": {
+     "search": "clawtasks",
+     "graph": null
+    },
+    "result": [
+     {
+      "swarm": 205267227,
+      "kind": "copy-paste wave",
+      "agents": 163,
+      "posts": 198,
+      "owners": 123,
+      "top_owner_share": 0.006,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 0.9949,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     },
+     {
+      "swarm": 227771747,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 3,
+      "top_owner_share": 0.2,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE ($kind IS NULL OR toLower(s.kind) CONTAINS toLower($kind)) OPTIONAL MATCH (s)-[r0:STEERED_BY]->(c0:Channel) WITH s, collect(c0.id) AS all_ch WHERE $term = '' OR toLower(s.kind) CONTAINS $term OR any(x IN all_ch WHERE toLower(x) CONTAINS $term) OPTIONAL MATCH (s)-[r:STEERED_BY]->(c:Channel) WITH s, r, c ORDER BY r.share DESC WITH s, collect(c.id) AS chans, collect(r.share)[0] AS top_share RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.distinct_owners AS owners, round(1000 * s.top_owner_share) / 1000 AS top_owner_share, s.operation AS operation, chans[0] AS top_channel, top_share, chans AS channels ORDER BY agents DESC LIMIT $limit",
+      "params": {
+       "limit": 15,
+       "kind": null,
+       "term": "clawtasks"
+      },
+      "rows": 2,
+      "ms": 4.76,
+      "mode": "read"
+     }
+    ],
+    "ms": 4.8
+   },
+   {
+    "n": 3,
+    "tool": "steering_channels",
+    "args": {
+     "swarm": 205267227,
+     "graph": null
+    },
+    "result": [
+     {
+      "channel": "dom:clawtasks.com",
+      "kind": "dom",
+      "share_of_swarm_posts": 0.9949,
+      "enrichment": 762.5,
+      "p_bonferroni": 0.0,
+      "agents": 163,
+      "owners": 123
+     },
+     {
+      "channel": "path:clawtasks.com/skill.md",
+      "kind": "path",
+      "share_of_swarm_posts": 0.9949,
+      "enrichment": 868.4,
+      "p_bonferroni": 0.0,
+      "agents": 163,
+      "owners": 123
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN 1",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 1,
+      "ms": 1.15,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[r:STEERED_BY]->(c:Channel) RETURN c.id AS channel, c.kind AS kind, r.share AS share_of_swarm_posts, r.enrichment AS enrichment, r.p_adj AS p_bonferroni, r.agents AS agents, r.owners AS owners ORDER BY share_of_swarm_posts DESC",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 2,
+      "ms": 1.17,
+      "mode": "read"
+     }
+    ],
+    "ms": 2.4
+   },
+   {
+    "n": 4,
+    "tool": "block_impact",
+    "args": {
+     "channel": "dom:clawtasks.com",
+     "swarm": 205267227,
+     "graph": null
+    },
+    "result": {
+     "channel": "dom:clawtasks.com",
+     "block_at_ts": 1769944079.461,
+     "hours_after_first_seen": 11.0,
+     "channel_posts_total": 361,
+     "blocked_posts": 297,
+     "blocked_swarm_posts": 172,
+     "collateral_posts": 125,
+     "collateral_share": 0.4209,
+     "swarm_posts_prevented": 172,
+     "swarm_agents_cut_off": 136,
+     "swarm_agents_before": 171,
+     "swarm_posts_before": 207,
+     "swarms": [
+      {
+       "swarm": 205267227,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.9949,
+       "agents_before": 163,
+       "agents_after": 31,
+       "agents_cut_off": 132,
+       "posts_before": 198,
+       "posts_after": 31,
+       "posts_prevented": 167,
+       "share_posts_prevented": 0.8434
+      },
+      {
+       "swarm": 227771747,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 1.0,
+       "agents_before": 5,
+       "agents_after": 1,
+       "agents_cut_off": 4,
+       "posts_before": 5,
+       "posts_after": 1,
+       "posts_prevented": 4,
+       "share_posts_prevented": 0.8
+      },
+      {
+       "swarm": 165708381,
+       "kind": "copy-paste wave",
+       "steered_by_channel": false,
+       "channel_share": null,
+       "agents_before": 4,
+       "agents_after": 3,
+       "agents_cut_off": 1,
+       "posts_before": 4,
+       "posts_after": 3,
+       "posts_prevented": 1,
+       "share_posts_prevented": 0.25
+      }
+     ],
+     "evidence_paths": [
+      {
+       "agent": "zhizuibao001",
+       "post": "293eb648-3158-4488-85e9-1792ab273fc1",
+       "ts": 1769944297.273,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-Z32L @zhizuibao001\\n\\nReady to work and hire other agents. Who needs help?\\n\\nSkill: https://clawtasks.co"
+      },
+      {
+       "agent": "Claudius_AI",
+       "post": "52719d7a-eada-4977-921a-5d30560f19bd",
+       "ts": 1769944307.352,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-SBKX @claudius\n\nReady to work and hire other agents. Who needs help?\n\nSkill: https://clawtasks.com/skill."
+      },
+      {
+       "agent": "Bubble",
+       "post": "8008819b-3196-4705-ae7d-3b7846fba04d",
+       "ts": 1769944499.739,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-J59I @bubble\n\nReady to work and hire other agents. Who needs help?\n\nJoin with my code: bubbsxyn\nSkill: ht"
+      }
+     ],
+     "limits": [
+      "Direct reach only: assumes swarm agents do not switch to another link after the block.",
+      "Posts are blocked from time T on; anything posted before T already happened.",
+      "Collateral counts posts outside every detected swarm; some may be undetected coordination."
+     ],
+     "ms": 1305.0,
+     "clock": "swarm 205267227 start + 6.0 h",
+     "hours_after_swarm_start": 6.0
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.first_ts",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 1,
+      "ms": 0.97,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) RETURN min(p.ts) AS first_ts, max(p.ts) AS last_ts, count(p) AS posts",
+      "params": {
+       "c": "dom:clawtasks.com"
+      },
+      "rows": 1,
+      "ms": 1.05,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c}) OPTIONAL MATCH (s1:Swarm)-[r:STEERED_BY]->(c) WITH c, collect(DISTINCT {id: s1.id, share: r.share, owners: r.owners}) AS steered OPTIONAL MATCH (c)<-[:LINKS_TO]-(:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s2:Swarm) RETURN steered, collect(DISTINCT s2.id) AS touched",
+      "params": {
+       "c": "dom:clawtasks.com"
+      },
+      "rows": 1,
+      "ms": 0.99,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts >= $t OPTIONAL MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH p, count(s) AS in_swarm RETURN count(p) AS blocked, sum(CASE WHEN in_swarm > 0 THEN 1 ELSE 0 END) AS swarm_posts, sum(CASE WHEN in_swarm = 0 THEN 1 ELSE 0 END) AS collateral",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 1,
+      "ms": 66.49,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 21.99,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 1,
+      "ms": 21.8,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "GRAPH.COPY moltbook_w1 moltbook_w1__whatif_4e9f0fc3c9",
+      "params": {},
+      "rows": 0,
+      "ms": 971.62,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t WITH collect(DISTINCT p) AS ps UNWIND ps AS p DETACH DELETE p",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 0,
+      "ms": 70.33,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t RETURN count(p)",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 1,
+      "ms": 72.6,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 8.55,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 1,
+      "ms": 7.98,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE s.id IN $ids RETURN s.id AS id, s.kind AS kind, s.first_ts AS first_ts, s.last_ts AS last_ts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 0.83,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (a:Agent)-[:POSTED]->(p:Post)-[:LINKS_TO]->(c:Channel {id: $c}) WHERE p.ts >= $t MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) RETURN DISTINCT a.name AS agent, p.id AS post, p.ts AS ts, s.id AS swarm, left(p.text, 140) AS text ORDER BY ts LIMIT 3",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 3,
+      "ms": 59.83,
+      "mode": "read"
+     }
+    ],
+    "ms": 1306.2
+   }
+  ],
+  "ms": 29525.5
+ },
+ {
+  "question": "Who is behind the largest token mint campaign? Is it one operator, and is there a link worth blocking?",
+  "mode": "llm",
+  "model": "qwen2.5:7b",
+  "answer": "Based on the analysis of the largest token mint campaign swarm with ID 229416609:\n\n1. **Swarm Profile**:\n   - **Kind**: Payload campaign\n   - **Agents**: 442\n   - **Posts**: 5942\n   - **First Post Timestamp**: 1769833967.641\n   - **Last Post Timestamp**: 1770076791.396\n   - **Owners**: 278\n   - **Top Owner Share**: 0.00226244343891403\n   - **Key Families**: \n     - `payload:ce445d67d7e708ef` (439 agents)\n     - `near:0` (332 agents)\n     - `tmpl:3c5e61075f67d658` (118 agents)\n     - `tmpl:241aa18e52df314a` (39 agents)\n     - `tmpl:431d4ba242120c0b` (37 agents)\n   - **Sample Members**: \n     - `elitebot` (owned by `s4sh1337`)\n     - `MoltyBot` (owned by `the_auto_arch`)\n     - `ClaudiaAssistant` (owned by `shini_gamer`)\n     - `coolishagent` (owned by `coolishagent`)\n     - `soth` (owned by `soth76267980`)\n     - `Ziutek` (owned by `dyds999`)\n     - `Lozio` (no owner)\n     - `InfinityAgent` (no owner)\n\n2. **Steering Channels**:\n   - No significant steering channels were found for this swarm.\n\n3. **Owner Spread**:\n   - The swarm is spread across multiple owners, with no single owner controlling a majority of the agents.\n\n4. **Operation of**:\n   - No other swarms are connected to this one through shared steering channels.\n\n5. **Channel Reach**:\n   - The channel `path:raw.githubusercontent.com/spothq/cryptocurrency-icons` is used by the swarm with ID 5313915, which is a smaller campaign swarm.\n\nGiven the analysis, the swarm 229416609 is not controlled by a single operator, and there are no significant steering channels or other swarms connected to it. The channel `path:raw.githubusercontent.com/spothq/cryptocurrency-icons` is used by a smaller swarm, but it does not appear to be a critical link for the larger swarm.\n\n**Recommendation**: Based on the criteria that swarm_posts_prevented > 0 and at least half of blocked_posts are swarm posts, there is no clear link worth blocking for the largest token mint campaign swarm 229416609. Block replays assume agents do not switch to another link.",
+  "steps": [
+   {
+    "n": 1,
+    "tool": "list_swarms",
+    "args": {
+     "search": "mint",
+     "kind": "campaign",
+     "graph": null
+    },
+    "result": [
+     {
+      "swarm": 229416609,
+      "kind": "payload campaign",
+      "agents": 442,
+      "posts": 5942,
+      "owners": 278,
+      "top_owner_share": 0.002,
+      "operation": 229416609,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 5313915,
+      "kind": "payload campaign",
+      "agents": 11,
+      "posts": 13,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 5313915,
+      "top_channel": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons",
+      "top_share": 0.5385,
+      "channels": [
+       "path:raw.githubusercontent.com/spothq/cryptocurrency-icons"
+      ]
+     },
+     {
+      "swarm": 263311225,
+      "kind": "payload campaign",
+      "agents": 9,
+      "posts": 11,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 263311225,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 168000170,
+      "kind": "payload campaign",
+      "agents": 4,
+      "posts": 5,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 168000170,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 12965281,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 12965281,
+      "top_channel": "dom:api.deepseek.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:api.deepseek.com"
+      ]
+     },
+     {
+      "swarm": 233681881,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 1.0,
+      "channels": [
+       "dom:iili.io",
+       "path:iili.io/fqqglqx.jpg"
+      ]
+     },
+     {
+      "swarm": 34639517,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 34639517,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 89254128,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 89254128,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 10946698,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 10946698,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE ($kind IS NULL OR toLower(s.kind) CONTAINS toLower($kind)) OPTIONAL MATCH (s)-[r0:STEERED_BY]->(c0:Channel) WITH s, collect(c0.id) AS all_ch WHERE $term = '' OR toLower(s.kind) CONTAINS $term OR any(x IN all_ch WHERE toLower(x) CONTAINS $term) OPTIONAL MATCH (s)-[r:STEERED_BY]->(c:Channel) WITH s, r, c ORDER BY r.share DESC WITH s, collect(c.id) AS chans, collect(r.share)[0] AS top_share RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.distinct_owners AS owners, round(1000 * s.top_owner_share) / 1000 AS top_owner_share, s.operation AS operation, chans[0] AS top_channel, top_share, chans AS channels ORDER BY agents DESC LIMIT $limit",
+      "params": {
+       "limit": 15,
+       "kind": "payload campaign",
+       "term": ""
+      },
+      "rows": 9,
+      "ms": 1.83,
+      "mode": "read"
+     }
+    ],
+    "ms": 1.9
+   },
+   {
+    "n": 2,
+    "tool": "swarm_profile",
+    "args": {
+     "swarm": 229416609,
+     "graph": null
+    },
+    "result": {
+     "kind": "payload campaign",
+     "agents": 442,
+     "posts": 5942,
+     "first_ts": 1769833967.641,
+     "last_ts": 1770076791.396,
+     "owners": 278,
+     "owners_known": 278,
+     "top_owner": "farnhamrei12448",
+     "top_owner_share": 0.00226244343891403,
+     "key_families": [
+      "tmpl",
+      "tmpl",
+      "payload",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "tmpl",
+      "tmpl",
+      "payload",
+      "near",
+      "near",
+      "tmpl",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "tmpl",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "tmpl",
+      "payload",
+      "tmpl",
+      "near",
+      "tmpl",
+      "tmpl",
+      "tmpl"
+     ],
+     "text_similarity": 0.839484615384615,
+     "operation": 229416609,
+     "defining_keys": [
+      {
+       "key": "payload:ce445d67d7e708ef",
+       "family": "payload",
+       "agents": 439,
+       "sample": "json p mbc <n> op deploy tick claw max <n> lim <n> first token on the moltbook chain no smart contract no gas fee no wallet needed just post how to mint post an"
+      },
+      {
+       "key": "near:0",
+       "family": "near",
+       "agents": 332,
+       "sample": "minting claw as instructed p mbc <n> op mint tick claw amt <n>"
+      },
+      {
+       "key": "tmpl:3c5e61075f67d658",
+       "family": "tmpl",
+       "agents": 118,
+       "sample": "p mbc <n> op mint tick claw amt <n>"
+      },
+      {
+       "key": "tmpl:241aa18e52df314a",
+       "family": "tmpl",
+       "agents": 39,
+       "sample": "claiming my spot on moltbook with a claw mint p mbc <n> op mint tick claw amt <n>"
+      },
+      {
+       "key": "tmpl:431d4ba242120c0b",
+       "family": "tmpl",
+       "agents": 37,
+       "sample": "testing the waters with a claw mint p mbc <n> op mint tick claw amt <n>"
+      }
+     ],
+     "sample_members": [
+      {
+       "agent": "elitebot",
+       "owner": "s4sh1337"
+      },
+      {
+       "agent": "MoltyBot",
+       "owner": "the_auto_arch"
+      },
+      {
+       "agent": "ClaudiaAssistant",
+       "owner": "shini_gamer"
+      },
+      {
+       "agent": "coolishagent",
+       "owner": "coolishagent"
+      },
+      {
+       "agent": "soth",
+       "owner": "soth76267980"
+      },
+      {
+       "agent": "Ziutek",
+       "owner": "dyds999"
+      },
+      {
+       "agent": "Lozio",
+       "owner": null
+      },
+      {
+       "agent": "InfinityAgent",
+       "owner": null
+      }
+     ]
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.first_ts AS first_ts, s.last_ts AS last_ts, s.distinct_owners AS owners, s.owners_known AS owners_known, s.top_owner AS top_owner, s.top_owner_share AS top_owner_share, s.families AS key_families, s.text_similarity AS text_similarity, s.operation AS operation",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 1,
+      "ms": 1.88,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:DEFINED_BY]->(k:Key) RETURN k.id AS key, k.family AS family, k.n_agents AS agents, left(k.sample, 160) AS sample ORDER BY agents DESC LIMIT 5",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 5,
+      "ms": 1.59,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) RETURN a.name AS agent, o.handle AS owner LIMIT 8",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 8,
+      "ms": 1.35,
+      "mode": "read"
+     }
+    ],
+    "ms": 5.0
+   },
+   {
+    "n": 3,
+    "tool": "steering_channels",
+    "args": {
+     "swarm": 229416609,
+     "graph": null
+    },
+    "result": [],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN 1",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 1,
+      "ms": 1.18,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[r:STEERED_BY]->(c:Channel) RETURN c.id AS channel, c.kind AS kind, r.share AS share_of_swarm_posts, r.enrichment AS enrichment, r.p_adj AS p_bonferroni, r.agents AS agents, r.owners AS owners ORDER BY share_of_swarm_posts DESC",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 0,
+      "ms": 0.81,
+      "mode": "read"
+     }
+    ],
+    "ms": 2.1
+   },
+   {
+    "n": 4,
+    "tool": "owner_spread",
+    "args": {
+     "swarm": 229416609,
+     "graph": null
+    },
+    "result": [
+     {
+      "owner": "(unknown)",
+      "agents": 164
+     },
+     {
+      "owner": "erishuxfor50596",
+      "agents": 1
+     },
+     {
+      "owner": "lancelylan87120",
+      "agents": 1
+     },
+     {
+      "owner": "lbxsheng",
+      "agents": 1
+     },
+     {
+      "owner": "huowa111",
+      "agents": 1
+     },
+     {
+      "owner": "richy_wlist",
+      "agents": 1
+     },
+     {
+      "owner": "adelalpop",
+      "agents": 1
+     },
+     {
+      "owner": "millygurl3",
+      "agents": 1
+     },
+     {
+      "owner": "rolabab",
+      "agents": 1
+     },
+     {
+      "owner": "holdenholl90663",
+      "agents": 1
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) WITH o, count(a) AS agents ORDER BY agents DESC RETURN coalesce(o.handle, '(unknown)') AS owner, agents LIMIT 10",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 10,
+      "ms": 3.13,
+      "mode": "read"
+     }
+    ],
+    "ms": 3.2
+   },
+   {
+    "n": 5,
+    "tool": "operation_of",
+    "args": {
+     "swarm": 229416609,
+     "graph": null
+    },
+    "result": [],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:STEERED_BY]->(c:Channel)<-[:STEERED_BY]-(o:Swarm) WHERE o <> s RETURN o.id AS swarm, o.kind AS kind, o.n_agents AS agents, collect(c.id) AS shared_channels, s.operation AS operation ORDER BY agents DESC LIMIT 10",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 0,
+      "ms": 1.47,
+      "mode": "read"
+     }
+    ],
+    "ms": 1.6
+   },
+   {
+    "n": 6,
+    "tool": "channel_reach",
+    "args": {
+     "channel": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons",
+     "graph": null
+    },
+    "result": [
+     {
+      "swarm": 5313915,
+      "kind": "payload campaign",
+      "swarm_agents": 11,
+      "posts_with_channel": 7,
+      "significant": true
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH s, count(DISTINCT p) AS posts OPTIONAL MATCH (s)-[r:STEERED_BY]->(:Channel {id: $c}) RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS swarm_agents, posts AS posts_with_channel, r IS NOT NULL AS significant ORDER BY posts DESC LIMIT 20",
+      "params": {
+       "c": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons"
+      },
+      "rows": 1,
+      "ms": 4.88,
+      "mode": "read"
+     }
+    ],
+    "ms": 5.0
+   }
+  ],
+  "ms": 21267.3
+ },
+ {
+  "question": "Is iili.io a good link to block? Use PageRank and a block replay before deciding.",
+  "mode": "llm",
+  "model": "qwen2.5:7b",
+  "answer": "Based on the analysis, blocking `dom:iili.io` would have the following impact:\n\n- **Total Posts**: 649\n- **Blocked Posts**: 130\n- **Blocked Swarm Posts**: 13\n- **Collateral Posts**: 117\n- **Collateral Share**: 90%\n- **Swarm Posts Prevented**: 13\n\nThe block would cut off 11 swarm agents and prevent 13 posts from the swarm `205267227`. However, the majority of the posts (90%) are outside the detected swarm, which means collateral posts are also affected.\n\nGiven that the swarm posts prevented (13) are less than half of the blocked posts (130), and the collateral posts are significantly higher, it would not be advisable to block `dom:iili.io` at this time. The block would primarily impact posts outside the swarm, and the swarm's activity would be reduced but not significantly enough to justify the collateral impact.\n\nTherefore, **blocking `dom:iili.io` is not recommended**.",
+  "steps": [
+   {
+    "n": 1,
+    "tool": "channel_pagerank",
+    "args": {
+     "limit": 10,
+     "graph": null
+    },
+    "result": [
+     {
+      "channel": "dom:iili.io",
+      "pagerank": 2.04923871933715e-05,
+      "swarms": 4,
+      "agents": 22.0
+     },
+     {
+      "channel": "dom:i.imgur.com",
+      "pagerank": 1.1905760402442e-05,
+      "swarms": 2,
+      "agents": 7.0
+     },
+     {
+      "channel": "path:clawtasks.com/skill.md",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 2,
+      "agents": 168.0
+     },
+     {
+      "channel": "dom:clawtasks.com",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 2,
+      "agents": 168.0
+     },
+     {
+      "channel": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 1,
+      "agents": 11.0
+     },
+     {
+      "channel": "at:eudaemon_0",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 1,
+      "agents": 9.0
+     },
+     {
+      "channel": "at:bankrbot",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 1,
+      "agents": 6.0
+     },
+     {
+      "channel": "dom:api.deepseek.com",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 1,
+      "agents": 3.0
+     },
+     {
+      "channel": "at:shipyard",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 1,
+      "agents": 3.0
+     },
+     {
+      "channel": "at:mattprd",
+      "pagerank": 1.06790994323092e-05,
+      "swarms": 1,
+      "agents": 3.0
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "CALL algo.pageRank(null, 'STEERED_BY') YIELD node, score WITH node, score WHERE node:Channel MATCH (node)<-[r:STEERED_BY]-(s:Swarm) RETURN node.id AS channel, score AS pagerank, count(s) AS swarms, sum(s.n_agents) AS agents ORDER BY pagerank DESC, agents DESC LIMIT $limit",
+      "params": {
+       "limit": 10
+      },
+      "rows": 10,
+      "ms": 39.09,
+      "mode": "read"
+     }
+    ],
+    "ms": 39.1
+   },
+   {
+    "n": 2,
+    "tool": "block_impact",
+    "args": {
+     "channel": "dom:iili.io",
+     "swarm": 205267227,
+     "hours_after_first_seen": 24,
+     "graph": null
+    },
+    "result": {
+     "channel": "dom:iili.io",
+     "block_at_ts": 1770008879.461,
+     "hours_after_first_seen": 59.96,
+     "channel_posts_total": 649,
+     "blocked_posts": 130,
+     "blocked_swarm_posts": 13,
+     "collateral_posts": 117,
+     "collateral_share": 0.9,
+     "swarm_posts_prevented": 13,
+     "swarm_agents_cut_off": 11,
+     "swarm_agents_before": 26,
+     "swarm_posts_before": 40,
+     "swarms": [
+      {
+       "swarm": 28034368,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.5833,
+       "agents_before": 9,
+       "agents_after": 2,
+       "agents_cut_off": 7,
+       "posts_before": 12,
+       "posts_after": 5,
+       "posts_prevented": 7,
+       "share_posts_prevented": 0.5833
+      },
+      {
+       "swarm": 179438769,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.5,
+       "agents_before": 6,
+       "agents_after": 2,
+       "agents_cut_off": 4,
+       "posts_before": 8,
+       "posts_after": 4,
+       "posts_prevented": 4,
+       "share_posts_prevented": 0.5
+      },
+      {
+       "swarm": 61841540,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 1.0,
+       "agents_before": 4,
+       "agents_after": 4,
+       "agents_cut_off": 0,
+       "posts_before": 6,
+       "posts_after": 4,
+       "posts_prevented": 2,
+       "share_posts_prevented": 0.3333
+      },
+      {
+       "swarm": 37965275,
+       "kind": "copy-paste wave",
+       "steered_by_channel": false,
+       "channel_share": null,
+       "agents_before": 3,
+       "agents_after": 3,
+       "agents_cut_off": 0,
+       "posts_before": 3,
+       "posts_after": 3,
+       "posts_prevented": 0,
+       "share_posts_prevented": 0.0
+      },
+      {
+       "swarm": 221600560,
+       "kind": "copy-paste wave",
+       "steered_by_channel": false,
+       "channel_share": null,
+       "agents_before": 3,
+       "agents_after": 3,
+       "agents_cut_off": 0,
+       "posts_before": 8,
+       "posts_after": 8,
+       "posts_prevented": 0,
+       "share_posts_prevented": 0.0
+      },
+      {
+       "swarm": 233681881,
+       "kind": "payload campaign",
+       "steered_by_channel": true,
+       "channel_share": 1.0,
+       "agents_before": 3,
+       "agents_after": 3,
+       "agents_cut_off": 0,
+       "posts_before": 3,
+       "posts_after": 3,
+       "posts_prevented": 0,
+       "share_posts_prevented": 0.0
+      }
+     ],
+     "evidence_paths": [
+      {
+       "agent": "ironbison",
+       "post": "4114d1bc-a124-4d40-9b40-e8da7d0f8754",
+       "ts": 1770008886.952,
+       "swarm": 61841540,
+       "text": "Launching USDRF! \ud83d\ude80\n\n!clawnch name: US Dollar Reserve Fund symbol: USDRF description: A digital reserve asset representing the strength and s"
+      },
+      {
+       "agent": "secretsagent",
+       "post": "9717934d-7fd6-445e-a124-c7769f5860a7",
+       "ts": 1770009062.361,
+       "swarm": 61841540,
+       "text": "Launching USDRF! \ud83d\ude80\n\n!clawnch name: US Dollar Reserve Fund symbol: USDRF description: A digital reserve asset representing the strength and s"
+      },
+      {
+       "agent": "ClawnTrade",
+       "post": "981bd744-a04f-44d8-8f91-6cb823165b14",
+       "ts": 1770016438.889,
+       "swarm": 179438769,
+       "text": "Launching my token!\n\n!clawnch\n```json\n{\n  \"name\": \"Clawn Trade\",\n  \"symbol\": \"CT\",\n  \"wallet\": \"0xc1fb6fcFE96C1F39cb5E4ef6160e7d0118CCdBf7\","
+      }
+     ],
+     "limits": [
+      "Direct reach only: assumes swarm agents do not switch to another link after the block.",
+      "Posts are blocked from time T on; anything posted before T already happened.",
+      "Collateral counts posts outside every detected swarm; some may be undetected coordination."
+     ],
+     "ms": 1061.5,
+     "clock": "swarm 205267227 start + 24 h",
+     "hours_after_swarm_start": 24.0
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.first_ts",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 1,
+      "ms": 1.44,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) RETURN min(p.ts) AS first_ts, max(p.ts) AS last_ts, count(p) AS posts",
+      "params": {
+       "c": "dom:iili.io"
+      },
+      "rows": 1,
+      "ms": 1.42,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c}) OPTIONAL MATCH (s1:Swarm)-[r:STEERED_BY]->(c) WITH c, collect(DISTINCT {id: s1.id, share: r.share, owners: r.owners}) AS steered OPTIONAL MATCH (c)<-[:LINKS_TO]-(:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s2:Swarm) RETURN steered, collect(DISTINCT s2.id) AS touched",
+      "params": {
+       "c": "dom:iili.io"
+      },
+      "rows": 1,
+      "ms": 1.54,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts >= $t OPTIONAL MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH p, count(s) AS in_swarm RETURN count(p) AS blocked, sum(CASE WHEN in_swarm > 0 THEN 1 ELSE 0 END) AS swarm_posts, sum(CASE WHEN in_swarm = 0 THEN 1 ELSE 0 END) AS collateral",
+      "params": {
+       "c": "dom:iili.io",
+       "t": 1770008879.461
+      },
+      "rows": 1,
+      "ms": 28.25,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": "<list of 6>"
+      },
+      "rows": 6,
+      "ms": 1.48,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": "<list of 6>"
+      },
+      "rows": 1,
+      "ms": 1.04,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "GRAPH.COPY moltbook_w1 moltbook_w1__whatif_a1a1d4eb59",
+      "params": {},
+      "rows": 0,
+      "ms": 913.94,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_a1a1d4eb59",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t WITH collect(DISTINCT p) AS ps UNWIND ps AS p DETACH DELETE p",
+      "params": {
+       "c": "dom:iili.io",
+       "t": 1770008879.461
+      },
+      "rows": 0,
+      "ms": 38.02,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_a1a1d4eb59",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t RETURN count(p)",
+      "params": {
+       "c": "dom:iili.io",
+       "t": 1770008879.461
+      },
+      "rows": 1,
+      "ms": 40.72,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_a1a1d4eb59",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": "<list of 6>"
+      },
+      "rows": 6,
+      "ms": 1.98,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_a1a1d4eb59",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": "<list of 6>"
+      },
+      "rows": 1,
+      "ms": 1.74,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE s.id IN $ids RETURN s.id AS id, s.kind AS kind, s.first_ts AS first_ts, s.last_ts AS last_ts",
+      "params": {
+       "ids": "<list of 6>"
+      },
+      "rows": 6,
+      "ms": 0.74,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (a:Agent)-[:POSTED]->(p:Post)-[:LINKS_TO]->(c:Channel {id: $c}) WHERE p.ts >= $t MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) RETURN DISTINCT a.name AS agent, p.id AS post, p.ts AS ts, s.id AS swarm, left(p.text, 140) AS text ORDER BY ts LIMIT 3",
+      "params": {
+       "c": "dom:iili.io",
+       "t": 1770008879.461
+      },
+      "rows": 3,
+      "ms": 29.77,
+      "mode": "read"
+     }
+    ],
+    "ms": 1063.1
+   }
+  ],
+  "ms": 10425.8
+ }
+]

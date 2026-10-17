@@ -118,6 +118,17 @@ def test_real_graph_reproduces_mint_campaign():
 
 
 @need_real
+def test_list_swarms_search_and_bad_ids():
+    from provenant.moltbook import tools as t
+    hits = t.list_swarms(search="clawtasks")["result"]
+    assert hits and all(any("clawtasks" in c for c in h["channels"]) for h in hits)
+    mint = t.list_swarms(search="mint", limit=1)["result"]
+    assert mint[0]["kind"] == "payload campaign" and mint[0]["agents"] == 442
+    for fn in (t.swarm_profile, t.steering_channels):
+        assert "list_swarms" in fn(12345)["result"]["error"]
+
+
+@need_real
 def test_api_end_to_end():
     from fastapi.testclient import TestClient
 
