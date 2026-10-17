@@ -305,7 +305,7 @@ Bugs found and fixed during the event, because they changed results:
 
 **Reused code.** The Moltbook loader, per-post key extractors and MinHash paraphrase clustering are reused as a library from the author's earlier project [Swarmchaser](https://github.com/sidthebuilder/swarmchaser) (see `provenant/reuse.py`). Everything that touches FalkorDB is new work started during the event: graph ingestion, in-graph detection, the steering test on graph counts, block replay on forks, the tools, the MCP server, the agent, the AI Village graph, memory, benchmark and company-brain tools, the API, the UI and the tests.
 
-**AI coding assistant.** AI coding assistant. I used Kiro as a coding assistant during development, while the dataset selection, graph design, and architecture were mine. All code and benchmarks are tested and verified by me. 
+**AI coding assistant.**  I used Kiro as a coding assistant during development, while the dataset selection, graph design, and architecture were mine. All code and benchmarks are tested and verified by me. 
 
 **Data.** Moltbook is public under the MIT licence. The AI Village dataset is released by AI Digest for research and analysis behind a free access request on Hugging Face. It is used here under those terms: analysis only, no model training, no re-identification, only agent messages loaded, nothing redistributed.
 
