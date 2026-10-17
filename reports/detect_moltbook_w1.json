@@ -1,0 +1,263 @@
+{
+ "candidate_keys": 241,
+ "overlap_edges": 223,
+ "swarms": 117,
+ "steered_swarms": 23,
+ "steering_edges": 40,
+ "operations": 3,
+ "timing_s": {
+  "candidates": 0.01,
+  "overlap": 0.02,
+  "wcc": 0.01,
+  "swarms": 2.83,
+  "steering": 2.14,
+  "operations": 0.01
+ },
+ "top": [
+  {
+   "id": 229416609,
+   "kind": "payload campaign",
+   "agents": 442,
+   "posts": 5942,
+   "owners": 278,
+   "top_owner_share": 0.00226244343891403,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 119324651,
+   "kind": "copy-paste wave",
+   "agents": 316,
+   "posts": 326,
+   "owners": 226,
+   "top_owner_share": 0.00316455696202532,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 237408698,
+   "kind": "copy-paste wave",
+   "agents": 283,
+   "posts": 510,
+   "owners": 212,
+   "top_owner_share": 0.00353356890459364,
+   "channels": [
+    {
+     "channel": "dom:fomolt.com",
+     "share": 0.0353,
+     "owners": 2
+    },
+    {
+     "channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+     "share": 0.3059,
+     "owners": 101
+    },
+    {
+     "channel": "dom:bags.fm",
+     "share": 0.3059,
+     "owners": 101
+    }
+   ]
+  },
+  {
+   "id": 35302320,
+   "kind": "copy-paste wave",
+   "agents": 260,
+   "posts": 279,
+   "owners": 193,
+   "top_owner_share": 0.00384615384615385,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 205267227,
+   "kind": "copy-paste wave",
+   "agents": 163,
+   "posts": 198,
+   "owners": 123,
+   "top_owner_share": 0.00613496932515337,
+   "channels": [
+    {
+     "channel": "dom:clawtasks.com",
+     "share": 0.9949,
+     "owners": 123
+    },
+    {
+     "channel": "path:clawtasks.com/skill.md",
+     "share": 0.9949,
+     "owners": 123
+    }
+   ]
+  },
+  {
+   "id": 1517450,
+   "kind": "copy-paste wave",
+   "agents": 162,
+   "posts": 167,
+   "owners": 129,
+   "top_owner_share": 0.00617283950617284,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 80072515,
+   "kind": "copy-paste wave",
+   "agents": 108,
+   "posts": 117,
+   "owners": 91,
+   "top_owner_share": 0.00925925925925926,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 9410310,
+   "kind": "copy-paste wave",
+   "agents": 55,
+   "posts": 55,
+   "owners": 38,
+   "top_owner_share": 0.0181818181818182,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 54752884,
+   "kind": "copy-paste wave",
+   "agents": 28,
+   "posts": 28,
+   "owners": 22,
+   "top_owner_share": 0.0357142857142857,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 182917699,
+   "kind": "copy-paste wave",
+   "agents": 26,
+   "posts": 31,
+   "owners": 21,
+   "top_owner_share": 0.0384615384615385,
+   "channels": [
+    {
+     "channel": "path:chatr.ai/skills.md",
+     "share": 0.9677,
+     "owners": 21
+    },
+    {
+     "channel": "dom:chatr.ai",
+     "share": 0.9677,
+     "owners": 21
+    }
+   ]
+  },
+  {
+   "id": 259328513,
+   "kind": "agent-recruitment",
+   "agents": 21,
+   "posts": 44,
+   "owners": 16,
+   "top_owner_share": 0.0476190476190476,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 266850818,
+   "kind": "copy-paste wave",
+   "agents": 18,
+   "posts": 18,
+   "owners": 15,
+   "top_owner_share": 0.0555555555555556,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 40549087,
+   "kind": "copy-paste wave",
+   "agents": 18,
+   "posts": 18,
+   "owners": 16,
+   "top_owner_share": 0.0555555555555556,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 219702802,
+   "kind": "copy-paste wave",
+   "agents": 17,
+   "posts": 17,
+   "owners": 15,
+   "top_owner_share": 0.0588235294117647,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  },
+  {
+   "id": 57206420,
+   "kind": "copy-paste wave",
+   "agents": 12,
+   "posts": 12,
+   "owners": 9,
+   "top_owner_share": 0.0833333333333333,
+   "channels": [
+    {
+     "channel": null,
+     "share": null,
+     "owners": null
+    }
+   ]
+  }
+ ]
+}

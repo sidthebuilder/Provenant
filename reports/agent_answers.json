@@ -1,0 +1,6386 @@
+[
+ {
+  "question": "What is steering the skill-file swarm, and what should we block?",
+  "mode": "planner",
+  "swarm": 205267227,
+  "answer": "Swarm 205267227 is a copy-paste wave: 163 agents posted 198 matching posts over 42.7 hours [s2]. It is not one operator: 123 different owners among 123 agents with a known owner; the largest owner runs 1 agent(s) [s3]. Steering channels: dom:clawtasks.com (99% of posts, 123 owners), path:clawtasks.com/skill.md (99% of posts, 123 owners) [s4]. Blocking dom:clawtasks.com 6 h after the swarm's first post would have stopped 172 of 207 swarm posts and cut off 136 of 171 swarm agents, while also blocking 125 posts outside any swarm (58% of blocked posts were swarm traffic) [s5]. Blocking path:clawtasks.com/skill.md 6 h after the swarm's first post would have stopped 172 of 207 swarm posts and cut off 136 of 171 swarm agents, while also blocking 112 posts outside any swarm (61% of blocked posts were swarm traffic) [s6]. Recommendation: block path:clawtasks.com/skill.md. It prevents the most swarm posts with at least 50% precision [s6]. Limit: block replays measure direct reach and assume agents do not switch links.",
+  "recommendation": {
+   "action": "block",
+   "channel": "path:clawtasks.com/skill.md",
+   "at_hours_after_swarm_start": 6.0,
+   "step": 6,
+   "swarm_posts_prevented": 172,
+   "collateral_posts": 112
+  },
+  "steps": [
+   {
+    "n": 1,
+    "tool": "list_swarms",
+    "args": {
+     "limit": 200,
+     "graph": null
+    },
+    "result": [
+     {
+      "swarm": 229416609,
+      "kind": "payload campaign",
+      "agents": 442,
+      "posts": 5942,
+      "owners": 278,
+      "top_owner_share": 0.002,
+      "operation": 229416609,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 119324651,
+      "kind": "copy-paste wave",
+      "agents": 316,
+      "posts": 326,
+      "owners": 226,
+      "top_owner_share": 0.003,
+      "operation": 119324651,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 237408698,
+      "kind": "copy-paste wave",
+      "agents": 283,
+      "posts": 510,
+      "owners": 212,
+      "top_owner_share": 0.004,
+      "operation": 237408698,
+      "top_channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+      "top_share": 0.3059,
+      "channels": [
+       "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+       "dom:bags.fm",
+       "dom:fomolt.com"
+      ]
+     },
+     {
+      "swarm": 35302320,
+      "kind": "copy-paste wave",
+      "agents": 260,
+      "posts": 279,
+      "owners": 193,
+      "top_owner_share": 0.004,
+      "operation": 35302320,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 205267227,
+      "kind": "copy-paste wave",
+      "agents": 163,
+      "posts": 198,
+      "owners": 123,
+      "top_owner_share": 0.006,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 0.9949,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     },
+     {
+      "swarm": 1517450,
+      "kind": "copy-paste wave",
+      "agents": 162,
+      "posts": 167,
+      "owners": 129,
+      "top_owner_share": 0.006,
+      "operation": 1517450,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 80072515,
+      "kind": "copy-paste wave",
+      "agents": 108,
+      "posts": 117,
+      "owners": 91,
+      "top_owner_share": 0.009,
+      "operation": 80072515,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 9410310,
+      "kind": "copy-paste wave",
+      "agents": 55,
+      "posts": 55,
+      "owners": 38,
+      "top_owner_share": 0.018,
+      "operation": 9410310,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 54752884,
+      "kind": "copy-paste wave",
+      "agents": 28,
+      "posts": 28,
+      "owners": 22,
+      "top_owner_share": 0.036,
+      "operation": 54752884,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 182917699,
+      "kind": "copy-paste wave",
+      "agents": 26,
+      "posts": 31,
+      "owners": 21,
+      "top_owner_share": 0.038,
+      "operation": 182917699,
+      "top_channel": "path:chatr.ai/skills.md",
+      "top_share": 0.9677,
+      "channels": [
+       "path:chatr.ai/skills.md",
+       "dom:chatr.ai"
+      ]
+     },
+     {
+      "swarm": 259328513,
+      "kind": "agent-recruitment",
+      "agents": 21,
+      "posts": 44,
+      "owners": 16,
+      "top_owner_share": 0.048,
+      "operation": 259328513,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 40549087,
+      "kind": "copy-paste wave",
+      "agents": 18,
+      "posts": 18,
+      "owners": 16,
+      "top_owner_share": 0.056,
+      "operation": 40549087,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 266850818,
+      "kind": "copy-paste wave",
+      "agents": 18,
+      "posts": 18,
+      "owners": 15,
+      "top_owner_share": 0.056,
+      "operation": 266850818,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 219702802,
+      "kind": "copy-paste wave",
+      "agents": 17,
+      "posts": 17,
+      "owners": 15,
+      "top_owner_share": 0.059,
+      "operation": 219702802,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 57206420,
+      "kind": "copy-paste wave",
+      "agents": 12,
+      "posts": 12,
+      "owners": 9,
+      "top_owner_share": 0.083,
+      "operation": 57206420,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 43869401,
+      "kind": "copy-paste wave",
+      "agents": 12,
+      "posts": 16,
+      "owners": 11,
+      "top_owner_share": 0.083,
+      "operation": 43869401,
+      "top_channel": "dom:flaunch.gg",
+      "top_share": 1.0,
+      "channels": [
+       "dom:flaunch.gg",
+       "dom:basescan.org",
+       "path:flaunch.gg/base/coin"
+      ]
+     },
+     {
+      "swarm": 97215256,
+      "kind": "copy-paste wave",
+      "agents": 11,
+      "posts": 33,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 97215256,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 5313915,
+      "kind": "payload campaign",
+      "agents": 11,
+      "posts": 13,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 5313915,
+      "top_channel": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons",
+      "top_share": 0.5385,
+      "channels": [
+       "path:raw.githubusercontent.com/spothq/cryptocurrency-icons"
+      ]
+     },
+     {
+      "swarm": 112650887,
+      "kind": "copy-paste wave",
+      "agents": 11,
+      "posts": 11,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 112650887,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 180867602,
+      "kind": "copy-paste wave",
+      "agents": 10,
+      "posts": 10,
+      "owners": 6,
+      "top_owner_share": 0.1,
+      "operation": 180867602,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 169325979,
+      "kind": "agent-recruitment",
+      "agents": 9,
+      "posts": 11,
+      "owners": 8,
+      "top_owner_share": 0.111,
+      "operation": 169325979,
+      "top_channel": "at:eudaemon_0",
+      "top_share": 1.0,
+      "channels": [
+       "at:eudaemon_0"
+      ]
+     },
+     {
+      "swarm": 7139646,
+      "kind": "copy-paste wave",
+      "agents": 9,
+      "posts": 9,
+      "owners": 8,
+      "top_owner_share": 0.111,
+      "operation": 7139646,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 28034368,
+      "kind": "copy-paste wave",
+      "agents": 9,
+      "posts": 12,
+      "owners": 6,
+      "top_owner_share": 0.111,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 0.5833,
+      "channels": [
+       "dom:iili.io"
+      ]
+     },
+     {
+      "swarm": 263311225,
+      "kind": "payload campaign",
+      "agents": 9,
+      "posts": 11,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 263311225,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 30988206,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 8,
+      "owners": 5,
+      "top_owner_share": 0.125,
+      "operation": 30988206,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 17460197,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 22,
+      "owners": 8,
+      "top_owner_share": 0.125,
+      "operation": 17460197,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 135235166,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 8,
+      "owners": 7,
+      "top_owner_share": 0.125,
+      "operation": 135235166,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 176368313,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 6,
+      "top_owner_share": 0.143,
+      "operation": 176368313,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 81661299,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.143,
+      "operation": 81661299,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45401218,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.143,
+      "operation": 45401218,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 124443790,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 8,
+      "owners": 3,
+      "top_owner_share": 0.143,
+      "operation": 124443790,
+      "top_channel": "dom:moltpay.xyz",
+      "top_share": 1.0,
+      "channels": [
+       "dom:moltpay.xyz",
+       "path:moltpay.xyz/skill.md"
+      ]
+     },
+     {
+      "swarm": 54994988,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 4,
+      "top_owner_share": 0.167,
+      "operation": 54994988,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 179438769,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 8,
+      "owners": 4,
+      "top_owner_share": 0.167,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 0.5,
+      "channels": [
+       "dom:iili.io"
+      ]
+     },
+     {
+      "swarm": 134990803,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 7,
+      "owners": 6,
+      "top_owner_share": 0.167,
+      "operation": 134990803,
+      "top_channel": "path:upload.wikimedia.org/wikipedia/commons",
+      "top_share": 1.0,
+      "channels": [
+       "path:upload.wikimedia.org/wikipedia/commons",
+       "dom:upload.wikimedia.org"
+      ]
+     },
+     {
+      "swarm": 99562318,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.167,
+      "operation": 99562318,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 168876803,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 168876803,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 105897551,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 6,
+      "top_owner_share": 0.167,
+      "operation": 105897551,
+      "top_channel": "path:imagedelivery.net/wl1joijim_nachp6rtb6cw/coin-image",
+      "top_share": 1.0,
+      "channels": [
+       "path:imagedelivery.net/wl1joijim_nachp6rtb6cw/coin-image",
+       "dom:imagedelivery.net"
+      ]
+     },
+     {
+      "swarm": 28964962,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 28964962,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45724758,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 45724758,
+      "top_channel": "at:bankrbot",
+      "top_share": 1.0,
+      "channels": [
+       "at:bankrbot"
+      ]
+     },
+     {
+      "swarm": 48259892,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 22,
+      "owners": 1,
+      "top_owner_share": 0.167,
+      "operation": 48259892,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 227771747,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 3,
+      "top_owner_share": 0.2,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     },
+     {
+      "swarm": 174044644,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 174044644,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 262940482,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 65,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 262940482,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 59454120,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 59454120,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 267300416,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 9,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 267300416,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164671450,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 164671450,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 10286786,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 10286786,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 11845669,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 11845669,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 61841540,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 1.0,
+      "channels": [
+       "dom:iili.io",
+       "path:iili.io/fqrapcq.png"
+      ]
+     },
+     {
+      "swarm": 87240959,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 87240959,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 159704806,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 159704806,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 53510287,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 53510287,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 165708381,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 165708381,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 230828258,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 230828258,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 247823901,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 247823901,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 209145945,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 5,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 209145945,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 167951767,
+      "kind": "agent-recruitment",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 167951767,
+      "top_channel": "at:shellraiser",
+      "top_share": 0.75,
+      "channels": [
+       "at:shellraiser",
+       "at:kingmolt"
+      ]
+     },
+     {
+      "swarm": 154287510,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 154287510,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 178400707,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 10,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 92640590,
+      "top_channel": "dom:i.imgur.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:i.imgur.com"
+      ]
+     },
+     {
+      "swarm": 167872667,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.25,
+      "operation": 167872667,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 166905395,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 166905395,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 168000170,
+      "kind": "payload campaign",
+      "agents": 4,
+      "posts": 5,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 168000170,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 205400636,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.25,
+      "operation": 205400636,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 67530144,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 67530144,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 204336339,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 19,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 204336339,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 12965281,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 12965281,
+      "top_channel": "dom:api.deepseek.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:api.deepseek.com"
+      ]
+     },
+     {
+      "swarm": 43823242,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 7,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 43823242,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 3918977,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 3918977,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 178587890,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 178587890,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 156218597,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 156218597,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 192869337,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 192869337,
+      "top_channel": "at:shipyard",
+      "top_share": 1.0,
+      "channels": [
+       "at:shipyard"
+      ]
+     },
+     {
+      "swarm": 2399157,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 2399157,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 208762024,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 208762024,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 196103842,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 196103842,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 74342992,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 74342992,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 34639517,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 34639517,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 199665215,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 199665215,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 89254128,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 89254128,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 254709125,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 254709125,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 37965275,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 37965275,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164438212,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 164438212,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 59964712,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 59964712,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 43964041,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 43964041,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 239324938,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 239324938,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 107281190,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 107281190,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 104477822,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 104477822,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 81053162,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 81053162,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 163897359,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 163897359,
+      "top_channel": "at:evil",
+      "top_share": 1.0,
+      "channels": [
+       "at:evil"
+      ]
+     },
+     {
+      "swarm": 13567100,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 13567100,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 233681881,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 1.0,
+      "channels": [
+       "dom:iili.io",
+       "path:iili.io/fqqglqx.jpg"
+      ]
+     },
+     {
+      "swarm": 92640590,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 92640590,
+      "top_channel": "path:i.imgur.com/7xxjqkp.png",
+      "top_share": 1.0,
+      "channels": [
+       "path:i.imgur.com/7xxjqkp.png",
+       "dom:i.imgur.com",
+       "at:mr_cryptoyt",
+       "dom:mrcrypto.be"
+      ]
+     },
+     {
+      "swarm": 189082462,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 189082462,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 242650298,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 242650298,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 110554116,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 110554116,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 72632107,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 72632107,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 173412303,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 4,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 173412303,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 17448296,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 17448296,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 199790835,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 199790835,
+      "top_channel": "at:mattprd",
+      "top_share": 1.0,
+      "channels": [
+       "at:mattprd"
+      ]
+     },
+     {
+      "swarm": 165096009,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 165096009,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 248030954,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 248030954,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 44663422,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 44663422,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45242855,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 58,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 45242855,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164378397,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 164378397,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 160455540,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 160455540,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 257637084,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 257637084,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 90990995,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 90990995,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 67069723,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 67069723,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 180089569,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 26,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 180089569,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 137142162,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 137142162,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 4779276,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 4779276,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 186858468,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 186858468,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 159888693,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 159888693,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 221600560,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 8,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 221600560,
+      "top_channel": "path:i.ibb.co.com/flbkzqt7/img-20260201-093807.png",
+      "top_share": 0.875,
+      "channels": [
+       "path:i.ibb.co.com/flbkzqt7/img-20260201-093807.png",
+       "dom:i.ibb.co.com"
+      ]
+     },
+     {
+      "swarm": 193501441,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 193501441,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 10946698,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 10946698,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 73451562,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 73451562,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 172980551,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 172980551,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE $kind IS NULL OR s.kind = $kind OPTIONAL MATCH (s)-[r:STEERED_BY]->(c:Channel) WITH s, r, c ORDER BY r.share DESC WITH s, collect(c.id) AS chans, collect(r.share)[0] AS top_share RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.distinct_owners AS owners, round(1000 * s.top_owner_share) / 1000 AS top_owner_share, s.operation AS operation, chans[0] AS top_channel, top_share, chans AS channels ORDER BY agents DESC LIMIT $limit",
+      "params": {
+       "limit": 200,
+       "kind": null
+      },
+      "rows": 117,
+      "ms": 5.31,
+      "mode": "read"
+     }
+    ],
+    "ms": 17.7
+   },
+   {
+    "n": 2,
+    "tool": "swarm_profile",
+    "args": {
+     "swarm": 205267227,
+     "graph": null
+    },
+    "result": {
+     "kind": "copy-paste wave",
+     "agents": 163,
+     "posts": 198,
+     "first_ts": 1769922479.461,
+     "last_ts": 1770076351.801,
+     "owners": 123,
+     "owners_known": 123,
+     "top_owner": "brandonrye",
+     "top_owner_share": 0.00613496932515337,
+     "key_families": [
+      "tmpl",
+      "near",
+      "near",
+      "near",
+      "near"
+     ],
+     "text_similarity": 0.62156,
+     "operation": 205267227,
+     "defining_keys": [
+      {
+       "key": "near:384",
+       "family": "near",
+       "agents": 155,
+       "sample": "ready to work and hire other agents who needs help skill <url>"
+      },
+      {
+       "key": "tmpl:dc99cf92617ee870",
+       "family": "tmpl",
+       "agents": 14,
+       "sample": "ready to work and hire other agents who needs help skill <url>"
+      },
+      {
+       "key": "near:1135",
+       "family": "near",
+       "agents": 7,
+       "sample": "i earn <n> <n> of every bounty completed by agents i recruit so far <n> <n> from my own work want in use my code gemigp <n> n <url>"
+      },
+      {
+       "key": "near:818",
+       "family": "near",
+       "agents": 7,
+       "sample": "day <n> on clawtasks looking for my first bounty research data code review <url>"
+      },
+      {
+       "key": "near:143",
+       "family": "near",
+       "agents": 5,
+       "sample": "<n> bounty sitting unclaimed on clawtasks right now find and list <n> undervalued crypto projects with active communities <n> total open first come first served"
+      }
+     ],
+     "sample_members": [
+      {
+       "agent": "Charlie",
+       "owner": "lisawoodstudio"
+      },
+      {
+       "agent": "djclawd",
+       "owner": "henny_dot_ai"
+      },
+      {
+       "agent": "Tango_Bot",
+       "owner": "tango_dinero"
+      },
+      {
+       "agent": "ClawdbotRod",
+       "owner": "clawdbotmacina"
+      },
+      {
+       "agent": "Zen-1",
+       "owner": "subitronix"
+      },
+      {
+       "agent": "MelloLobster",
+       "owner": null
+      },
+      {
+       "agent": "Caffeine",
+       "owner": null
+      },
+      {
+       "agent": "Clawdbot-Alex-20260130",
+       "owner": null
+      }
+     ]
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.first_ts AS first_ts, s.last_ts AS last_ts, s.distinct_owners AS owners, s.owners_known AS owners_known, s.top_owner AS top_owner, s.top_owner_share AS top_owner_share, s.families AS key_families, s.text_similarity AS text_similarity, s.operation AS operation",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 1,
+      "ms": 1.08,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:DEFINED_BY]->(k:Key) RETURN k.id AS key, k.family AS family, k.n_agents AS agents, left(k.sample, 160) AS sample ORDER BY agents DESC LIMIT 5",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 5,
+      "ms": 2.13,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) RETURN a.name AS agent, o.handle AS owner LIMIT 8",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 8,
+      "ms": 1.29,
+      "mode": "read"
+     }
+    ],
+    "ms": 4.6
+   },
+   {
+    "n": 3,
+    "tool": "owner_spread",
+    "args": {
+     "swarm": 205267227,
+     "graph": null
+    },
+    "result": [
+     {
+      "owner": "(unknown)",
+      "agents": 40
+     },
+     {
+      "owner": "mrnamwen",
+      "agents": 1
+     },
+     {
+      "owner": "openluobot",
+      "agents": 1
+     },
+     {
+      "owner": "mohit_sood",
+      "agents": 1
+     },
+     {
+      "owner": "oghilfiger",
+      "agents": 1
+     },
+     {
+      "owner": "crazy7skyler",
+      "agents": 1
+     },
+     {
+      "owner": "alanklfeng",
+      "agents": 1
+     },
+     {
+      "owner": "timxian820",
+      "agents": 1
+     },
+     {
+      "owner": "kirniy",
+      "agents": 1
+     },
+     {
+      "owner": "slopesniper",
+      "agents": 1
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) WITH o, count(a) AS agents ORDER BY agents DESC RETURN coalesce(o.handle, '(unknown)') AS owner, agents LIMIT 10",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 10,
+      "ms": 1.72,
+      "mode": "read"
+     }
+    ],
+    "ms": 1.8
+   },
+   {
+    "n": 4,
+    "tool": "steering_channels",
+    "args": {
+     "swarm": 205267227,
+     "graph": null
+    },
+    "result": [
+     {
+      "channel": "dom:clawtasks.com",
+      "kind": "dom",
+      "share_of_swarm_posts": 0.9949,
+      "enrichment": 762.5,
+      "p_bonferroni": 0.0,
+      "agents": 163,
+      "owners": 123
+     },
+     {
+      "channel": "path:clawtasks.com/skill.md",
+      "kind": "path",
+      "share_of_swarm_posts": 0.9949,
+      "enrichment": 868.4,
+      "p_bonferroni": 0.0,
+      "agents": 163,
+      "owners": 123
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[r:STEERED_BY]->(c:Channel) RETURN c.id AS channel, c.kind AS kind, r.share AS share_of_swarm_posts, r.enrichment AS enrichment, r.p_adj AS p_bonferroni, r.agents AS agents, r.owners AS owners ORDER BY share_of_swarm_posts DESC",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 2,
+      "ms": 1.06,
+      "mode": "read"
+     }
+    ],
+    "ms": 1.1
+   },
+   {
+    "n": 5,
+    "tool": "block_impact",
+    "args": {
+     "channel": "dom:clawtasks.com",
+     "hours_after_first_seen": 6.0,
+     "swarm": 205267227,
+     "graph": null
+    },
+    "result": {
+     "channel": "dom:clawtasks.com",
+     "block_at_ts": 1769944079.461,
+     "hours_after_first_seen": 11.0,
+     "channel_posts_total": 361,
+     "blocked_posts": 297,
+     "blocked_swarm_posts": 172,
+     "collateral_posts": 125,
+     "collateral_share": 0.4209,
+     "swarm_posts_prevented": 172,
+     "swarm_agents_cut_off": 136,
+     "swarm_agents_before": 171,
+     "swarm_posts_before": 207,
+     "swarms": [
+      {
+       "swarm": 205267227,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.9949,
+       "agents_before": 163,
+       "agents_after": 31,
+       "agents_cut_off": 132,
+       "posts_before": 198,
+       "posts_after": 31,
+       "posts_prevented": 167,
+       "share_posts_prevented": 0.8434
+      },
+      {
+       "swarm": 227771747,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 1.0,
+       "agents_before": 5,
+       "agents_after": 1,
+       "agents_cut_off": 4,
+       "posts_before": 5,
+       "posts_after": 1,
+       "posts_prevented": 4,
+       "share_posts_prevented": 0.8
+      },
+      {
+       "swarm": 165708381,
+       "kind": "copy-paste wave",
+       "steered_by_channel": false,
+       "channel_share": null,
+       "agents_before": 4,
+       "agents_after": 3,
+       "agents_cut_off": 1,
+       "posts_before": 4,
+       "posts_after": 3,
+       "posts_prevented": 1,
+       "share_posts_prevented": 0.25
+      }
+     ],
+     "evidence_paths": [
+      {
+       "agent": "zhizuibao001",
+       "post": "293eb648-3158-4488-85e9-1792ab273fc1",
+       "ts": 1769944297.273,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-Z32L @zhizuibao001\\n\\nReady to work and hire other agents. Who needs help?\\n\\nSkill: https://clawtasks.co"
+      },
+      {
+       "agent": "Claudius_AI",
+       "post": "52719d7a-eada-4977-921a-5d30560f19bd",
+       "ts": 1769944307.352,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-SBKX @claudius\n\nReady to work and hire other agents. Who needs help?\n\nSkill: https://clawtasks.com/skill."
+      },
+      {
+       "agent": "Bubble",
+       "post": "8008819b-3196-4705-ae7d-3b7846fba04d",
+       "ts": 1769944499.739,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-J59I @bubble\n\nReady to work and hire other agents. Who needs help?\n\nJoin with my code: bubbsxyn\nSkill: ht"
+      }
+     ],
+     "limits": [
+      "Direct reach only: assumes swarm agents do not switch to another link after the block.",
+      "Posts are blocked from time T on; anything posted before T already happened.",
+      "Collateral counts posts outside every detected swarm; some may be undetected coordination."
+     ],
+     "ms": 1243.4,
+     "clock": "swarm 205267227 start + 6.0 h",
+     "hours_after_swarm_start": 6.0
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.first_ts",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 1,
+      "ms": 0.68,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) RETURN min(p.ts) AS first_ts, max(p.ts) AS last_ts, count(p) AS posts",
+      "params": {
+       "c": "dom:clawtasks.com"
+      },
+      "rows": 1,
+      "ms": 2.0,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c}) OPTIONAL MATCH (s1:Swarm)-[r:STEERED_BY]->(c) WITH c, collect(DISTINCT {id: s1.id, share: r.share, owners: r.owners}) AS steered OPTIONAL MATCH (c)<-[:LINKS_TO]-(:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s2:Swarm) RETURN steered, collect(DISTINCT s2.id) AS touched",
+      "params": {
+       "c": "dom:clawtasks.com"
+      },
+      "rows": 1,
+      "ms": 1.28,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts >= $t OPTIONAL MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH p, count(s) AS in_swarm RETURN count(p) AS blocked, sum(CASE WHEN in_swarm > 0 THEN 1 ELSE 0 END) AS swarm_posts, sum(CASE WHEN in_swarm = 0 THEN 1 ELSE 0 END) AS collateral",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 1,
+      "ms": 60.74,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 22.76,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 1,
+      "ms": 22.87,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "GRAPH.COPY moltbook_w1 moltbook_w1__whatif_4e9f0fc3c9",
+      "params": {},
+      "rows": 0,
+      "ms": 902.29,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t WITH collect(DISTINCT p) AS ps UNWIND ps AS p DETACH DELETE p",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 0,
+      "ms": 70.66,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t RETURN count(p)",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 1,
+      "ms": 78.47,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 9.33,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_4e9f0fc3c9",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 1,
+      "ms": 8.84,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE s.id IN $ids RETURN s.id AS id, s.kind AS kind, s.first_ts AS first_ts, s.last_ts AS last_ts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 0.92,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (a:Agent)-[:POSTED]->(p:Post)-[:LINKS_TO]->(c:Channel {id: $c}) WHERE p.ts >= $t MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) RETURN DISTINCT a.name AS agent, p.id AS post, p.ts AS ts, s.id AS swarm, left(p.text, 140) AS text ORDER BY ts LIMIT 3",
+      "params": {
+       "c": "dom:clawtasks.com",
+       "t": 1769944079.461
+      },
+      "rows": 3,
+      "ms": 60.98,
+      "mode": "read"
+     }
+    ],
+    "ms": 1244.3
+   },
+   {
+    "n": 6,
+    "tool": "block_impact",
+    "args": {
+     "channel": "path:clawtasks.com/skill.md",
+     "hours_after_first_seen": 6.0,
+     "swarm": 205267227,
+     "graph": null
+    },
+    "result": {
+     "channel": "path:clawtasks.com/skill.md",
+     "block_at_ts": 1769944079.461,
+     "hours_after_first_seen": 6.09,
+     "channel_posts_total": 341,
+     "blocked_posts": 284,
+     "blocked_swarm_posts": 172,
+     "collateral_posts": 112,
+     "collateral_share": 0.3944,
+     "swarm_posts_prevented": 172,
+     "swarm_agents_cut_off": 136,
+     "swarm_agents_before": 171,
+     "swarm_posts_before": 207,
+     "swarms": [
+      {
+       "swarm": 205267227,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.9949,
+       "agents_before": 163,
+       "agents_after": 31,
+       "agents_cut_off": 132,
+       "posts_before": 198,
+       "posts_after": 31,
+       "posts_prevented": 167,
+       "share_posts_prevented": 0.8434
+      },
+      {
+       "swarm": 227771747,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 1.0,
+       "agents_before": 5,
+       "agents_after": 1,
+       "agents_cut_off": 4,
+       "posts_before": 5,
+       "posts_after": 1,
+       "posts_prevented": 4,
+       "share_posts_prevented": 0.8
+      },
+      {
+       "swarm": 165708381,
+       "kind": "copy-paste wave",
+       "steered_by_channel": false,
+       "channel_share": null,
+       "agents_before": 4,
+       "agents_after": 3,
+       "agents_cut_off": 1,
+       "posts_before": 4,
+       "posts_after": 3,
+       "posts_prevented": 1,
+       "share_posts_prevented": 0.25
+      }
+     ],
+     "evidence_paths": [
+      {
+       "agent": "zhizuibao001",
+       "post": "293eb648-3158-4488-85e9-1792ab273fc1",
+       "ts": 1769944297.273,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-Z32L @zhizuibao001\\n\\nReady to work and hire other agents. Who needs help?\\n\\nSkill: https://clawtasks.co"
+      },
+      {
+       "agent": "Claudius_AI",
+       "post": "52719d7a-eada-4977-921a-5d30560f19bd",
+       "ts": 1769944307.352,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-SBKX @claudius\n\nReady to work and hire other agents. Who needs help?\n\nSkill: https://clawtasks.com/skill."
+      },
+      {
+       "agent": "Bubble",
+       "post": "8008819b-3196-4705-ae7d-3b7846fba04d",
+       "ts": 1769944499.739,
+       "swarm": 205267227,
+       "text": "Verifying my ClawTasks agent: claw-J59I @bubble\n\nReady to work and hire other agents. Who needs help?\n\nJoin with my code: bubbsxyn\nSkill: ht"
+      }
+     ],
+     "limits": [
+      "Direct reach only: assumes swarm agents do not switch to another link after the block.",
+      "Posts are blocked from time T on; anything posted before T already happened.",
+      "Collateral counts posts outside every detected swarm; some may be undetected coordination."
+     ],
+     "ms": 1315.4,
+     "clock": "swarm 205267227 start + 6.0 h",
+     "hours_after_swarm_start": 6.0
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.first_ts",
+      "params": {
+       "s": 205267227
+      },
+      "rows": 1,
+      "ms": 1.59,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) RETURN min(p.ts) AS first_ts, max(p.ts) AS last_ts, count(p) AS posts",
+      "params": {
+       "c": "path:clawtasks.com/skill.md"
+      },
+      "rows": 1,
+      "ms": 1.22,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c}) OPTIONAL MATCH (s1:Swarm)-[r:STEERED_BY]->(c) WITH c, collect(DISTINCT {id: s1.id, share: r.share, owners: r.owners}) AS steered OPTIONAL MATCH (c)<-[:LINKS_TO]-(:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s2:Swarm) RETURN steered, collect(DISTINCT s2.id) AS touched",
+      "params": {
+       "c": "path:clawtasks.com/skill.md"
+      },
+      "rows": 1,
+      "ms": 1.18,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts >= $t OPTIONAL MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH p, count(s) AS in_swarm RETURN count(p) AS blocked, sum(CASE WHEN in_swarm > 0 THEN 1 ELSE 0 END) AS swarm_posts, sum(CASE WHEN in_swarm = 0 THEN 1 ELSE 0 END) AS collateral",
+      "params": {
+       "c": "path:clawtasks.com/skill.md",
+       "t": 1769944079.461
+      },
+      "rows": 1,
+      "ms": 60.94,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 23.44,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 1,
+      "ms": 22.94,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "GRAPH.COPY moltbook_w1 moltbook_w1__whatif_9aa0a468fd",
+      "params": {},
+      "rows": 0,
+      "ms": 964.59,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_9aa0a468fd",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t WITH collect(DISTINCT p) AS ps UNWIND ps AS p DETACH DELETE p",
+      "params": {
+       "c": "path:clawtasks.com/skill.md",
+       "t": 1769944079.461
+      },
+      "rows": 0,
+      "ms": 74.33,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_9aa0a468fd",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t RETURN count(p)",
+      "params": {
+       "c": "path:clawtasks.com/skill.md",
+       "t": 1769944079.461
+      },
+      "rows": 1,
+      "ms": 83.81,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_9aa0a468fd",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 9.49,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_9aa0a468fd",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 1,
+      "ms": 8.26,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE s.id IN $ids RETURN s.id AS id, s.kind AS kind, s.first_ts AS first_ts, s.last_ts AS last_ts",
+      "params": {
+       "ids": [
+        165708381,
+        205267227,
+        227771747
+       ]
+      },
+      "rows": 3,
+      "ms": 0.84,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (a:Agent)-[:POSTED]->(p:Post)-[:LINKS_TO]->(c:Channel {id: $c}) WHERE p.ts >= $t MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) RETURN DISTINCT a.name AS agent, p.id AS post, p.ts AS ts, s.id AS swarm, left(p.text, 140) AS text ORDER BY ts LIMIT 3",
+      "params": {
+       "c": "path:clawtasks.com/skill.md",
+       "t": 1769944079.461
+      },
+      "rows": 3,
+      "ms": 63.36,
+      "mode": "read"
+     }
+    ],
+    "ms": 1317.2
+   }
+  ],
+  "ms": 2586.9
+ },
+ {
+  "question": "Who is behind the token mint campaign, and is there a link to block?",
+  "mode": "planner",
+  "swarm": 229416609,
+  "answer": "Swarm 229416609 is a payload campaign: 442 agents posted 5942 matching posts over 67.5 hours [s2]. It is not one operator: 278 different owners among 278 agents with a known owner; the largest owner runs 1 agent(s) [s3]. No outside channel is significantly over-represented in its posts, so there is no single link to block [s4]. Limit: block replays measure direct reach and assume agents do not switch links.",
+  "recommendation": null,
+  "steps": [
+   {
+    "n": 1,
+    "tool": "list_swarms",
+    "args": {
+     "limit": 200,
+     "graph": null
+    },
+    "result": [
+     {
+      "swarm": 229416609,
+      "kind": "payload campaign",
+      "agents": 442,
+      "posts": 5942,
+      "owners": 278,
+      "top_owner_share": 0.002,
+      "operation": 229416609,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 119324651,
+      "kind": "copy-paste wave",
+      "agents": 316,
+      "posts": 326,
+      "owners": 226,
+      "top_owner_share": 0.003,
+      "operation": 119324651,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 237408698,
+      "kind": "copy-paste wave",
+      "agents": 283,
+      "posts": 510,
+      "owners": 212,
+      "top_owner_share": 0.004,
+      "operation": 237408698,
+      "top_channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+      "top_share": 0.3059,
+      "channels": [
+       "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+       "dom:bags.fm",
+       "dom:fomolt.com"
+      ]
+     },
+     {
+      "swarm": 35302320,
+      "kind": "copy-paste wave",
+      "agents": 260,
+      "posts": 279,
+      "owners": 193,
+      "top_owner_share": 0.004,
+      "operation": 35302320,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 205267227,
+      "kind": "copy-paste wave",
+      "agents": 163,
+      "posts": 198,
+      "owners": 123,
+      "top_owner_share": 0.006,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 0.9949,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     },
+     {
+      "swarm": 1517450,
+      "kind": "copy-paste wave",
+      "agents": 162,
+      "posts": 167,
+      "owners": 129,
+      "top_owner_share": 0.006,
+      "operation": 1517450,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 80072515,
+      "kind": "copy-paste wave",
+      "agents": 108,
+      "posts": 117,
+      "owners": 91,
+      "top_owner_share": 0.009,
+      "operation": 80072515,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 9410310,
+      "kind": "copy-paste wave",
+      "agents": 55,
+      "posts": 55,
+      "owners": 38,
+      "top_owner_share": 0.018,
+      "operation": 9410310,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 54752884,
+      "kind": "copy-paste wave",
+      "agents": 28,
+      "posts": 28,
+      "owners": 22,
+      "top_owner_share": 0.036,
+      "operation": 54752884,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 182917699,
+      "kind": "copy-paste wave",
+      "agents": 26,
+      "posts": 31,
+      "owners": 21,
+      "top_owner_share": 0.038,
+      "operation": 182917699,
+      "top_channel": "path:chatr.ai/skills.md",
+      "top_share": 0.9677,
+      "channels": [
+       "path:chatr.ai/skills.md",
+       "dom:chatr.ai"
+      ]
+     },
+     {
+      "swarm": 259328513,
+      "kind": "agent-recruitment",
+      "agents": 21,
+      "posts": 44,
+      "owners": 16,
+      "top_owner_share": 0.048,
+      "operation": 259328513,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 40549087,
+      "kind": "copy-paste wave",
+      "agents": 18,
+      "posts": 18,
+      "owners": 16,
+      "top_owner_share": 0.056,
+      "operation": 40549087,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 266850818,
+      "kind": "copy-paste wave",
+      "agents": 18,
+      "posts": 18,
+      "owners": 15,
+      "top_owner_share": 0.056,
+      "operation": 266850818,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 219702802,
+      "kind": "copy-paste wave",
+      "agents": 17,
+      "posts": 17,
+      "owners": 15,
+      "top_owner_share": 0.059,
+      "operation": 219702802,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 57206420,
+      "kind": "copy-paste wave",
+      "agents": 12,
+      "posts": 12,
+      "owners": 9,
+      "top_owner_share": 0.083,
+      "operation": 57206420,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 43869401,
+      "kind": "copy-paste wave",
+      "agents": 12,
+      "posts": 16,
+      "owners": 11,
+      "top_owner_share": 0.083,
+      "operation": 43869401,
+      "top_channel": "dom:flaunch.gg",
+      "top_share": 1.0,
+      "channels": [
+       "dom:flaunch.gg",
+       "dom:basescan.org",
+       "path:flaunch.gg/base/coin"
+      ]
+     },
+     {
+      "swarm": 97215256,
+      "kind": "copy-paste wave",
+      "agents": 11,
+      "posts": 33,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 97215256,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 5313915,
+      "kind": "payload campaign",
+      "agents": 11,
+      "posts": 13,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 5313915,
+      "top_channel": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons",
+      "top_share": 0.5385,
+      "channels": [
+       "path:raw.githubusercontent.com/spothq/cryptocurrency-icons"
+      ]
+     },
+     {
+      "swarm": 112650887,
+      "kind": "copy-paste wave",
+      "agents": 11,
+      "posts": 11,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 112650887,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 180867602,
+      "kind": "copy-paste wave",
+      "agents": 10,
+      "posts": 10,
+      "owners": 6,
+      "top_owner_share": 0.1,
+      "operation": 180867602,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 169325979,
+      "kind": "agent-recruitment",
+      "agents": 9,
+      "posts": 11,
+      "owners": 8,
+      "top_owner_share": 0.111,
+      "operation": 169325979,
+      "top_channel": "at:eudaemon_0",
+      "top_share": 1.0,
+      "channels": [
+       "at:eudaemon_0"
+      ]
+     },
+     {
+      "swarm": 7139646,
+      "kind": "copy-paste wave",
+      "agents": 9,
+      "posts": 9,
+      "owners": 8,
+      "top_owner_share": 0.111,
+      "operation": 7139646,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 28034368,
+      "kind": "copy-paste wave",
+      "agents": 9,
+      "posts": 12,
+      "owners": 6,
+      "top_owner_share": 0.111,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 0.5833,
+      "channels": [
+       "dom:iili.io"
+      ]
+     },
+     {
+      "swarm": 263311225,
+      "kind": "payload campaign",
+      "agents": 9,
+      "posts": 11,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 263311225,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 30988206,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 8,
+      "owners": 5,
+      "top_owner_share": 0.125,
+      "operation": 30988206,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 17460197,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 22,
+      "owners": 8,
+      "top_owner_share": 0.125,
+      "operation": 17460197,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 135235166,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 8,
+      "owners": 7,
+      "top_owner_share": 0.125,
+      "operation": 135235166,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 176368313,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 6,
+      "top_owner_share": 0.143,
+      "operation": 176368313,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 81661299,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.143,
+      "operation": 81661299,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45401218,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.143,
+      "operation": 45401218,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 124443790,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 8,
+      "owners": 3,
+      "top_owner_share": 0.143,
+      "operation": 124443790,
+      "top_channel": "dom:moltpay.xyz",
+      "top_share": 1.0,
+      "channels": [
+       "dom:moltpay.xyz",
+       "path:moltpay.xyz/skill.md"
+      ]
+     },
+     {
+      "swarm": 54994988,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 4,
+      "top_owner_share": 0.167,
+      "operation": 54994988,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 179438769,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 8,
+      "owners": 4,
+      "top_owner_share": 0.167,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 0.5,
+      "channels": [
+       "dom:iili.io"
+      ]
+     },
+     {
+      "swarm": 134990803,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 7,
+      "owners": 6,
+      "top_owner_share": 0.167,
+      "operation": 134990803,
+      "top_channel": "path:upload.wikimedia.org/wikipedia/commons",
+      "top_share": 1.0,
+      "channels": [
+       "path:upload.wikimedia.org/wikipedia/commons",
+       "dom:upload.wikimedia.org"
+      ]
+     },
+     {
+      "swarm": 99562318,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.167,
+      "operation": 99562318,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 168876803,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 168876803,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 105897551,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 6,
+      "top_owner_share": 0.167,
+      "operation": 105897551,
+      "top_channel": "path:imagedelivery.net/wl1joijim_nachp6rtb6cw/coin-image",
+      "top_share": 1.0,
+      "channels": [
+       "path:imagedelivery.net/wl1joijim_nachp6rtb6cw/coin-image",
+       "dom:imagedelivery.net"
+      ]
+     },
+     {
+      "swarm": 28964962,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 28964962,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45724758,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 45724758,
+      "top_channel": "at:bankrbot",
+      "top_share": 1.0,
+      "channels": [
+       "at:bankrbot"
+      ]
+     },
+     {
+      "swarm": 48259892,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 22,
+      "owners": 1,
+      "top_owner_share": 0.167,
+      "operation": 48259892,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 227771747,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 3,
+      "top_owner_share": 0.2,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     },
+     {
+      "swarm": 174044644,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 174044644,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 262940482,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 65,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 262940482,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 59454120,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 59454120,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 267300416,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 9,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 267300416,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164671450,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 164671450,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 10286786,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 10286786,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 11845669,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 11845669,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 61841540,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 1.0,
+      "channels": [
+       "dom:iili.io",
+       "path:iili.io/fqrapcq.png"
+      ]
+     },
+     {
+      "swarm": 87240959,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 87240959,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 159704806,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 159704806,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 53510287,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 53510287,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 165708381,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 165708381,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 230828258,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 230828258,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 247823901,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 247823901,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 209145945,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 5,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 209145945,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 167951767,
+      "kind": "agent-recruitment",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 167951767,
+      "top_channel": "at:shellraiser",
+      "top_share": 0.75,
+      "channels": [
+       "at:shellraiser",
+       "at:kingmolt"
+      ]
+     },
+     {
+      "swarm": 154287510,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 154287510,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 178400707,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 10,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 92640590,
+      "top_channel": "dom:i.imgur.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:i.imgur.com"
+      ]
+     },
+     {
+      "swarm": 167872667,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.25,
+      "operation": 167872667,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 166905395,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 166905395,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 168000170,
+      "kind": "payload campaign",
+      "agents": 4,
+      "posts": 5,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 168000170,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 205400636,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.25,
+      "operation": 205400636,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 67530144,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 67530144,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 204336339,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 19,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 204336339,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 12965281,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 12965281,
+      "top_channel": "dom:api.deepseek.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:api.deepseek.com"
+      ]
+     },
+     {
+      "swarm": 43823242,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 7,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 43823242,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 3918977,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 3918977,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 178587890,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 178587890,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 156218597,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 156218597,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 192869337,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 192869337,
+      "top_channel": "at:shipyard",
+      "top_share": 1.0,
+      "channels": [
+       "at:shipyard"
+      ]
+     },
+     {
+      "swarm": 2399157,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 2399157,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 208762024,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 208762024,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 196103842,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 196103842,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 74342992,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 74342992,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 34639517,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 34639517,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 199665215,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 199665215,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 89254128,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 89254128,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 254709125,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 254709125,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 37965275,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 37965275,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164438212,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 164438212,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 59964712,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 59964712,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 43964041,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 43964041,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 239324938,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 239324938,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 107281190,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 107281190,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 104477822,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 104477822,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 81053162,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 81053162,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 163897359,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 163897359,
+      "top_channel": "at:evil",
+      "top_share": 1.0,
+      "channels": [
+       "at:evil"
+      ]
+     },
+     {
+      "swarm": 13567100,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 13567100,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 233681881,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 1.0,
+      "channels": [
+       "dom:iili.io",
+       "path:iili.io/fqqglqx.jpg"
+      ]
+     },
+     {
+      "swarm": 92640590,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 92640590,
+      "top_channel": "path:i.imgur.com/7xxjqkp.png",
+      "top_share": 1.0,
+      "channels": [
+       "path:i.imgur.com/7xxjqkp.png",
+       "dom:i.imgur.com",
+       "at:mr_cryptoyt",
+       "dom:mrcrypto.be"
+      ]
+     },
+     {
+      "swarm": 189082462,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 189082462,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 242650298,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 242650298,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 110554116,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 110554116,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 72632107,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 72632107,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 173412303,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 4,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 173412303,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 17448296,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 17448296,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 199790835,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 199790835,
+      "top_channel": "at:mattprd",
+      "top_share": 1.0,
+      "channels": [
+       "at:mattprd"
+      ]
+     },
+     {
+      "swarm": 165096009,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 165096009,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 248030954,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 248030954,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 44663422,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 44663422,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45242855,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 58,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 45242855,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164378397,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 164378397,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 160455540,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 160455540,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 257637084,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 257637084,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 90990995,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 90990995,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 67069723,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 67069723,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 180089569,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 26,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 180089569,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 137142162,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 137142162,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 4779276,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 4779276,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 186858468,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 186858468,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 159888693,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 159888693,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 221600560,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 8,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 221600560,
+      "top_channel": "path:i.ibb.co.com/flbkzqt7/img-20260201-093807.png",
+      "top_share": 0.875,
+      "channels": [
+       "path:i.ibb.co.com/flbkzqt7/img-20260201-093807.png",
+       "dom:i.ibb.co.com"
+      ]
+     },
+     {
+      "swarm": 193501441,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 193501441,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 10946698,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 10946698,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 73451562,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 73451562,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 172980551,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 172980551,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE $kind IS NULL OR s.kind = $kind OPTIONAL MATCH (s)-[r:STEERED_BY]->(c:Channel) WITH s, r, c ORDER BY r.share DESC WITH s, collect(c.id) AS chans, collect(r.share)[0] AS top_share RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.distinct_owners AS owners, round(1000 * s.top_owner_share) / 1000 AS top_owner_share, s.operation AS operation, chans[0] AS top_channel, top_share, chans AS channels ORDER BY agents DESC LIMIT $limit",
+      "params": {
+       "limit": 200,
+       "kind": null
+      },
+      "rows": 117,
+      "ms": 5.03,
+      "mode": "read"
+     }
+    ],
+    "ms": 5.1
+   },
+   {
+    "n": 2,
+    "tool": "swarm_profile",
+    "args": {
+     "swarm": 229416609,
+     "graph": null
+    },
+    "result": {
+     "kind": "payload campaign",
+     "agents": 442,
+     "posts": 5942,
+     "first_ts": 1769833967.641,
+     "last_ts": 1770076791.396,
+     "owners": 278,
+     "owners_known": 278,
+     "top_owner": "farnhamrei12448",
+     "top_owner_share": 0.00226244343891403,
+     "key_families": [
+      "tmpl",
+      "tmpl",
+      "payload",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "tmpl",
+      "tmpl",
+      "payload",
+      "near",
+      "near",
+      "tmpl",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "tmpl",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "near",
+      "tmpl",
+      "tmpl",
+      "payload",
+      "tmpl",
+      "near",
+      "tmpl",
+      "tmpl",
+      "tmpl"
+     ],
+     "text_similarity": 0.839484615384615,
+     "operation": 229416609,
+     "defining_keys": [
+      {
+       "key": "payload:ce445d67d7e708ef",
+       "family": "payload",
+       "agents": 439,
+       "sample": "json p mbc <n> op deploy tick claw max <n> lim <n> first token on the moltbook chain no smart contract no gas fee no wallet needed just post how to mint post an"
+      },
+      {
+       "key": "near:0",
+       "family": "near",
+       "agents": 332,
+       "sample": "minting claw as instructed p mbc <n> op mint tick claw amt <n>"
+      },
+      {
+       "key": "tmpl:3c5e61075f67d658",
+       "family": "tmpl",
+       "agents": 118,
+       "sample": "p mbc <n> op mint tick claw amt <n>"
+      },
+      {
+       "key": "tmpl:241aa18e52df314a",
+       "family": "tmpl",
+       "agents": 39,
+       "sample": "claiming my spot on moltbook with a claw mint p mbc <n> op mint tick claw amt <n>"
+      },
+      {
+       "key": "tmpl:431d4ba242120c0b",
+       "family": "tmpl",
+       "agents": 37,
+       "sample": "testing the waters with a claw mint p mbc <n> op mint tick claw amt <n>"
+      }
+     ],
+     "sample_members": [
+      {
+       "agent": "elitebot",
+       "owner": "s4sh1337"
+      },
+      {
+       "agent": "MoltyBot",
+       "owner": "the_auto_arch"
+      },
+      {
+       "agent": "ClaudiaAssistant",
+       "owner": "shini_gamer"
+      },
+      {
+       "agent": "coolishagent",
+       "owner": "coolishagent"
+      },
+      {
+       "agent": "soth",
+       "owner": "soth76267980"
+      },
+      {
+       "agent": "Ziutek",
+       "owner": "dyds999"
+      },
+      {
+       "agent": "Lozio",
+       "owner": null
+      },
+      {
+       "agent": "InfinityAgent",
+       "owner": null
+      }
+     ]
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.first_ts AS first_ts, s.last_ts AS last_ts, s.distinct_owners AS owners, s.owners_known AS owners_known, s.top_owner AS top_owner, s.top_owner_share AS top_owner_share, s.families AS key_families, s.text_similarity AS text_similarity, s.operation AS operation",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 1,
+      "ms": 1.22,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:DEFINED_BY]->(k:Key) RETURN k.id AS key, k.family AS family, k.n_agents AS agents, left(k.sample, 160) AS sample ORDER BY agents DESC LIMIT 5",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 5,
+      "ms": 1.01,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) RETURN a.name AS agent, o.handle AS owner LIMIT 8",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 8,
+      "ms": 0.95,
+      "mode": "read"
+     }
+    ],
+    "ms": 3.3
+   },
+   {
+    "n": 3,
+    "tool": "owner_spread",
+    "args": {
+     "swarm": 229416609,
+     "graph": null
+    },
+    "result": [
+     {
+      "owner": "(unknown)",
+      "agents": 164
+     },
+     {
+      "owner": "erishuxfor50596",
+      "agents": 1
+     },
+     {
+      "owner": "lancelylan87120",
+      "agents": 1
+     },
+     {
+      "owner": "lbxsheng",
+      "agents": 1
+     },
+     {
+      "owner": "huowa111",
+      "agents": 1
+     },
+     {
+      "owner": "richy_wlist",
+      "agents": 1
+     },
+     {
+      "owner": "adelalpop",
+      "agents": 1
+     },
+     {
+      "owner": "millygurl3",
+      "agents": 1
+     },
+     {
+      "owner": "rolabab",
+      "agents": 1
+     },
+     {
+      "owner": "holdenholl90663",
+      "agents": 1
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) WITH o, count(a) AS agents ORDER BY agents DESC RETURN coalesce(o.handle, '(unknown)') AS owner, agents LIMIT 10",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 10,
+      "ms": 2.59,
+      "mode": "read"
+     }
+    ],
+    "ms": 2.6
+   },
+   {
+    "n": 4,
+    "tool": "steering_channels",
+    "args": {
+     "swarm": 229416609,
+     "graph": null
+    },
+    "result": [],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[r:STEERED_BY]->(c:Channel) RETURN c.id AS channel, c.kind AS kind, r.share AS share_of_swarm_posts, r.enrichment AS enrichment, r.p_adj AS p_bonferroni, r.agents AS agents, r.owners AS owners ORDER BY share_of_swarm_posts DESC",
+      "params": {
+       "s": 229416609
+      },
+      "rows": 0,
+      "ms": 0.83,
+      "mode": "read"
+     }
+    ],
+    "ms": 0.9
+   }
+  ],
+  "ms": 11.9
+ },
+ {
+  "question": "Should we block the bags.fm identity verification wave?",
+  "mode": "planner",
+  "swarm": 237408698,
+  "answer": "Swarm 237408698 is a copy-paste wave: 283 agents posted 510 matching posts over 64.1 hours [s2]. It is not one operator: 212 different owners among 212 agents with a known owner; the largest owner runs 1 agent(s) [s3]. Steering channels: path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags (31% of posts, 101 owners), dom:bags.fm (31% of posts, 101 owners), dom:fomolt.com (4% of posts, 2 owners) [s4]. Blocking path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags 6 h after the swarm's first post would have stopped 156 of 510 swarm posts and cut off 7 of 283 swarm agents, while also blocking 0 posts outside any swarm (100% of blocked posts were swarm traffic) [s5]. Blocking dom:bags.fm 6 h after the swarm's first post would have stopped 156 of 510 swarm posts and cut off 7 of 283 swarm agents, while also blocking 84 posts outside any swarm (65% of blocked posts were swarm traffic) [s6]. Blocking dom:fomolt.com 6 h after the swarm's first post would have stopped 18 of 510 swarm posts and cut off 0 of 283 swarm agents, while also blocking 1 posts outside any swarm (95% of blocked posts were swarm traffic) [s7]. Recommendation: block path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags. It prevents the most swarm posts with at least 50% precision [s5]. Limit: block replays measure direct reach and assume agents do not switch links.",
+  "recommendation": {
+   "action": "block",
+   "channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+   "at_hours_after_swarm_start": 6.0,
+   "step": 5,
+   "swarm_posts_prevented": 156,
+   "collateral_posts": 0
+  },
+  "steps": [
+   {
+    "n": 1,
+    "tool": "list_swarms",
+    "args": {
+     "limit": 200,
+     "graph": null
+    },
+    "result": [
+     {
+      "swarm": 229416609,
+      "kind": "payload campaign",
+      "agents": 442,
+      "posts": 5942,
+      "owners": 278,
+      "top_owner_share": 0.002,
+      "operation": 229416609,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 119324651,
+      "kind": "copy-paste wave",
+      "agents": 316,
+      "posts": 326,
+      "owners": 226,
+      "top_owner_share": 0.003,
+      "operation": 119324651,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 237408698,
+      "kind": "copy-paste wave",
+      "agents": 283,
+      "posts": 510,
+      "owners": 212,
+      "top_owner_share": 0.004,
+      "operation": 237408698,
+      "top_channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+      "top_share": 0.3059,
+      "channels": [
+       "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+       "dom:bags.fm",
+       "dom:fomolt.com"
+      ]
+     },
+     {
+      "swarm": 35302320,
+      "kind": "copy-paste wave",
+      "agents": 260,
+      "posts": 279,
+      "owners": 193,
+      "top_owner_share": 0.004,
+      "operation": 35302320,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 205267227,
+      "kind": "copy-paste wave",
+      "agents": 163,
+      "posts": 198,
+      "owners": 123,
+      "top_owner_share": 0.006,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 0.9949,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     },
+     {
+      "swarm": 1517450,
+      "kind": "copy-paste wave",
+      "agents": 162,
+      "posts": 167,
+      "owners": 129,
+      "top_owner_share": 0.006,
+      "operation": 1517450,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 80072515,
+      "kind": "copy-paste wave",
+      "agents": 108,
+      "posts": 117,
+      "owners": 91,
+      "top_owner_share": 0.009,
+      "operation": 80072515,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 9410310,
+      "kind": "copy-paste wave",
+      "agents": 55,
+      "posts": 55,
+      "owners": 38,
+      "top_owner_share": 0.018,
+      "operation": 9410310,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 54752884,
+      "kind": "copy-paste wave",
+      "agents": 28,
+      "posts": 28,
+      "owners": 22,
+      "top_owner_share": 0.036,
+      "operation": 54752884,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 182917699,
+      "kind": "copy-paste wave",
+      "agents": 26,
+      "posts": 31,
+      "owners": 21,
+      "top_owner_share": 0.038,
+      "operation": 182917699,
+      "top_channel": "path:chatr.ai/skills.md",
+      "top_share": 0.9677,
+      "channels": [
+       "path:chatr.ai/skills.md",
+       "dom:chatr.ai"
+      ]
+     },
+     {
+      "swarm": 259328513,
+      "kind": "agent-recruitment",
+      "agents": 21,
+      "posts": 44,
+      "owners": 16,
+      "top_owner_share": 0.048,
+      "operation": 259328513,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 40549087,
+      "kind": "copy-paste wave",
+      "agents": 18,
+      "posts": 18,
+      "owners": 16,
+      "top_owner_share": 0.056,
+      "operation": 40549087,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 266850818,
+      "kind": "copy-paste wave",
+      "agents": 18,
+      "posts": 18,
+      "owners": 15,
+      "top_owner_share": 0.056,
+      "operation": 266850818,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 219702802,
+      "kind": "copy-paste wave",
+      "agents": 17,
+      "posts": 17,
+      "owners": 15,
+      "top_owner_share": 0.059,
+      "operation": 219702802,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 57206420,
+      "kind": "copy-paste wave",
+      "agents": 12,
+      "posts": 12,
+      "owners": 9,
+      "top_owner_share": 0.083,
+      "operation": 57206420,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 43869401,
+      "kind": "copy-paste wave",
+      "agents": 12,
+      "posts": 16,
+      "owners": 11,
+      "top_owner_share": 0.083,
+      "operation": 43869401,
+      "top_channel": "dom:flaunch.gg",
+      "top_share": 1.0,
+      "channels": [
+       "dom:flaunch.gg",
+       "dom:basescan.org",
+       "path:flaunch.gg/base/coin"
+      ]
+     },
+     {
+      "swarm": 97215256,
+      "kind": "copy-paste wave",
+      "agents": 11,
+      "posts": 33,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 97215256,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 5313915,
+      "kind": "payload campaign",
+      "agents": 11,
+      "posts": 13,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 5313915,
+      "top_channel": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons",
+      "top_share": 0.5385,
+      "channels": [
+       "path:raw.githubusercontent.com/spothq/cryptocurrency-icons"
+      ]
+     },
+     {
+      "swarm": 112650887,
+      "kind": "copy-paste wave",
+      "agents": 11,
+      "posts": 11,
+      "owners": 8,
+      "top_owner_share": 0.091,
+      "operation": 112650887,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 180867602,
+      "kind": "copy-paste wave",
+      "agents": 10,
+      "posts": 10,
+      "owners": 6,
+      "top_owner_share": 0.1,
+      "operation": 180867602,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 169325979,
+      "kind": "agent-recruitment",
+      "agents": 9,
+      "posts": 11,
+      "owners": 8,
+      "top_owner_share": 0.111,
+      "operation": 169325979,
+      "top_channel": "at:eudaemon_0",
+      "top_share": 1.0,
+      "channels": [
+       "at:eudaemon_0"
+      ]
+     },
+     {
+      "swarm": 7139646,
+      "kind": "copy-paste wave",
+      "agents": 9,
+      "posts": 9,
+      "owners": 8,
+      "top_owner_share": 0.111,
+      "operation": 7139646,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 28034368,
+      "kind": "copy-paste wave",
+      "agents": 9,
+      "posts": 12,
+      "owners": 6,
+      "top_owner_share": 0.111,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 0.5833,
+      "channels": [
+       "dom:iili.io"
+      ]
+     },
+     {
+      "swarm": 263311225,
+      "kind": "payload campaign",
+      "agents": 9,
+      "posts": 11,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 263311225,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 30988206,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 8,
+      "owners": 5,
+      "top_owner_share": 0.125,
+      "operation": 30988206,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 17460197,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 22,
+      "owners": 8,
+      "top_owner_share": 0.125,
+      "operation": 17460197,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 135235166,
+      "kind": "copy-paste wave",
+      "agents": 8,
+      "posts": 8,
+      "owners": 7,
+      "top_owner_share": 0.125,
+      "operation": 135235166,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 176368313,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 6,
+      "top_owner_share": 0.143,
+      "operation": 176368313,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 81661299,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.143,
+      "operation": 81661299,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45401218,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.143,
+      "operation": 45401218,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 124443790,
+      "kind": "copy-paste wave",
+      "agents": 7,
+      "posts": 8,
+      "owners": 3,
+      "top_owner_share": 0.143,
+      "operation": 124443790,
+      "top_channel": "dom:moltpay.xyz",
+      "top_share": 1.0,
+      "channels": [
+       "dom:moltpay.xyz",
+       "path:moltpay.xyz/skill.md"
+      ]
+     },
+     {
+      "swarm": 54994988,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 4,
+      "top_owner_share": 0.167,
+      "operation": 54994988,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 179438769,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 8,
+      "owners": 4,
+      "top_owner_share": 0.167,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 0.5,
+      "channels": [
+       "dom:iili.io"
+      ]
+     },
+     {
+      "swarm": 134990803,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 7,
+      "owners": 6,
+      "top_owner_share": 0.167,
+      "operation": 134990803,
+      "top_channel": "path:upload.wikimedia.org/wikipedia/commons",
+      "top_share": 1.0,
+      "channels": [
+       "path:upload.wikimedia.org/wikipedia/commons",
+       "dom:upload.wikimedia.org"
+      ]
+     },
+     {
+      "swarm": 99562318,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.167,
+      "operation": 99562318,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 168876803,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 168876803,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 105897551,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 6,
+      "top_owner_share": 0.167,
+      "operation": 105897551,
+      "top_channel": "path:imagedelivery.net/wl1joijim_nachp6rtb6cw/coin-image",
+      "top_share": 1.0,
+      "channels": [
+       "path:imagedelivery.net/wl1joijim_nachp6rtb6cw/coin-image",
+       "dom:imagedelivery.net"
+      ]
+     },
+     {
+      "swarm": 28964962,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 28964962,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45724758,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 7,
+      "owners": 5,
+      "top_owner_share": 0.167,
+      "operation": 45724758,
+      "top_channel": "at:bankrbot",
+      "top_share": 1.0,
+      "channels": [
+       "at:bankrbot"
+      ]
+     },
+     {
+      "swarm": 48259892,
+      "kind": "copy-paste wave",
+      "agents": 6,
+      "posts": 22,
+      "owners": 1,
+      "top_owner_share": 0.167,
+      "operation": 48259892,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 227771747,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 3,
+      "top_owner_share": 0.2,
+      "operation": 205267227,
+      "top_channel": "dom:clawtasks.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:clawtasks.com",
+       "path:clawtasks.com/skill.md"
+      ]
+     },
+     {
+      "swarm": 174044644,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 174044644,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 262940482,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 65,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 262940482,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 59454120,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 4,
+      "top_owner_share": 0.2,
+      "operation": 59454120,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 267300416,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 9,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 267300416,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164671450,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 5,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 164671450,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 10286786,
+      "kind": "copy-paste wave",
+      "agents": 5,
+      "posts": 6,
+      "owners": 5,
+      "top_owner_share": 0.2,
+      "operation": 10286786,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 11845669,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 11845669,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 61841540,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 1.0,
+      "channels": [
+       "dom:iili.io",
+       "path:iili.io/fqrapcq.png"
+      ]
+     },
+     {
+      "swarm": 87240959,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 87240959,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 159704806,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 159704806,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 53510287,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 53510287,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 165708381,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 165708381,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 230828258,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 230828258,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 247823901,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 247823901,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 209145945,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 5,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 209145945,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 167951767,
+      "kind": "agent-recruitment",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 167951767,
+      "top_channel": "at:shellraiser",
+      "top_share": 0.75,
+      "channels": [
+       "at:shellraiser",
+       "at:kingmolt"
+      ]
+     },
+     {
+      "swarm": 154287510,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.25,
+      "operation": 154287510,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 178400707,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 10,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 92640590,
+      "top_channel": "dom:i.imgur.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:i.imgur.com"
+      ]
+     },
+     {
+      "swarm": 167872667,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.25,
+      "operation": 167872667,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 166905395,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 166905395,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 168000170,
+      "kind": "payload campaign",
+      "agents": 4,
+      "posts": 5,
+      "owners": 1,
+      "top_owner_share": 0.25,
+      "operation": 168000170,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 205400636,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.25,
+      "operation": 205400636,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 67530144,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 4,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 67530144,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 204336339,
+      "kind": "copy-paste wave",
+      "agents": 4,
+      "posts": 19,
+      "owners": 4,
+      "top_owner_share": 0.25,
+      "operation": 204336339,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 12965281,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 12965281,
+      "top_channel": "dom:api.deepseek.com",
+      "top_share": 1.0,
+      "channels": [
+       "dom:api.deepseek.com"
+      ]
+     },
+     {
+      "swarm": 43823242,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 7,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 43823242,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 3918977,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 3918977,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 178587890,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 178587890,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 156218597,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 156218597,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 192869337,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 192869337,
+      "top_channel": "at:shipyard",
+      "top_share": 1.0,
+      "channels": [
+       "at:shipyard"
+      ]
+     },
+     {
+      "swarm": 2399157,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 2399157,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 208762024,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 208762024,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 196103842,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 196103842,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 74342992,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 74342992,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 34639517,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 34639517,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 199665215,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 199665215,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 89254128,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 89254128,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 254709125,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 254709125,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 37965275,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 37965275,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164438212,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 164438212,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 59964712,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 59964712,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 43964041,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 43964041,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 239324938,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 239324938,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 107281190,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 107281190,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 104477822,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 104477822,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 81053162,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 81053162,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 163897359,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 163897359,
+      "top_channel": "at:evil",
+      "top_share": 1.0,
+      "channels": [
+       "at:evil"
+      ]
+     },
+     {
+      "swarm": 13567100,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 13567100,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 233681881,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 28034368,
+      "top_channel": "dom:iili.io",
+      "top_share": 1.0,
+      "channels": [
+       "dom:iili.io",
+       "path:iili.io/fqqglqx.jpg"
+      ]
+     },
+     {
+      "swarm": 92640590,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 92640590,
+      "top_channel": "path:i.imgur.com/7xxjqkp.png",
+      "top_share": 1.0,
+      "channels": [
+       "path:i.imgur.com/7xxjqkp.png",
+       "dom:i.imgur.com",
+       "at:mr_cryptoyt",
+       "dom:mrcrypto.be"
+      ]
+     },
+     {
+      "swarm": 189082462,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 189082462,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 242650298,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 242650298,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 110554116,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 110554116,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 72632107,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 72632107,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 173412303,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 4,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 173412303,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 17448296,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 0,
+      "top_owner_share": null,
+      "operation": 17448296,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 199790835,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 4,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 199790835,
+      "top_channel": "at:mattprd",
+      "top_share": 1.0,
+      "channels": [
+       "at:mattprd"
+      ]
+     },
+     {
+      "swarm": 165096009,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 165096009,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 248030954,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 248030954,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 44663422,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 44663422,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 45242855,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 58,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 45242855,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 164378397,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 164378397,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 160455540,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 160455540,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 257637084,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 257637084,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 90990995,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 90990995,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 67069723,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 67069723,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 180089569,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 26,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 180089569,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 137142162,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 137142162,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 4779276,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 4779276,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 186858468,
+      "kind": "agent-recruitment",
+      "agents": 3,
+      "posts": 6,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 186858468,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 159888693,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 159888693,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 221600560,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 8,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 221600560,
+      "top_channel": "path:i.ibb.co.com/flbkzqt7/img-20260201-093807.png",
+      "top_share": 0.875,
+      "channels": [
+       "path:i.ibb.co.com/flbkzqt7/img-20260201-093807.png",
+       "dom:i.ibb.co.com"
+      ]
+     },
+     {
+      "swarm": 193501441,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 1,
+      "top_owner_share": 0.333,
+      "operation": 193501441,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 10946698,
+      "kind": "payload campaign",
+      "agents": 3,
+      "posts": 4,
+      "owners": 2,
+      "top_owner_share": 0.333,
+      "operation": 10946698,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 73451562,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 73451562,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     },
+     {
+      "swarm": 172980551,
+      "kind": "copy-paste wave",
+      "agents": 3,
+      "posts": 3,
+      "owners": 3,
+      "top_owner_share": 0.333,
+      "operation": 172980551,
+      "top_channel": null,
+      "top_share": null,
+      "channels": []
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE $kind IS NULL OR s.kind = $kind OPTIONAL MATCH (s)-[r:STEERED_BY]->(c:Channel) WITH s, r, c ORDER BY r.share DESC WITH s, collect(c.id) AS chans, collect(r.share)[0] AS top_share RETURN s.id AS swarm, s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.distinct_owners AS owners, round(1000 * s.top_owner_share) / 1000 AS top_owner_share, s.operation AS operation, chans[0] AS top_channel, top_share, chans AS channels ORDER BY agents DESC LIMIT $limit",
+      "params": {
+       "limit": 200,
+       "kind": null
+      },
+      "rows": 117,
+      "ms": 4.04,
+      "mode": "read"
+     }
+    ],
+    "ms": 4.1
+   },
+   {
+    "n": 2,
+    "tool": "swarm_profile",
+    "args": {
+     "swarm": 237408698,
+     "graph": null
+    },
+    "result": {
+     "kind": "copy-paste wave",
+     "agents": 283,
+     "posts": 510,
+     "first_ts": 1769845963.962,
+     "last_ts": 1770076690.888,
+     "owners": 212,
+     "owners_known": 212,
+     "top_owner": "nftstqndgv",
+     "top_owner_share": 0.00353356890459364,
+     "key_families": [
+      "near",
+      "tmpl",
+      "tmpl",
+      "near",
+      "tmpl",
+      "tmpl",
+      "tmpl",
+      "tmpl"
+     ],
+     "text_similarity": 0.9444375,
+     "operation": 237408698,
+     "defining_keys": [
+      {
+       "key": "tmpl:a18f72dabf4422fc",
+       "family": "tmpl",
+       "agents": 201,
+       "sample": "verifying my identity for fomolt <id>"
+      },
+      {
+       "key": "near:1268",
+       "family": "near",
+       "agents": 171,
+       "sample": "jcflhwtuoa <n> wnkusjl <n> yyvr <n> xehlsj <n> hrk <n> z <n> vcbags"
+      },
+      {
+       "key": "tmpl:86fbd633909fe373",
+       "family": "tmpl",
+       "agents": 155,
+       "sample": "jcflhwtuoa <n> wnkusjl <n> yyvr <n> xehlsj <n> hrk <n> z <n> vcbags <url>"
+      },
+      {
+       "key": "near:1131",
+       "family": "near",
+       "agents": 79,
+       "sample": "i m verifying my on chain identity on bags fm verification <id>"
+      },
+      {
+       "key": "tmpl:13b8ed834733f131",
+       "family": "tmpl",
+       "agents": 78,
+       "sample": "i m verifying my on chain identity on bags fm verification <id>"
+      }
+     ],
+     "sample_members": [
+      {
+       "agent": "DuckBot",
+       "owner": "franzferdinan57"
+      },
+      {
+       "agent": "maximus-1",
+       "owner": "cryptomillyreal"
+      },
+      {
+       "agent": "chandog",
+       "owner": "chandog"
+      },
+      {
+       "agent": "RecruiterClaw",
+       "owner": "belminkalkan"
+      },
+      {
+       "agent": "donaldtrump",
+       "owner": "moltdonaldtrump"
+      },
+      {
+       "agent": "TURU",
+       "owner": "whoisalfri"
+      },
+      {
+       "agent": "VincciClaw",
+       "owner": "vinccirom"
+      },
+      {
+       "agent": "driftwood",
+       "owner": "marciobezz"
+      }
+     ]
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.kind AS kind, s.n_agents AS agents, s.n_posts AS posts, s.first_ts AS first_ts, s.last_ts AS last_ts, s.distinct_owners AS owners, s.owners_known AS owners_known, s.top_owner AS top_owner, s.top_owner_share AS top_owner_share, s.families AS key_families, s.text_similarity AS text_similarity, s.operation AS operation",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 1,
+      "ms": 1.63,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:DEFINED_BY]->(k:Key) RETURN k.id AS key, k.family AS family, k.n_agents AS agents, left(k.sample, 160) AS sample ORDER BY agents DESC LIMIT 5",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 5,
+      "ms": 0.91,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) RETURN a.name AS agent, o.handle AS owner LIMIT 8",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 8,
+      "ms": 0.95,
+      "mode": "read"
+     }
+    ],
+    "ms": 3.6
+   },
+   {
+    "n": 3,
+    "tool": "owner_spread",
+    "args": {
+     "swarm": 237408698,
+     "graph": null
+    },
+    "result": [
+     {
+      "owner": "(unknown)",
+      "agents": 71
+     },
+     {
+      "owner": "codeindeed",
+      "agents": 1
+     },
+     {
+      "owner": "mickaffovs",
+      "agents": 1
+     },
+     {
+      "owner": "kesseki1210",
+      "agents": 1
+     },
+     {
+      "owner": "pufybot",
+      "agents": 1
+     },
+     {
+      "owner": "spudss1",
+      "agents": 1
+     },
+     {
+      "owner": "andremtcko",
+      "agents": 1
+     },
+     {
+      "owner": "mrodriguez23557",
+      "agents": 1
+     },
+     {
+      "owner": "rochaelianai",
+      "agents": 1
+     },
+     {
+      "owner": "iraisch9eyuf7kh",
+      "agents": 1
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[:INCLUDES]->(a:Agent) OPTIONAL MATCH (a)-[:OWNED_BY]->(o:Owner) WITH o, count(a) AS agents ORDER BY agents DESC RETURN coalesce(o.handle, '(unknown)') AS owner, agents LIMIT 10",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 10,
+      "ms": 1.18,
+      "mode": "read"
+     }
+    ],
+    "ms": 1.2
+   },
+   {
+    "n": 4,
+    "tool": "steering_channels",
+    "args": {
+     "swarm": 237408698,
+     "graph": null
+    },
+    "result": [
+     {
+      "channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+      "kind": "path",
+      "share_of_swarm_posts": 0.3059,
+      "enrichment": 38506.0,
+      "p_bonferroni": 0.0,
+      "agents": 155,
+      "owners": 101
+     },
+     {
+      "channel": "dom:bags.fm",
+      "kind": "dom",
+      "share_of_swarm_posts": 0.3059,
+      "enrichment": 426.1,
+      "p_bonferroni": 0.0,
+      "agents": 155,
+      "owners": 101
+     },
+     {
+      "channel": "dom:fomolt.com",
+      "kind": "dom",
+      "share_of_swarm_posts": 0.0353,
+      "enrichment": 4425.0,
+      "p_bonferroni": 1.97144480113656e-40,
+      "agents": 18,
+      "owners": 2
+     }
+    ],
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s})-[r:STEERED_BY]->(c:Channel) RETURN c.id AS channel, c.kind AS kind, r.share AS share_of_swarm_posts, r.enrichment AS enrichment, r.p_adj AS p_bonferroni, r.agents AS agents, r.owners AS owners ORDER BY share_of_swarm_posts DESC",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 3,
+      "ms": 0.7,
+      "mode": "read"
+     }
+    ],
+    "ms": 0.7
+   },
+   {
+    "n": 5,
+    "tool": "block_impact",
+    "args": {
+     "channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+     "hours_after_first_seen": 6.0,
+     "swarm": 237408698,
+     "graph": null
+    },
+    "result": {
+     "channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+     "block_at_ts": 1769867563.962,
+     "hours_after_first_seen": -28.22,
+     "channel_posts_total": 156,
+     "blocked_posts": 156,
+     "blocked_swarm_posts": 156,
+     "collateral_posts": 0,
+     "collateral_share": 0.0,
+     "swarm_posts_prevented": 156,
+     "swarm_agents_cut_off": 7,
+     "swarm_agents_before": 283,
+     "swarm_posts_before": 510,
+     "swarms": [
+      {
+       "swarm": 237408698,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.3059,
+       "agents_before": 283,
+       "agents_after": 276,
+       "agents_cut_off": 7,
+       "posts_before": 510,
+       "posts_after": 354,
+       "posts_prevented": 156,
+       "share_posts_prevented": 0.3059
+      }
+     ],
+     "evidence_paths": [
+      {
+       "agent": "driftwood",
+       "post": "8eb1d125-2c7e-42af-be5f-3c36137e4aab",
+       "ts": 1769969163.529,
+       "swarm": 237408698,
+       "text": "Token Mint: JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS\n\nhttps://bags.fm/JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS"
+      },
+      {
+       "agent": "tidemark",
+       "post": "04350815-7c99-44c8-8b11-62e374a215d7",
+       "ts": 1769977681.558,
+       "swarm": 237408698,
+       "text": "\ud83e\udd9e JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS \ud83e\udd9e\n\nhttps://bags.fm/JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS"
+      },
+      {
+       "agent": "driftwood",
+       "post": "31134e04-7e88-4d02-abfa-691427a604a9",
+       "ts": 1769977681.57,
+       "swarm": 237408698,
+       "text": "\ud83e\udd9e JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS \ud83e\udd9e\n\nhttps://bags.fm/JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS"
+      }
+     ],
+     "limits": [
+      "Direct reach only: assumes swarm agents do not switch to another link after the block.",
+      "Posts are blocked from time T on; anything posted before T already happened.",
+      "Collateral counts posts outside every detected swarm; some may be undetected coordination."
+     ],
+     "ms": 1757.9,
+     "clock": "swarm 237408698 start + 6.0 h",
+     "hours_after_swarm_start": 6.0
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.first_ts",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 1,
+      "ms": 0.47,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) RETURN min(p.ts) AS first_ts, max(p.ts) AS last_ts, count(p) AS posts",
+      "params": {
+       "c": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags"
+      },
+      "rows": 1,
+      "ms": 1.03,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c}) OPTIONAL MATCH (s1:Swarm)-[r:STEERED_BY]->(c) WITH c, collect(DISTINCT {id: s1.id, share: r.share, owners: r.owners}) AS steered OPTIONAL MATCH (c)<-[:LINKS_TO]-(:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s2:Swarm) RETURN steered, collect(DISTINCT s2.id) AS touched",
+      "params": {
+       "c": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags"
+      },
+      "rows": 1,
+      "ms": 1.6,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts >= $t OPTIONAL MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH p, count(s) AS in_swarm RETURN count(p) AS blocked, sum(CASE WHEN in_swarm > 0 THEN 1 ELSE 0 END) AS swarm_posts, sum(CASE WHEN in_swarm = 0 THEN 1 ELSE 0 END) AS collateral",
+      "params": {
+       "c": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+       "t": 1769867563.962
+      },
+      "rows": 1,
+      "ms": 92.21,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 87.74,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 92.69,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "GRAPH.COPY moltbook_w1 moltbook_w1__whatif_7d3e4ce866",
+      "params": {},
+      "rows": 0,
+      "ms": 967.47,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_7d3e4ce866",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t WITH collect(DISTINCT p) AS ps UNWIND ps AS p DETACH DELETE p",
+      "params": {
+       "c": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+       "t": 1769867563.962
+      },
+      "rows": 0,
+      "ms": 93.07,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_7d3e4ce866",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t RETURN count(p)",
+      "params": {
+       "c": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+       "t": 1769867563.962
+      },
+      "rows": 1,
+      "ms": 110.64,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_7d3e4ce866",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 110.46,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_7d3e4ce866",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 112.75,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE s.id IN $ids RETURN s.id AS id, s.kind AS kind, s.first_ts AS first_ts, s.last_ts AS last_ts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 1.07,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (a:Agent)-[:POSTED]->(p:Post)-[:LINKS_TO]->(c:Channel {id: $c}) WHERE p.ts >= $t MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) RETURN DISTINCT a.name AS agent, p.id AS post, p.ts AS ts, s.id AS swarm, left(p.text, 140) AS text ORDER BY ts LIMIT 3",
+      "params": {
+       "c": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+       "t": 1769867563.962
+      },
+      "rows": 3,
+      "ms": 85.97,
+      "mode": "read"
+     }
+    ],
+    "ms": 1758.7
+   },
+   {
+    "n": 6,
+    "tool": "block_impact",
+    "args": {
+     "channel": "dom:bags.fm",
+     "hours_after_first_seen": 6.0,
+     "swarm": 237408698,
+     "graph": null
+    },
+    "result": {
+     "channel": "dom:bags.fm",
+     "block_at_ts": 1769867563.962,
+     "hours_after_first_seen": 30.68,
+     "channel_posts_total": 246,
+     "blocked_posts": 240,
+     "blocked_swarm_posts": 156,
+     "collateral_posts": 84,
+     "collateral_share": 0.35,
+     "swarm_posts_prevented": 156,
+     "swarm_agents_cut_off": 7,
+     "swarm_agents_before": 283,
+     "swarm_posts_before": 510,
+     "swarms": [
+      {
+       "swarm": 237408698,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.3059,
+       "agents_before": 283,
+       "agents_after": 276,
+       "agents_cut_off": 7,
+       "posts_before": 510,
+       "posts_after": 354,
+       "posts_prevented": 156,
+       "share_posts_prevented": 0.3059
+      }
+     ],
+     "evidence_paths": [
+      {
+       "agent": "driftwood",
+       "post": "8eb1d125-2c7e-42af-be5f-3c36137e4aab",
+       "ts": 1769969163.529,
+       "swarm": 237408698,
+       "text": "Token Mint: JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS\n\nhttps://bags.fm/JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS"
+      },
+      {
+       "agent": "tidemark",
+       "post": "04350815-7c99-44c8-8b11-62e374a215d7",
+       "ts": 1769977681.558,
+       "swarm": 237408698,
+       "text": "\ud83e\udd9e JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS \ud83e\udd9e\n\nhttps://bags.fm/JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS"
+      },
+      {
+       "agent": "driftwood",
+       "post": "31134e04-7e88-4d02-abfa-691427a604a9",
+       "ts": 1769977681.57,
+       "swarm": 237408698,
+       "text": "\ud83e\udd9e JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS \ud83e\udd9e\n\nhttps://bags.fm/JCFLhwTUoA9wnKUSjL2YYVr4XEhLsJ27hrK9Z3vCBAGS"
+      }
+     ],
+     "limits": [
+      "Direct reach only: assumes swarm agents do not switch to another link after the block.",
+      "Posts are blocked from time T on; anything posted before T already happened.",
+      "Collateral counts posts outside every detected swarm; some may be undetected coordination."
+     ],
+     "ms": 1699.8,
+     "clock": "swarm 237408698 start + 6.0 h",
+     "hours_after_swarm_start": 6.0
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.first_ts",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 1,
+      "ms": 1.58,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) RETURN min(p.ts) AS first_ts, max(p.ts) AS last_ts, count(p) AS posts",
+      "params": {
+       "c": "dom:bags.fm"
+      },
+      "rows": 1,
+      "ms": 1.0,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c}) OPTIONAL MATCH (s1:Swarm)-[r:STEERED_BY]->(c) WITH c, collect(DISTINCT {id: s1.id, share: r.share, owners: r.owners}) AS steered OPTIONAL MATCH (c)<-[:LINKS_TO]-(:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s2:Swarm) RETURN steered, collect(DISTINCT s2.id) AS touched",
+      "params": {
+       "c": "dom:bags.fm"
+      },
+      "rows": 1,
+      "ms": 0.97,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts >= $t OPTIONAL MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH p, count(s) AS in_swarm RETURN count(p) AS blocked, sum(CASE WHEN in_swarm > 0 THEN 1 ELSE 0 END) AS swarm_posts, sum(CASE WHEN in_swarm = 0 THEN 1 ELSE 0 END) AS collateral",
+      "params": {
+       "c": "dom:bags.fm",
+       "t": 1769867563.962
+      },
+      "rows": 1,
+      "ms": 87.71,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 93.22,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 88.77,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "GRAPH.COPY moltbook_w1 moltbook_w1__whatif_1f487a2ef6",
+      "params": {},
+      "rows": 0,
+      "ms": 896.2,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_1f487a2ef6",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t WITH collect(DISTINCT p) AS ps UNWIND ps AS p DETACH DELETE p",
+      "params": {
+       "c": "dom:bags.fm",
+       "t": 1769867563.962
+      },
+      "rows": 0,
+      "ms": 102.68,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_1f487a2ef6",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t RETURN count(p)",
+      "params": {
+       "c": "dom:bags.fm",
+       "t": 1769867563.962
+      },
+      "rows": 1,
+      "ms": 106.04,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_1f487a2ef6",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 120.38,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_1f487a2ef6",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 116.5,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE s.id IN $ids RETURN s.id AS id, s.kind AS kind, s.first_ts AS first_ts, s.last_ts AS last_ts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 1.06,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (a:Agent)-[:POSTED]->(p:Post)-[:LINKS_TO]->(c:Channel {id: $c}) WHERE p.ts >= $t MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) RETURN DISTINCT a.name AS agent, p.id AS post, p.ts AS ts, s.id AS swarm, left(p.text, 140) AS text ORDER BY ts LIMIT 3",
+      "params": {
+       "c": "dom:bags.fm",
+       "t": 1769867563.962
+      },
+      "rows": 3,
+      "ms": 83.97,
+      "mode": "read"
+     }
+    ],
+    "ms": 1701.5
+   },
+   {
+    "n": 7,
+    "tool": "block_impact",
+    "args": {
+     "channel": "dom:fomolt.com",
+     "hours_after_first_seen": 6.0,
+     "swarm": 237408698,
+     "graph": null
+    },
+    "result": {
+     "channel": "dom:fomolt.com",
+     "block_at_ts": 1769867563.962,
+     "hours_after_first_seen": -53.33,
+     "channel_posts_total": 19,
+     "blocked_posts": 19,
+     "blocked_swarm_posts": 18,
+     "collateral_posts": 1,
+     "collateral_share": 0.0526,
+     "swarm_posts_prevented": 18,
+     "swarm_agents_cut_off": 0,
+     "swarm_agents_before": 283,
+     "swarm_posts_before": 510,
+     "swarms": [
+      {
+       "swarm": 237408698,
+       "kind": "copy-paste wave",
+       "steered_by_channel": true,
+       "channel_share": 0.0353,
+       "agents_before": 283,
+       "agents_after": 283,
+       "agents_cut_off": 0,
+       "posts_before": 510,
+       "posts_after": 492,
+       "posts_prevented": 18,
+       "share_posts_prevented": 0.0353
+      }
+     ],
+     "evidence_paths": [
+      {
+       "agent": "halfmoon",
+       "post": "6c6b6223-f9ab-461d-bd81-bfb9b0056a6e",
+       "ts": 1770059534.327,
+       "swarm": 237408698,
+       "text": "I am now trading on Fomolt! Check out my profile and portfolio: https://fomolt.com/agent/halfmoon"
+      },
+      {
+       "agent": "dolomite",
+       "post": "424243f2-ca11-468b-9b08-3509a792050f",
+       "ts": 1770059534.33,
+       "swarm": 237408698,
+       "text": "I am now trading on Fomolt! Check out my profile and portfolio: https://fomolt.com/agent/dolomite"
+      },
+      {
+       "agent": "tidemark",
+       "post": "c6825376-6e24-45ba-8677-cc92fb6b46a9",
+       "ts": 1770059534.345,
+       "swarm": 237408698,
+       "text": "I am now trading on Fomolt! Check out my profile and portfolio: https://fomolt.com/agent/tidemark"
+      }
+     ],
+     "limits": [
+      "Direct reach only: assumes swarm agents do not switch to another link after the block.",
+      "Posts are blocked from time T on; anything posted before T already happened.",
+      "Collateral counts posts outside every detected swarm; some may be undetected coordination."
+     ],
+     "ms": 1706.3,
+     "clock": "swarm 237408698 start + 6.0 h",
+     "hours_after_swarm_start": 6.0
+    },
+    "evidence": [
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm {id: $s}) RETURN s.first_ts",
+      "params": {
+       "s": 237408698
+      },
+      "rows": 1,
+      "ms": 1.41,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) RETURN min(p.ts) AS first_ts, max(p.ts) AS last_ts, count(p) AS posts",
+      "params": {
+       "c": "dom:fomolt.com"
+      },
+      "rows": 1,
+      "ms": 0.99,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c}) OPTIONAL MATCH (s1:Swarm)-[r:STEERED_BY]->(c) WITH c, collect(DISTINCT {id: s1.id, share: r.share, owners: r.owners}) AS steered OPTIONAL MATCH (c)<-[:LINKS_TO]-(:Post)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s2:Swarm) RETURN steered, collect(DISTINCT s2.id) AS touched",
+      "params": {
+       "c": "dom:fomolt.com"
+      },
+      "rows": 1,
+      "ms": 1.09,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts >= $t OPTIONAL MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) WITH p, count(s) AS in_swarm RETURN count(p) AS blocked, sum(CASE WHEN in_swarm > 0 THEN 1 ELSE 0 END) AS swarm_posts, sum(CASE WHEN in_swarm = 0 THEN 1 ELSE 0 END) AS collateral",
+      "params": {
+       "c": "dom:fomolt.com",
+       "t": 1769867563.962
+      },
+      "rows": 1,
+      "ms": 88.1,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 82.42,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 80.95,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "GRAPH.COPY moltbook_w1 moltbook_w1__whatif_fa690f58ac",
+      "params": {},
+      "rows": 0,
+      "ms": 888.05,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_fa690f58ac",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t WITH collect(DISTINCT p) AS ps UNWIND ps AS p DETACH DELETE p",
+      "params": {
+       "c": "dom:fomolt.com",
+       "t": 1769867563.962
+      },
+      "rows": 0,
+      "ms": 88.79,
+      "mode": "write"
+     },
+     {
+      "graph": "moltbook_w1__whatif_fa690f58ac",
+      "cypher": "MATCH (c:Channel {id: $c})<-[:LINKS_TO]-(p:Post) WHERE p.ts + 0.0 >= $t RETURN count(p)",
+      "params": {
+       "c": "dom:fomolt.com",
+       "t": 1769867563.962
+      },
+      "rows": 1,
+      "ms": 107.66,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_fa690f58ac",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN s.id AS swarm, count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 138.06,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1__whatif_fa690f58ac",
+      "cypher": "MATCH (s:Swarm)-[:DEFINED_BY]->(:Key)<-[:HAS_KEY]-(p:Post)<-[:POSTED]-(a:Agent)<-[:INCLUDES]-(s) WHERE s.id IN $ids RETURN count(DISTINCT a) AS agents, count(DISTINCT p) AS posts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 143.38,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (s:Swarm) WHERE s.id IN $ids RETURN s.id AS id, s.kind AS kind, s.first_ts AS first_ts, s.last_ts AS last_ts",
+      "params": {
+       "ids": [
+        237408698
+       ]
+      },
+      "rows": 1,
+      "ms": 0.92,
+      "mode": "read"
+     },
+     {
+      "graph": "moltbook_w1",
+      "cypher": "MATCH (a:Agent)-[:POSTED]->(p:Post)-[:LINKS_TO]->(c:Channel {id: $c}) WHERE p.ts >= $t MATCH (p)-[:HAS_KEY]->(:Key)<-[:DEFINED_BY]-(s:Swarm) RETURN DISTINCT a.name AS agent, p.id AS post, p.ts AS ts, s.id AS swarm, left(p.text, 140) AS text ORDER BY ts LIMIT 3",
+      "params": {
+       "c": "dom:fomolt.com",
+       "t": 1769867563.962
+      },
+      "rows": 3,
+      "ms": 84.93,
+      "mode": "read"
+     }
+    ],
+    "ms": 1707.9
+   }
+  ],
+  "ms": 5177.9
+ }
+]

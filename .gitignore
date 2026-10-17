@@ -1,0 +1,31 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Secrets: copy .env.example to .env locally, never commit it
+.env
+.env.*
+!.env.example
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Raw datasets are never committed. Moltbook is downloaded by script;
+# the AI Village dataset is gated and its terms do not allow redistribution.
+data/
+*.parquet
+*.jsonl.gz
+*.tar
+
+# Reports that quote AI Village message text stay local (dataset terms).
+reports/probe_events.json
+reports/probe_citations.json
+reports/brain_smoke.json
+reports/tools_smoke.json

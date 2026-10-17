@@ -1,0 +1,23 @@
+{
+ "counts": {
+  "agents": 26303,
+  "posts": 125885,
+  "keys": 241,
+  "channels": 1827,
+  "has_key": 19042,
+  "links": 17648,
+  "owners": 18818
+ },
+ "timing_s": {
+  "agents": 0.25,
+  "owners": 0.42,
+  "posts": 2.34,
+  "keys": 0.05,
+  "channels": 0.01,
+  "has_key": 0.15,
+  "links": 0.11,
+  "derive": 0.18,
+  "features": 59.48,
+  "total": 76.88
+ }
+}

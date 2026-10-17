@@ -1,0 +1,29 @@
+{
+ "counts": {
+  "agents": 52,
+  "rooms": 16,
+  "goals": 51,
+  "messages": 182159,
+  "mentions": 159898,
+  "sites": 1152,
+  "links": 28265,
+  "searches": 11246,
+  "cited": 4354
+ },
+ "timing_s": {
+  "agents": 0.04,
+  "rooms": 0.0,
+  "goals": 0.04,
+  "agent_goals": 0.04,
+  "messages": 5.13,
+  "sent": 2.21,
+  "mentions": 1.77,
+  "sites": 0.01,
+  "links": 0.55,
+  "during": 2.97,
+  "searches": 0.33,
+  "cited": 0.12,
+  "fulltext": 13.55,
+  "total": 50.7
+ }
+}

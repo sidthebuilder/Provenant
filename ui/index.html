@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provenant: replay a block before you make it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8fafc;--card:#fff;--subtle:#f1f5f9;--line:#e2e8f0;--line2:#cbd5e1;--ink:#0f172a;--muted:#334155;--dim:#64748b;
+--blue:#0369a1;--green:#047857;--red:#b91c1c;--amber:#b45309;--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+header{max-width:1180px;margin:0 auto;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.brand b{font:500 18px var(--serif);letter-spacing:.16em;text-transform:uppercase;display:block}
+.brand span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+nav a{margin-left:16px;font-size:13px;color:var(--muted);text-decoration:none}
+.hero{max-width:860px;margin:44px auto 28px;text-align:center;padding:0 24px}
+.tag{display:inline-block;font:12px var(--mono);color:var(--dim);background:var(--subtle);border:1px solid var(--line);padding:3px 12px;border-radius:999px;margin-bottom:18px}
+h1{font:400 50px/1.15 var(--serif);letter-spacing:-.02em;margin-bottom:18px}
+.lede{font-size:17px;color:var(--muted);max-width:720px;margin:0 auto}
+main{max-width:1180px;margin:0 auto 80px;padding:0 32px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:22px 28px;margin-bottom:28px}
+.nums div{border-right:1px solid var(--line)} .nums div:last-child{border:0}
+.nums b{display:block;font:400 32px/1.1 var(--serif)} .nums small{color:var(--dim);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line2);border-radius:14px;margin-bottom:28px;overflow:hidden}
+.card h2{font:400 24px var(--serif);padding:18px 22px 4px}
+.card .sub{padding:0 22px 14px;color:var(--muted);font-size:14px}
+.ask{display:flex;gap:10px;padding:0 22px 16px;flex-wrap:wrap}
+.ask input{flex:1;min-width:260px;padding:11px 14px;border:1px solid var(--line2);border-radius:10px;font:15px var(--sans)}
+button{background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:999px;padding:9px 20px;font:500 14px var(--sans);cursor:pointer}
+button.ghost{background:#fff;color:var(--ink);border-color:var(--line2)}
+button:disabled{opacity:.5;cursor:wait}
+.chips{padding:0 22px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.chips button{font-size:12px;padding:5px 12px}
+.split{display:grid;grid-template-columns:1fr 440px;border-top:1px solid var(--line)}
+.answer{padding:20px 22px;border-right:1px solid var(--line);font-size:15.5px}
+.answer .cite{font:11px var(--mono);background:#e0f2fe;color:var(--blue);padding:1px 5px;border-radius:4px;cursor:pointer;border:0}
+.rec{margin-top:14px;padding:12px 14px;border-radius:10px;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;font-weight:500}
+.rec.monitor{background:#fffbeb;border-color:#fde68a;color:#92400e}
+.steps{background:#fafbfc;max-height:560px;overflow:auto;padding:16px}
+.step{background:#fff;border:1px solid var(--line2);border-radius:8px;padding:10px 12px;margin-bottom:10px}
+.step.hl{border-color:var(--blue);box-shadow:0 0 0 2px #bae6fd}
+.step header{all:unset;display:flex;justify-content:space-between;font-size:12.5px}
+.step code,.q{display:block;font:11.5px/1.45 var(--mono);background:#f6f8f9;border:1px solid var(--line);border-radius:6px;padding:7px 9px;margin-top:6px;white-space:pre-wrap;word-break:break-word;color:#1f2937}
+.q i{color:var(--dim);font-style:normal}
+.graph{display:grid;grid-template-columns:1fr 300px;border-top:1px solid var(--line)}
+canvas{width:100%;height:460px;display:block;background:#fff}
+.legend{padding:16px;font-size:13px;border-left:1px solid var(--line);background:#fafbfc}
+.legend span{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:600;border-bottom:2px solid var(--line2)}
+tr.sel{background:#f0f9ff} tbody tr{cursor:pointer}
+.sim{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 22px 22px}
+.sim .box{border:1px solid var(--line2);border-radius:10px;padding:14px}
+.bar{height:10px;background:var(--subtle);border-radius:5px;overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%}
+.controls{display:flex;gap:10px;align-items:center;padding:0 22px 16px;flex-wrap:wrap;font-size:14px}
+.controls select,.controls input{padding:7px 10px;border:1px solid var(--line2);border-radius:8px;font:14px var(--sans)}
+.note{font-size:12.5px;color:var(--dim);padding:0 22px 18px}
+.muted{color:var(--dim)}
+footer{max-width:1180px;margin:0 auto;padding:28px 32px;border-top:1px solid var(--line2);font-size:13px;color:var(--dim)}
+@media (max-width:900px){.split,.graph{grid-template-columns:1fr}.nums,.sim{grid-template-columns:1fr 1fr}h1{font-size:36px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><b>Provenant</b><span>FalkorDB Graph Hacks · Tracks 1, 2, 3</span></div>
+  <nav aria-label="Sections"><a href="#ask">Track 1 · Investigate</a><a href="#block">Replay a block</a><a href="#memory">Track 2 · Memory</a><a href="#brain">Track 3 · Brain</a></nav>
+</header>
+
+<section class="hero">
+  <div class="tag">real data · Moltbook Observatory Archive · 27 Jan to 2 Feb 2026</div>
+  <h1>Replay a block before you make it.</h1>
+  <p class="lede">An agent that finds coordinated AI-agent swarms in a FalkorDB graph, shows the Cypher behind every claim,
+  and forks the graph to measure what blocking a link would actually cut off, and who else it would hit.</p>
+</section>
+
+<main>
+  <div class="nums" aria-live="polite">
+    <div><b id="nPosts">…</b><small>real posts in the graph</small></div>
+    <div><b id="nAgents">…</b><small>agents</small></div>
+    <div><b id="nSwarms">…</b><small>swarms found in-graph (Cypher + algo.WCC)</small></div>
+    <div><b id="nMs">…</b><small>last agent run, all queries included</small></div>
+  </div>
+
+  <section class="card" id="ask" aria-labelledby="askH">
+    <h2 id="askH">Ask the investigator</h2>
+    <p class="sub">The agent picks graph tools, replays candidate blocks on a <code>GRAPH.COPY</code> fork, and cites every number as [s<i>n</i>].</p>
+    <form class="ask" onsubmit="ask(event)">
+      <label for="q" class="muted" style="position:absolute;left:-9999px">Question</label>
+      <input id="q" value="What is steering the skill-file swarm, and what should we block?" autocomplete="off">
+      <button id="askBtn" type="submit">Investigate</button>
+    </form>
+    <div class="chips" aria-label="Example questions">
+      <button class="ghost" type="button" onclick="preset(this)">Who is behind the token mint campaign, and is there a link to block?</button>
+      <button class="ghost" type="button" onclick="preset(this)">Should we block the bags.fm identity verification wave?</button>
+      <button class="ghost" type="button" onclick="preset(this)">What is steering the chatr.ai swarm?</button>
+    </div>
+    <div class="split">
+      <div class="answer" id="answer" aria-live="polite"><span class="muted">Ask a question to start.</span></div>
+      <div class="steps" id="steps" aria-label="Tool calls and Cypher evidence"></div>
+    </div>
+  </section>
+
+  <section class="card" id="graph" aria-labelledby="gH">
+    <h2 id="gH">The swarm in the graph</h2>
+    <p class="sub" id="gSub">Agents, their human owners, the keys that define the swarm, and the channels steering it, read live from FalkorDB.</p>
+    <div class="graph">
+      <canvas id="cv" role="img" aria-label="Graph of the selected swarm"></canvas>
+      <div class="legend" id="legend">
+        <p><span style="background:#334155"></span>Agent</p>
+        <p><span style="background:#94a3b8"></span>Owner (human)</p>
+        <p><span style="background:#b45309"></span>Key (shared text or payload)</p>
+        <p><span style="background:#b91c1c"></span>Steering channel</p>
+        <hr style="margin:12px 0;border:0;border-top:1px solid var(--line)">
+        <div id="gInfo" class="muted">Select a swarm.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="block" aria-labelledby="bH">
+    <h2 id="bH">Replay a block</h2>
+    <p class="sub">Forks the graph, rejects every post linking the channel from the chosen time, and recounts. The real graph is never changed.</p>
+    <div class="controls">
+      <label for="bc">Channel</label><select id="bc"></select>
+      <label for="bh">hours after swarm start</label><input id="bh" type="number" value="6" min="0" max="240" step="1" style="width:80px">
+      <button id="bBtn" type="button" onclick="replay()">Replay on fork</button>
+      <span id="bMs" class="muted"></span>
+    </div>
+    <div class="sim" id="sim" aria-live="polite"></div>
+    <p class="note">Direct reach only: assumes swarm agents do not switch to another link after the block. "Other posts hit" are posts in no detected swarm; some may be undetected coordination.</p>
+    <div id="bQ" style="padding:0 22px 22px"></div>
+  </section>
+
+  <section class="card" id="swarms" aria-labelledby="sH">
+    <h2 id="sH">Detected swarms</h2>
+    <p class="sub">Click a row to load it into the graph view and the replay.</p>
+    <div style="overflow:auto;padding:0 10px 14px">
+      <table><thead><tr><th scope="col">Swarm</th><th scope="col">Kind</th><th scope="col">Agents</th><th scope="col">Posts</th><th scope="col">Owners</th><th scope="col">Top steering channel</th></tr></thead>
+      <tbody id="tb"></tbody></table>
+    </div>
+  </section>
+  <section class="card" id="memory" aria-labelledby="mH">
+    <h2 id="mH">Track 2 · Shared memory, replayed on real recall failures</h2>
+    <p class="sub">Every row below is a real moment an AI Village agent had to search its history because its own memory did not hold the answer.
+      Pick one: the graph answers as of that moment, using only messages written before it, and is scored against the messages the agent's search actually cited.</p>
+    <div class="nums" id="mNums" style="margin:0 22px 16px;grid-template-columns:repeat(4,1fr)"></div>
+    <div class="split">
+      <div style="padding:14px;border-right:1px solid var(--line);max-height:520px;overflow:auto">
+        <table><thead><tr><th scope="col">Agent</th><th scope="col">What it searched for</th><th scope="col">Cited</th></tr></thead><tbody id="mTb"></tbody></table>
+      </div>
+      <div class="steps" id="mOut" aria-live="polite"><span class="muted">Select a search.</span></div>
+    </div>
+  </section>
+
+  <section class="card" id="brain" aria-labelledby="cH">
+    <h2 id="cH">Track 3 · Company brain for the AI Village</h2>
+    <p class="sub">About 50 agents, 51 company goals, 1,152 sites and repos they built, 182k agent messages. Each answer comes from a graph query and links to its source messages.</p>
+    <form class="controls" onsubmit="brain(event)">
+      <label for="cT">Question</label>
+      <select id="cT">
+        <option value="who_owns">Who owns this site or repo?</option>
+        <option value="sites_of">What did this agent build?</option>
+        <option value="who_knows">Who knows about this topic?</option>
+        <option value="decisions">What was decided about this?</option>
+        <option value="goal_team">Who worked on this company goal?</option>
+        <option value="handoffs">Who asks this agent for help?</option>
+      </select>
+      <label for="cQ" style="position:absolute;left:-9999px">Subject</label>
+      <input id="cQ" value="grok-ai-village-news-496089.gitlab.io" style="flex:1;min-width:260px">
+      <button type="submit" id="cBtn">Ask the brain</button>
+    </form>
+    <div class="split">
+      <div class="answer" id="cOut" aria-live="polite"><span class="muted">Ask a question.</span></div>
+      <div class="steps" id="cSrc" aria-label="Sources and queries"></div>
+    </div>
+  </section>
+</main>
+
+<footer>Provenant, built for WeMakeDevs × FalkorDB Graph Hacks 2026 (Tracks 1, 2 and 3). Data: Gautam &amp; Riegler (2026), Moltbook Observatory Archive, MIT licence;
+AI Digest (2026), AI Village dataset, <a href="https://theaidigest.org/village">theaidigest.org/village</a>, research terms (agent messages only; no human messages are loaded).
+Agent and owner handles are public accounts; treat findings as leads, not proof.</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => n == null ? '–' : Number(n).toLocaleString();
+let current = null;
+
+async function j(url, opt) { const r = await fetch(url, opt); if (!r.ok) throw new Error(r.status + ' ' + await r.text()); return r.json(); }
+
+function queryHtml(q) {
+  return `<div class="q">${esc(q.cypher)}\n<i>${q.mode} · ${q.rows} rows · ${q.ms} ms${Object.keys(q.params||{}).length ? ' · ' + esc(JSON.stringify(q.params)) : ''}</i></div>`;
+}
+
+async function init() {
+  try {
+    const h = await j('/api/health');
+    $('nPosts').textContent = fmt(h.posts); $('nAgents').textContent = fmt(h.agents); $('nSwarms').textContent = fmt(h.swarms);
+  } catch (e) { $('nPosts').textContent = 'offline'; }
+  const s = await j('/api/swarms?limit=60');
+  $('tb').innerHTML = s.result.map(r => `<tr tabindex="0" data-id="${r.swarm}"><td>${r.swarm}</td><td>${esc(r.kind)}</td><td>${fmt(r.agents)}</td><td>${fmt(r.posts)}</td><td>${fmt(r.owners)}</td><td>${esc(r.top_channel || '–')}</td></tr>`).join('');
+  $('tb').querySelectorAll('tr').forEach(tr => {
+    tr.onclick = () => select(+tr.dataset.id);
+    tr.onkeydown = e => { if (e.key === 'Enter') select(+tr.dataset.id); };
+  });
+  const first = s.result.find(r => r.top_channel && r.top_channel.includes('clawtasks')) || s.result.find(r => r.top_channel) || s.result[0];
+  if (first) select(first.swarm);
+}
+
+async function select(sid, preferChannel) {
+  current = sid;
+  document.querySelectorAll('#tb tr').forEach(tr => tr.classList.toggle('sel', +tr.dataset.id === sid));
+  const [sg, sw] = await Promise.all([j(`/api/swarm/${sid}/subgraph`), j(`/api/swarm/${sid}`)]);
+  const p = sw.profile.result;
+  $('gSub').textContent = `Swarm ${sid}: ${p.kind}, ${fmt(p.agents)} agents, ${fmt(p.posts)} posts, ${fmt(p.owners)} distinct owners. Showing up to 60 agents.`;
+  $('gInfo').innerHTML = (sw.channels.result.length ? '<b>Steering channels</b><br>' + sw.channels.result.map(c =>
+      `${esc(c.channel)}<br><span class="muted">${Math.round(100*c.share_of_swarm_posts)}% of posts · ${c.owners} owners · p=${Number(c.p_bonferroni).toExponential(1)}</span>`).join('<br>')
+    : 'No significant steering channel.') + '<br><br><b>Queries</b>' + sw.channels.evidence.map(queryHtml).join('');
+  const opts = sw.channels.result.map(c => c.channel);
+  $('bc').innerHTML = opts.length ? opts.map(c => `<option ${c === preferChannel ? 'selected' : ''}>${esc(c)}</option>`).join('') : '<option value="">(no steering channel)</option>';
+  $('bBtn').disabled = !opts.length;
+  $('sim').innerHTML = ''; $('bQ').innerHTML = ''; $('bMs').textContent = '';
+  draw(sg);
+}
+
+function draw(sg) {
+  const cv = $('cv'), dpr = devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+  cv.width = W * dpr; cv.height = H * dpr; const x = cv.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H);
+  const cx = W / 2, cy = H / 2, nodes = {}, edges = [];
+  sg.channels.forEach((c, i) => nodes['c:' + c.channel] = {x: cx + (i - (sg.channels.length - 1) / 2) * 170, y: 46, r: 11, col: '#b91c1c', label: c.channel.replace(/^(dom|path|at):/, '')});
+  sg.keys.forEach((k, i) => { const a = (i / Math.max(sg.keys.length, 1)) * Math.PI * 2; nodes['k:' + k.key] = {x: cx + Math.cos(a) * 70, y: cy + 20 + Math.sin(a) * 50, r: 8, col: '#b45309'}; });
+  const owners = {};
+  sg.agents.forEach((a, i) => {
+    const ang = (i / sg.agents.length) * Math.PI * 2, R = Math.min(W, H) * 0.36;
+    nodes['a:' + a.agent] = {x: cx + Math.cos(ang) * R, y: cy + 20 + Math.sin(ang) * R * 0.8, r: 5, col: '#334155'};
+    a.keys.forEach(k => edges.push(['a:' + a.agent, 'k:' + k, '#e2e8f0']));
+    if (a.owner) { owners[a.owner] = owners[a.owner] || []; owners[a.owner].push('a:' + a.agent); }
+  });
+  Object.entries(owners).forEach(([o, as]) => {
+    const n = nodes[as[0]]; const k = 'o:' + o;
+    nodes[k] = {x: cx + (n.x - cx) * 1.15, y: cy + 20 + (n.y - cy - 20) * 1.15, r: 3, col: '#94a3b8'};
+    as.forEach(a => edges.push([a, k, '#cbd5e1']));
+  });
+  sg.keys.forEach(k => sg.channels.forEach(c => edges.push(['k:' + k.key, 'c:' + c.channel, 'rgba(185,28,28,.35)'])));
+  edges.forEach(([a, b, col]) => { const p = nodes[a], q = nodes[b]; if (!p || !q) return; x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(q.x, q.y); x.strokeStyle = col; x.lineWidth = 1; x.stroke(); });
+  Object.values(nodes).forEach(n => { x.beginPath(); x.arc(n.x, n.y, n.r, 0, 7); x.fillStyle = n.col; x.fill(); x.strokeStyle = '#fff'; x.lineWidth = 1.5; x.stroke();
+    if (n.label) { x.font = '500 12px Inter'; x.fillStyle = '#0f172a'; x.textAlign = 'center'; x.fillText(n.label.slice(0, 32), n.x, n.y + 24); } });
+}
+
+function bars(label, before, after, col) {
+  const pct = before ? Math.round(100 * (before - after) / before) : 0;
+  return `<div class="box"><b>${label}</b><div class="muted" style="font-size:13px">${fmt(before)} → ${fmt(after)} (−${pct}%)</div>
+  <div class="bar"><i style="width:100%;background:#cbd5e1"></i></div><div class="bar"><i style="width:${before ? 100 * after / before : 0}%;background:${col}"></i></div></div>`;
+}
+
+async function replay() {
+  const ch = $('bc').value; if (!ch) return;
+  $('bBtn').disabled = true; $('bMs').textContent = 'forking graph…';
+  try {
+    const r = await j(`/api/block?channel=${encodeURIComponent(ch)}&hours=${+$('bh').value}&swarm=${current}`);
+    const d = r.result;
+    if (d.error) { $('sim').innerHTML = `<p>${esc(d.error)}</p>`; return; }
+    const prec = d.blocked_posts ? Math.round(100 * d.blocked_swarm_posts / d.blocked_posts) : 0;
+    $('sim').innerHTML = bars('Swarm posts', d.swarm_posts_before, d.swarm_posts_before - d.swarm_posts_prevented, '#047857')
+      + bars('Swarm agents still posting', d.swarm_agents_before, d.swarm_agents_before - d.swarm_agents_cut_off, '#0369a1')
+      + `<div class="box"><b>Other posts hit</b><div style="font:400 30px var(--serif)">${fmt(d.collateral_posts)}</div><div class="muted" style="font-size:13px">${prec}% of blocked posts were swarm traffic</div></div>`;
+    $('bMs').textContent = `${d.ms} ms including GRAPH.COPY`;
+    $('bQ').innerHTML = '<b style="font-size:13px">Evidence: every query run for this replay</b>' + r.evidence.map(queryHtml).join('')
+      + (d.evidence_paths.length ? '<p style="font-size:13px;margin-top:10px"><b>Example blocked swarm posts</b></p>' + d.evidence_paths.map(p => `<div class="q">${esc(p.agent)} → "${esc(p.text)}" → ${esc(ch)}</div>`).join('') : '');
+  } catch (e) { $('bMs').textContent = 'error: ' + e.message; }
+  finally { $('bBtn').disabled = false; }
+}
+
+function preset(b) { $('q').value = b.textContent; ask(); }
+
+async function ask(e) {
+  if (e) e.preventDefault();
+  $('askBtn').disabled = true; $('answer').innerHTML = '<span class="muted">Querying the graph and replaying blocks on forks…</span>'; $('steps').innerHTML = '';
+  try {
+    const r = await j('/api/ask', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: $('q').value})});
+    $('nMs').textContent = r.ms ? (r.ms / 1000).toFixed(1) + ' s' : '–';
+    $('answer').innerHTML = esc(r.answer).replace(/\[s(\d+)\]/g, (m, n) => `<button class="cite" type="button" onclick="hl(${n})" aria-label="Show step ${n}">s${n}</button>`)
+      + (r.recommendation ? `<div class="rec ${r.recommendation.action === 'monitor' ? 'monitor' : ''}">${r.recommendation.action === 'block' ? 'Recommended action: block ' + esc(r.recommendation.channel) : 'Recommended action: monitor, do not block yet'}</div>` : '')
+      + `<p class="muted" style="font-size:12.5px;margin-top:10px">mode: ${esc(r.mode)} · ${r.steps.length} tool calls · ${r.steps.reduce((a, s) => a + s.evidence.length, 0)} Cypher queries</p>`;
+    $('steps').innerHTML = r.steps.map(s => `<div class="step" id="st${s.n}"><header><b>s${s.n} · ${esc(s.tool)}</b><span class="muted">${s.ms} ms</span></header>
+      <div class="muted" style="font-size:12px">${esc(JSON.stringify(Object.fromEntries(Object.entries(s.args).filter(([k, v]) => k !== 'graph' && v != null))))}</div>
+      ${s.evidence.slice(0, 4).map(queryHtml).join('')}${s.evidence.length > 4 ? `<div class="muted" style="font-size:12px">+ ${s.evidence.length - 4} more queries</div>` : ''}</div>`).join('');
+    if (r.swarm) select(r.swarm, r.recommendation && r.recommendation.channel);
+  } catch (err) { $('answer').textContent = 'Error: ' + err.message; }
+  finally { $('askBtn').disabled = false; }
+}
+
+function hl(n) { document.querySelectorAll('.step').forEach(s => s.classList.remove('hl')); const el = $('st' + n); if (el) { el.classList.add('hl'); el.scrollIntoView({block: 'nearest', behavior: 'smooth'}); } }
+addEventListener('resize', () => current && select(current));
+init();
+
+// ---------------- Track 2
+const day = t => new Date(t * 1000).toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+async function initMemory() {
+  try {
+    const st = await j('/api/village/stats');
+    const b = st.bench;
+    $('mNums').innerHTML = b ? `
+      <div><b>${Math.round(100 * b.test_recall.hybrid['@20'])}%</b><small>cited messages recovered in top 20 (graph hybrid, held-out half)</small></div>
+      <div><b>${Math.round(100 * b.test_recall.recency['@20'])}%</b><small>same, last-20-messages baseline</small></div>
+      <div><b>${Math.round(100 * b.share_of_needed_messages_written_by_other_agents)}%</b><small>of needed messages were written by another agent</small></div>
+      <div><b>${fmt(b.cases)}</b><small>real searches with matched citations</small></div>` : '';
+    const s = await j('/api/village/searches?limit=40');
+    $('mTb').innerHTML = s.map(r => `<tr tabindex="0" data-id="${r.id}"><td>${esc(r.agent)}</td><td>${esc(r.query)}</td><td>${r.cited}</td></tr>`).join('');
+    $('mTb').querySelectorAll('tr').forEach(tr => { tr.onclick = () => replayMem(tr.dataset.id, tr); tr.onkeydown = e => { if (e.key === 'Enter') replayMem(tr.dataset.id, tr); }; });
+  } catch (e) { $('mOut').textContent = 'Village graph not loaded: ' + e.message; }
+}
+async function replayMem(id, tr) {
+  document.querySelectorAll('#mTb tr').forEach(x => x.classList.toggle('sel', x === tr));
+  $('mOut').innerHTML = '<span class="muted">Replaying memory as of the search…</span>';
+  const r = await j('/api/village/recall/' + encodeURIComponent(id));
+  const row = x => `<div class="step ${x.cited ? 'hl' : ''}"><header><b>${esc(x.by || '?')}</b><span class="muted">${x.ts ? day(x.ts) : ''}</span></header>
+    <div style="font-size:13px">${esc(x.text || '')}</div><div class="muted" style="font-size:11.5px">${x.cited ? '✓ cited by the real search · ' : ''}${esc((x.why || []).join(', '))}</div></div>`;
+  $('mOut').innerHTML = `<p style="font-size:13.5px"><b>${esc(r.search.agent)}</b> asked at ${day(r.search.ts)}: “${esc(r.search.query)}”</p>
+    <p style="font-size:13.5px;margin:6px 0 10px">Graph memory recovered <b>${Math.round(100 * r.recall)}%</b> of the messages the real search cited; ${Math.round(100 * r.other_agents_share)}% of those were written by other agents.</p>
+    ${r.retrieved.map(row).join('')}
+    ${r.missed.length ? '<p class="muted" style="font-size:12.5px;margin-top:8px"><b>Missed (cited but not retrieved)</b></p>' + r.missed.map(x => row({...x, why: ['missed']})).join('') : ''}
+    <p style="font-size:12.5px;margin-top:8px"><b>Queries</b></p>${r.evidence.map(queryHtml).join('')}`;
+}
+initMemory();
+
+// ---------------- Track 3
+const hints = {who_owns: 'grok-ai-village-news-496089.gitlab.io', sites_of: 'Claude Opus 4.5', who_knows: 'Juice Shop OWASP vulnerability',
+  decisions: 'charity fundraiser donation', goal_team: 'charity', handoffs: 'GPT-5.2'};
+$('cT').onchange = () => { $('cQ').value = hints[$('cT').value]; };
+const mlink = id => id ? `<button class="cite" type="button" onclick="openMsg('${esc(id)}')">${esc(id.slice(0, 8))}</button>` : '';
+async function openMsg(id) {
+  const r = await j('/api/village/brain/message?q=' + encodeURIComponent(id));
+  const m = r.result;
+  $('cSrc').insertAdjacentHTML('afterbegin', `<div class="step hl"><header><b>${esc(m.by)} · #${esc(m.room || '')}</b><span class="muted">${m.ts ? day(m.ts) : ''}</span></header>
+    <div class="muted" style="font-size:11.5px">goal: ${esc(m.goal || '–')}</div><div style="font-size:13px;white-space:pre-wrap">${esc((m.text || '').slice(0, 1200))}</div></div>`);
+}
+async function brain(e) {
+  e.preventDefault();
+  const tool = $('cT').value, q = $('cQ').value;
+  $('cBtn').disabled = true; $('cOut').innerHTML = '<span class="muted">Querying the graph…</span>'; $('cSrc').innerHTML = '';
+  try {
+    const r = await j(`/api/village/brain/${tool}?q=${encodeURIComponent(q)}`);
+    const d = r.result;
+    let h = '';
+    if (d && d.error) h = esc(d.error);
+    else if (tool === 'who_owns') h = d.introduced_by ? `<p><b>${esc(d.introduced_by.agent)}</b> introduced <code>${esc(d.introduced_by.site)}</code> on ${day(d.introduced_by.ts)} ${mlink(d.introduced_by.message)}.</p>
+      <p style="margin-top:8px">Most active:</p><ul style="margin-left:18px">${d.most_active.map(x => `<li>${esc(x.agent)}: ${fmt(x.messages)} messages ${x.examples.map(mlink).join(' ')}</li>`).join('')}</ul>
+      <p class="muted" style="font-size:12.5px;margin-top:8px">${esc(d.note)}</p>` : 'Nobody linked it.';
+    else if (tool === 'sites_of') h = `<ul style="margin-left:18px">${d.map(x => `<li><code>${esc(x.site)}</code> (${esc(x.kind)}), introduced ${day(x.ts)}, ${fmt(x.links)} links ${mlink(x.message)}</li>`).join('')}</ul>`;
+    else if (tool === 'who_knows') h = `<ul style="margin-left:18px">${d.map(x => `<li><b>${esc(x.agent)}</b>: ${fmt(x.messages)} messages, ${day(x.first_ts)} to ${day(x.last_ts)} ${x.examples.map(mlink).join(' ')}</li>`).join('')}</ul>`;
+    else if (tool === 'decisions') h = d.map(x => `<div class="step"><header><b>${esc(x.by)} · #${esc(x.room || '')}</b><span class="muted">${day(x.ts)}</span></header><div class="muted" style="font-size:11.5px">goal: ${esc(x.goal || '–')}</div><div style="font-size:13px">${esc(x.text)} ${mlink(x.message)}</div></div>`).join('');
+    else if (tool === 'goal_team') h = `<p><b>Goal:</b> ${esc(d.goal.text)} (${day(d.goal.start_ts)} to ${d.goal.end_ts ? day(d.goal.end_ts) : 'ongoing'})</p>
+      <p style="margin-top:8px"><b>Most active</b>: ${d.most_active.map(x => `${esc(x.agent)} (${fmt(x.messages)})`).join(', ')}</p>
+      <p style="margin-top:8px"><b>Who addressed whom</b>: ${d.who_addressed_whom.map(x => `${esc(x.from)} → ${esc(x.to)} (${fmt(x.messages)})`).join(', ')}</p>
+      <p style="margin-top:8px"><b>Early decisions</b></p>${d.early_decisions.map(x => `<div class="q">${esc(x.by)}: ${esc(x.text)} ${mlink(x.message)}</div>`).join('')}`;
+    else if (tool === 'handoffs') h = `<p><b>Asked for help by</b>: ${d.asked_by.map(x => `${esc(x.from)} (${fmt(x.requests)}) ${x.examples.map(mlink).join(' ')}`).join(', ') || 'nobody'}</p>
+      <p style="margin-top:8px"><b>Asks</b>: ${d.asks.map(x => `${esc(x.to)} (${fmt(x.requests)}) ${x.examples.map(mlink).join(' ')}`).join(', ') || 'nobody'}</p>`;
+    $('cOut').innerHTML = h + '<p class="muted" style="font-size:12.5px;margin-top:10px">Click an id to open the source message.</p>';
+    $('cSrc').innerHTML = '<b style="font-size:13px">Queries</b>' + r.evidence.map(queryHtml).join('');
+  } catch (err) { $('cOut').textContent = 'Error: ' + err.message; }
+  finally { $('cBtn').disabled = false; }
+}
+</script>
+</body>
+</html>

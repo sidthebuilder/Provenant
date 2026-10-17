@@ -1,0 +1,55 @@
+{
+ "cases": 1020,
+ "dev": 510,
+ "test": 510,
+ "gold_messages": 4354,
+ "share_of_needed_messages_written_by_other_agents": 0.7341,
+ "hybrid_weights_chosen_on_dev": {
+  "tau_h": 1,
+  "text": 0.0,
+  "named": 0.5,
+  "to_asker": 0.25,
+  "room": 0.6
+ },
+ "dev_recall_at_20": 0.4817,
+ "test_recall": {
+  "recency": {
+   "@10": 0.3185,
+   "@20": 0.4165,
+   "@50": 0.5393
+  },
+  "fulltext": {
+   "@10": 0.0521,
+   "@20": 0.0843,
+   "@50": 0.146
+  },
+  "graph_only": {
+   "@10": 0.1483,
+   "@20": 0.2127,
+   "@50": 0.3278
+  },
+  "hybrid": {
+   "@10": 0.4422,
+   "@20": 0.523,
+   "@50": 0.6341
+  }
+ },
+ "test_hit_rate_at_20": {
+  "recency": 0.5098,
+  "fulltext": 0.1706,
+  "graph_only": 0.3275,
+  "hybrid": 0.651
+ },
+ "latency_ms_median": {
+  "recency": 2.6,
+  "fulltext": 18.7,
+  "graph_only": 29.7,
+  "hybrid": 45.9
+ },
+ "latency_ms_p95": {
+  "recency": 5.6,
+  "fulltext": 37.8,
+  "graph_only": 66.4,
+  "hybrid": 97.0
+ }
+}

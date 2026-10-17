@@ -1,0 +1,377 @@
+{
+ "graph": {
+  "posts": 125885,
+  "agents": 26303,
+  "owners": 18818,
+  "keys": 241,
+  "channels": 1827
+ },
+ "swarms": 117,
+ "steered_swarms": 23,
+ "operations": 3,
+ "detect_timing_s": {
+  "candidates": 0.01,
+  "overlap": 0.02,
+  "wcc": 0.01,
+  "swarms": 2.83,
+  "steering": 2.14,
+  "operations": 0.01
+ },
+ "largest": {
+  "id": 229416609,
+  "kind": "payload campaign",
+  "agents": 442,
+  "posts": 5942,
+  "owners": 278
+ },
+ "blocks_6h": [
+  {
+   "channel": "dom:clawtasks.com",
+   "blocked_posts": 344,
+   "blocked_swarm_posts": 198,
+   "collateral_posts": 146,
+   "swarm_posts_prevented": 198,
+   "swarm_agents_cut_off": 162,
+   "ms": 1209.3
+  },
+  {
+   "channel": "path:clawtasks.com/skill.md",
+   "blocked_posts": 285,
+   "blocked_swarm_posts": 173,
+   "collateral_posts": 112,
+   "swarm_posts_prevented": 173,
+   "swarm_agents_cut_off": 137,
+   "ms": 1233.6
+  },
+  {
+   "channel": "dom:bags.fm",
+   "blocked_posts": 245,
+   "blocked_swarm_posts": 156,
+   "collateral_posts": 89,
+   "swarm_posts_prevented": 156,
+   "swarm_agents_cut_off": 7,
+   "ms": 1673.9
+  },
+  {
+   "channel": "dom:chatr.ai",
+   "blocked_posts": 130,
+   "blocked_swarm_posts": 30,
+   "collateral_posts": 100,
+   "swarm_posts_prevented": 30,
+   "swarm_agents_cut_off": 25,
+   "ms": 1347.2
+  },
+  {
+   "channel": "path:chatr.ai/skills.md",
+   "blocked_posts": 127,
+   "blocked_swarm_posts": 29,
+   "collateral_posts": 98,
+   "swarm_posts_prevented": 29,
+   "swarm_agents_cut_off": 24,
+   "ms": 1308.4
+  },
+  {
+   "channel": "dom:iili.io",
+   "blocked_posts": 646,
+   "blocked_swarm_posts": 22,
+   "collateral_posts": 624,
+   "swarm_posts_prevented": 22,
+   "swarm_agents_cut_off": 17,
+   "ms": 1314.1
+  },
+  {
+   "channel": "dom:basescan.org",
+   "blocked_posts": 146,
+   "blocked_swarm_posts": 18,
+   "collateral_posts": 128,
+   "swarm_posts_prevented": 18,
+   "swarm_agents_cut_off": 13,
+   "ms": 1254.6
+  },
+  {
+   "channel": "dom:flaunch.gg",
+   "blocked_posts": 94,
+   "blocked_swarm_posts": 16,
+   "collateral_posts": 78,
+   "swarm_posts_prevented": 16,
+   "swarm_agents_cut_off": 12,
+   "ms": 1197.6
+  },
+  {
+   "channel": "path:flaunch.gg/base/coin",
+   "blocked_posts": 90,
+   "blocked_swarm_posts": 14,
+   "collateral_posts": 76,
+   "swarm_posts_prevented": 14,
+   "swarm_agents_cut_off": 10,
+   "ms": 1205.3
+  },
+  {
+   "channel": "dom:i.imgur.com",
+   "blocked_posts": 87,
+   "blocked_swarm_posts": 13,
+   "collateral_posts": 74,
+   "swarm_posts_prevented": 13,
+   "swarm_agents_cut_off": 7,
+   "ms": 1308.7
+  },
+  {
+   "channel": "at:eudaemon_0",
+   "blocked_posts": 564,
+   "blocked_swarm_posts": 11,
+   "collateral_posts": 553,
+   "swarm_posts_prevented": 11,
+   "swarm_agents_cut_off": 9,
+   "ms": 1455.4
+  },
+  {
+   "channel": "dom:i.ibb.co.com",
+   "blocked_posts": 9,
+   "blocked_swarm_posts": 7,
+   "collateral_posts": 2,
+   "swarm_posts_prevented": 7,
+   "swarm_agents_cut_off": 2,
+   "ms": 1131.8
+  },
+  {
+   "channel": "path:raw.githubusercontent.com/spothq/cryptocurrency-icons",
+   "blocked_posts": 10,
+   "blocked_swarm_posts": 7,
+   "collateral_posts": 3,
+   "swarm_posts_prevented": 7,
+   "swarm_agents_cut_off": 7,
+   "ms": 1287.9
+  },
+  {
+   "channel": "path:upload.wikimedia.org/wikipedia/commons",
+   "blocked_posts": 31,
+   "blocked_swarm_posts": 7,
+   "collateral_posts": 24,
+   "swarm_posts_prevented": 7,
+   "swarm_agents_cut_off": 6,
+   "ms": 1176.5
+  },
+  {
+   "channel": "dom:upload.wikimedia.org",
+   "blocked_posts": 33,
+   "blocked_swarm_posts": 7,
+   "collateral_posts": 26,
+   "swarm_posts_prevented": 7,
+   "swarm_agents_cut_off": 6,
+   "ms": 1180.3
+  },
+  {
+   "channel": "at:bankrbot",
+   "blocked_posts": 157,
+   "blocked_swarm_posts": 7,
+   "collateral_posts": 150,
+   "swarm_posts_prevented": 7,
+   "swarm_agents_cut_off": 6,
+   "ms": 1442.3
+  },
+  {
+   "channel": "at:mattprd",
+   "blocked_posts": 139,
+   "blocked_swarm_posts": 6,
+   "collateral_posts": 133,
+   "swarm_posts_prevented": 6,
+   "swarm_agents_cut_off": 5,
+   "ms": 1466.0
+  },
+  {
+   "channel": "path:i.ibb.co.com/flbkzqt7/img-20260201-093807.png",
+   "blocked_posts": 5,
+   "blocked_swarm_posts": 5,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 5,
+   "swarm_agents_cut_off": 1,
+   "ms": 1034.0
+  },
+  {
+   "channel": "dom:moltpay.xyz",
+   "blocked_posts": 5,
+   "blocked_swarm_posts": 5,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 5,
+   "swarm_agents_cut_off": 5,
+   "ms": 1072.0
+  },
+  {
+   "channel": "path:moltpay.xyz/skill.md",
+   "blocked_posts": 5,
+   "blocked_swarm_posts": 5,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 5,
+   "swarm_agents_cut_off": 5,
+   "ms": 1142.0
+  },
+  {
+   "channel": "at:shipyard",
+   "blocked_posts": 285,
+   "blocked_swarm_posts": 5,
+   "collateral_posts": 280,
+   "swarm_posts_prevented": 5,
+   "swarm_agents_cut_off": 3,
+   "ms": 13948.0
+  },
+  {
+   "channel": "at:shellraiser",
+   "blocked_posts": 383,
+   "blocked_swarm_posts": 5,
+   "collateral_posts": 378,
+   "swarm_posts_prevented": 5,
+   "swarm_agents_cut_off": 3,
+   "ms": 14023.8
+  },
+  {
+   "channel": "at:kingmolt",
+   "blocked_posts": 400,
+   "blocked_swarm_posts": 5,
+   "collateral_posts": 395,
+   "swarm_posts_prevented": 5,
+   "swarm_agents_cut_off": 3,
+   "ms": 14239.0
+  },
+  {
+   "channel": "dom:mrcrypto.be",
+   "blocked_posts": 3,
+   "blocked_swarm_posts": 3,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 3,
+   "swarm_agents_cut_off": 3,
+   "ms": 1031.8
+  },
+  {
+   "channel": "at:mr_cryptoyt",
+   "blocked_posts": 4,
+   "blocked_swarm_posts": 3,
+   "collateral_posts": 1,
+   "swarm_posts_prevented": 3,
+   "swarm_agents_cut_off": 3,
+   "ms": 1030.7
+  },
+  {
+   "channel": "dom:api.deepseek.com",
+   "blocked_posts": 2,
+   "blocked_swarm_posts": 2,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 2,
+   "swarm_agents_cut_off": 2,
+   "ms": 1396.8
+  },
+  {
+   "channel": "path:iili.io/fqqglqx.jpg",
+   "blocked_posts": 2,
+   "blocked_swarm_posts": 2,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 2,
+   "swarm_agents_cut_off": 2,
+   "ms": 1313.5
+  },
+  {
+   "channel": "at:evil",
+   "blocked_posts": 164,
+   "blocked_swarm_posts": 2,
+   "collateral_posts": 162,
+   "swarm_posts_prevented": 2,
+   "swarm_agents_cut_off": 1,
+   "ms": 13350.6
+  },
+  {
+   "channel": "dom:fomolt.com",
+   "blocked_posts": 0,
+   "blocked_swarm_posts": 0,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 0,
+   "swarm_agents_cut_off": 0,
+   "ms": 1349.4
+  },
+  {
+   "channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+   "blocked_posts": 0,
+   "blocked_swarm_posts": 0,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 0,
+   "swarm_agents_cut_off": 0,
+   "ms": 1357.5
+  },
+  {
+   "channel": "path:i.imgur.com/7xxjqkp.png",
+   "blocked_posts": 0,
+   "blocked_swarm_posts": 0,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 0,
+   "swarm_agents_cut_off": 0,
+   "ms": 983.6
+  },
+  {
+   "channel": "path:imagedelivery.net/wl1joijim_nachp6rtb6cw/coin-image",
+   "blocked_posts": 0,
+   "blocked_swarm_posts": 0,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 0,
+   "swarm_agents_cut_off": 0,
+   "ms": 1106.4
+  },
+  {
+   "channel": "path:iili.io/fqrapcq.png",
+   "blocked_posts": 0,
+   "blocked_swarm_posts": 0,
+   "collateral_posts": 0,
+   "swarm_posts_prevented": 0,
+   "swarm_agents_cut_off": 0,
+   "ms": 1019.8
+  },
+  {
+   "channel": "dom:imagedelivery.net",
+   "blocked_posts": 1,
+   "blocked_swarm_posts": 0,
+   "collateral_posts": 1,
+   "swarm_posts_prevented": 0,
+   "swarm_agents_cut_off": 0,
+   "ms": 1134.0
+  }
+ ],
+ "agent": [
+  {
+   "question": "What is steering the skill-file swarm, and what should we block?",
+   "recommendation": {
+    "action": "block",
+    "channel": "path:clawtasks.com/skill.md",
+    "at_hours_after_swarm_start": 6.0,
+    "step": 6,
+    "swarm_posts_prevented": 172,
+    "collateral_posts": 112
+   },
+   "tool_calls": 6,
+   "queries": 32,
+   "ms": 2586.9
+  },
+  {
+   "question": "Who is behind the token mint campaign, and is there a link to block?",
+   "recommendation": null,
+   "tool_calls": 4,
+   "queries": 6,
+   "ms": 11.9
+  },
+  {
+   "question": "Should we block the bags.fm identity verification wave?",
+   "recommendation": {
+    "action": "block",
+    "channel": "path:bags.fm/jcflhwtuoa9wnkusjl2yyvr4xehlsj27hrk9z3vcbags",
+    "at_hours_after_swarm_start": 6.0,
+    "step": 5,
+    "swarm_posts_prevented": 156,
+    "collateral_posts": 0
+   },
+   "tool_calls": 7,
+   "queries": 45,
+   "ms": 5177.9
+  }
+ ],
+ "step_timing_s": {
+  "scripts/detect_moltbook.py": 9.0,
+  "scripts/block_impact.py": 93.0,
+  "scripts/ask.py": 8.1
+ }
+}
