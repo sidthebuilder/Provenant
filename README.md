@@ -132,7 +132,7 @@ Every tool returns its result plus the exact Cypher, parameters, row count and t
 
 The agent (`provenant/moltbook/agent.py`) has two modes:
 
-- **planner** (default, also when an API key is set): a fixed investigation plan. It picks the swarm, profiles it, checks owners, finds steering channels, replays a block of each, and recommends one only if it prevents swarm posts and at least half of what it blocks is swarm traffic. It is deterministic, so the demo and tests reproduce. This is the mode that was tested.
+- **planner** (default, also when an API key is set): a fixed investigation plan. It picks the swarm, profiles it, checks owners, finds steering channels, replays a block of each, and recommends one only if it prevents swarm posts and at least half of what it blocks is swarm traffic. It is deterministic, so the demo and tests reproduce. The tests, the demo and the README figures use this mode.
 - **llm**: a model chooses the tools itself by function calling, through any OpenAI-compatible endpoint (`LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY`). It sees only tool results and cannot run Cypher. Run it with `scripts/ask_llm.py`, `PROVENANT_AGENT_MODE=llm`, or `{"mode": "llm"}` on `/api/ask`.
 
 **LLM mode, tested with a small local model.** On 18 October I ran `scripts/ask_llm.py` with `qwen2.5:7b` through Ollama on a laptop RTX 5050 (8 GB). Transcripts are in `reports/agent_answers_llm.json`.
@@ -145,7 +145,7 @@ The agent (`provenant/moltbook/agent.py`) has two modes:
 
 All three verdicts were right, but the 7B model never wrote `[s<n>]` citations, and its reasoning was less careful than the planner's. On the first run, before `list_swarms` gained a `search` argument and errors that point back to it, the model invented swarm ids and two of three answers failed. That change is what made it work. A larger model would likely do better; none was tested.
 
-Every number in an answer cites its step as `[s<n>]`, and the UI links each citation to the queries behind it.
+In planner mode every number in an answer cites its step as `[s<n>]`, and the UI links each citation to the queries behind it. In both modes every tool call is recorded with its queries.
 
 ---
 
