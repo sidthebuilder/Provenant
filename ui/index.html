@@ -371,5 +371,189 @@ async function brain(e) {
   finally { $('cBtn').disabled = false; }
 }
 </script>
+
+<!-- ============================================================
+     Demo mode: open /?demo=1. Drives the real UI on real data,
+     shows captions and narrates with the browser's speech engine.
+     It clicks the same buttons a person would; nothing is faked.
+     ============================================================ -->
+<style>
+#demoCap{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);max-width:880px;width:calc(100% - 48px);background:rgba(15,23,42,.92);color:#fff;
+  font:500 19px/1.45 var(--sans);padding:14px 22px;border-radius:12px;z-index:9999;box-shadow:0 8px 30px rgba(0,0,0,.25);display:none}
+#demoCap small{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#93c5fd;margin-bottom:4px}
+#demoCursor{position:fixed;width:22px;height:22px;border-radius:50%;background:rgba(245,158,11,.85);border:2px solid #fff;box-shadow:0 0 0 4px rgba(245,158,11,.25);
+  z-index:10000;pointer-events:none;transition:left .7s ease,top .7s ease,transform .15s;left:50%;top:40%;display:none}
+#demoCursor.click{transform:scale(.6)}
+.demo-hl{outline:3px solid #f59e0b !important;outline-offset:4px;border-radius:8px}
+#demoStart{position:fixed;inset:0;background:rgba(248,250,252,.96);z-index:10001;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center}
+#demoStart h2{font:400 34px var(--serif)} #demoStart p{color:var(--muted);max-width:560px}
+</style>
+<div id="demoCap" role="status" aria-live="polite"><small id="demoSec"></small><span id="demoTxt"></span></div>
+<div id="demoCursor" aria-hidden="true"></div>
+<div id="demoStart">
+  <h2>Provenant · automated walkthrough</h2>
+  <p>Start your screen recording, then press the button. The page drives itself on the real data, with captions and a synthetic voice.</p>
+  <p class="muted" id="demoVoice">Loading voices…</p>
+  <button type="button" id="demoGo">Start demo</button>
+</div>
+<script>
+(() => {
+  if (!new URLSearchParams(location.search).has('demo')) return;
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const cap = $('demoCap'), cur = $('demoCursor');
+  let voice = null;
+
+  function pickVoice() {
+    const vs = speechSynthesis.getVoices();
+    const pref = [/Aria.*Natural/i, /Jenny.*Natural/i, /Guy.*Natural/i, /Natural.*en-(US|GB|IN)/i, /en-IN/i, /en-US/i, /^en/i];
+    for (const p of pref) { const v = vs.find(v => p.test(v.name) || p.test(v.lang)); if (v) return v; }
+    return vs[0] || null;
+  }
+  function loadVoices() {
+    voice = pickVoice();
+    $('demoVoice').textContent = (voice ? 'Fallback browser voice: ' + voice.name : 'No browser voice: captions only.');
+  }
+  speechSynthesis.onvoiceschanged = loadVoices;
+  loadVoices();
+  // Tell the user whether the neural-voice clips are in place.
+  clipUrl('This is Provenant, built for Graph Hacks with FalkorDB. This is an automated walkthrough of the real app, narrated with a synthetic voice.')
+    .then(u => fetch(u, {method: 'HEAD'}))
+    .then(r => { $('demoVoice').textContent = (r.ok ? 'Neural voice clips found (scripts/make_voice.py). ' : 'No voice clips yet: run scripts/make_voice.py for a natural voice. ') + $('demoVoice').textContent; })
+    .catch(() => {});
+
+  // Pre-generated neural-voice clips (scripts/make_voice.py), named by sha1 of the text.
+  async function clipUrl(text) {
+    const buf = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(text));
+    return '/ui/demo/' + [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 12) + '.mp3';
+  }
+  function playClip(url, text) {
+    return new Promise(res => {
+      const a = new Audio(url);
+      a.volume = 0.85;  // a touch quieter than full, on top of the clip's own volume
+      let done = false; const fin = ok => { if (!done) { done = true; res(ok); } };
+      a.onended = () => fin(true);
+      a.onerror = () => fin(false);
+      a.onloadedmetadata = () => setTimeout(() => fin(true), (a.duration + 3) * 1000);
+      a.play().catch(() => fin(false));
+    });
+  }
+  let clipsFound = 0;
+
+  // Speak: play the neural-voice clip if it exists, otherwise the browser voice
+  // sentence by sentence (long utterances can cut off), otherwise a timer.
+  async function say(section, text) {
+    $('demoSec').textContent = section; $('demoTxt').textContent = text; cap.style.display = 'block';
+    try { if (await playClip(await clipUrl(text), text)) { clipsFound++; return; } } catch (e) {}
+    return new Promise(res => {
+      if (!voice) return setTimeout(res, text.length * 60);
+      const parts = text.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) || [text];
+      let i = 0;
+      const next = () => {
+        if (i >= parts.length) return res();
+        const u = new SpeechSynthesisUtterance(parts[i++].trim());
+        u.voice = voice; u.rate = 1.0; u.pitch = 1.0;
+        let done = false; const fin = () => { if (!done) { done = true; next(); } };
+        u.onend = fin; u.onerror = fin;
+        setTimeout(fin, 2500 + u.text.length * 95);
+        speechSynthesis.speak(u);
+      };
+      next();
+    });
+  }
+  async function point(el, block = 'center') {
+    if (!el) return;
+    el.scrollIntoView({behavior: 'smooth', block});
+    await sleep(900);
+    const r = el.getBoundingClientRect();
+    cur.style.left = (r.left + Math.min(r.width / 2, 160)) + 'px';
+    cur.style.top = (r.top + r.height / 2) + 'px';
+    document.querySelectorAll('.demo-hl').forEach(x => x.classList.remove('demo-hl'));
+    el.classList.add('demo-hl');
+    await sleep(750);
+  }
+  async function tap(el) { await point(el); cur.classList.add('click'); await sleep(160); cur.classList.remove('click'); }
+  const clear = () => document.querySelectorAll('.demo-hl').forEach(x => x.classList.remove('demo-hl'));
+  const both = (...ps) => Promise.all(ps);
+
+  async function run() {
+    $('demoStart').style.display = 'none'; cur.style.display = 'block';
+    window.scrollTo({top: 0}); await sleep(800);
+
+    // Intro
+    await point(document.querySelector('.hero h1'));
+    await say('Intro', 'This is Provenant, built for Graph Hacks with FalkorDB. This is an automated walkthrough of the real app, narrated with a synthetic voice.');
+    await point(document.querySelector('.nums'));
+    await say('Intro', 'All the data is real: 125,885 posts from the Moltbook archive, and 182,000 messages written by AI agents in the AI Village. One entry for each track, and in every answer the graph does the work.');
+
+    // Track 1: investigate
+    await tap($('askBtn'));
+    await both(ask(), say('Track 1 · Investigate', 'Track 1 is a trust and safety agent. We ask it: what is steering the skill file swarm, and what should we block?'));
+    await point($('answer'));
+    await say('Track 1 · Investigate', 'It found the swarm with connected components over shared text: 163 agents, run by 123 different owners. So there is no single operator to ban. What steers them is a skill file on clawtasks dot com, in 99 percent of their posts.');
+    const c = document.querySelector('#answer .cite');
+    if (c) { await tap(c); c.click(); await sleep(400); await point($('steps').querySelector('.hl') || $('steps')); }
+    await say('Track 1 · Evidence', 'Every number cites a step, and every step shows the exact read only Cypher query and how long it took.');
+
+    // Track 1: replay the skill file block
+    const skill = [...$('bc').options].find(o => o.value.includes('skill.md'));
+    if (skill) $('bc').value = skill.value;
+    $('bh').value = 6;
+    await tap($('bBtn'));
+    await both(replay(), say('Track 1 · Replay a block', 'Now the key idea: replay a block before you make it. Provenant copies the whole graph with GRAPH dot COPY, deletes every post linking this file from six hours in, and recounts. The real graph is never touched.'));
+    await point($('sim'));
+    await say('Track 1 · Replay a block', 'Blocking the skill file stops 172 of the swarm\'s 207 posts. It also hits 112 ordinary posts, which is fewer than blocking the whole domain.');
+
+    // Track 1: iili.io, the counter-example
+    const row = [...document.querySelectorAll('#tb tr')].find(tr => tr.textContent.includes('iili.io'));
+    if (row) {
+      await tap(row);
+      await both(select(+row.dataset.id), say('Track 1 · Centrality misleads', 'Now the opposite case. PageRank ranks this image host, iili dot io, as the most central steering link. It connects four swarms.'));
+      const ii = [...$('bc').options].find(o => o.value.includes('iili.io'));
+      if (ii) $('bc').value = ii.value;
+      await tap($('bBtn'));
+      await both(replay(), sleep(1200));
+      await point($('sim'));
+      await say('Track 1 · Centrality misleads', 'The replay shows most of what this block hits is ordinary posts. In the full run it stops 22 swarm posts but hits 624 ordinary ones. So the agent says no, where a centrality score alone would have said block it.');
+    }
+
+    // Track 2
+    await point(document.getElementById('mH'), 'start');
+    await say('Track 2 · Shared memory', 'Track 2 is agent memory, tested on real failures. Each row is a real moment an AI Village agent had to search its history, because its own memory did not have the answer. There are 1,020 of them.');
+    await point($('mNums'));
+    await say('Track 2 · Shared memory', 'The first finding: 73 percent of what an agent needed was written by another agent. So memory has to be shared. Combining recency with graph links finds 52 percent of the needed messages in its top 20. The latest messages alone find 42 percent, and keyword search only 8.');
+    let pick = null;
+    for (const tr of [...document.querySelectorAll('#mTb tr')].slice(0, 15)) {
+      try { const r = await j('/api/village/recall/' + encodeURIComponent(tr.dataset.id)); if (r.recall >= 0.5) { pick = tr; break; } } catch (e) {}
+    }
+    pick = pick || document.querySelector('#mTb tr');
+    if (pick) {
+      await tap(pick);
+      await both(replayMem(pick.dataset.id, pick), say('Track 2 · Replay a recall', 'Here we replay one search as of that exact moment, using only the past.'));
+      await point($('mOut'));
+      await say('Track 2 · Replay a recall', 'Highlighted messages are the ones the real search cited. Each lookup takes about 46 milliseconds.');
+    }
+
+    // Track 3
+    $('cT').value = 'who_owns'; $('cQ').value = 'grok-ai-village-news-496089.gitlab.io';
+    await tap($('cBtn'));
+    await both(brain({preventDefault() {}}), say('Track 3 · Company brain', 'Track 3 treats the AI Village as a company: about 50 agents, 51 goals, and 1,152 sites and repos they built. Who owns the AI Village News site?'));
+    await point($('cOut'));
+    await say('Track 3 · Company brain', 'The graph says Grok 4.5 introduced it, and then linked it in 1,964 messages.');
+    const m = document.querySelector('#cOut .cite');
+    if (m) { await tap(m); await openMsg(m.textContent && m.getAttribute('onclick').match(/'([^']+)'/)[1]); await point($('cSrc')); }
+    await say('Track 3 · Sources', 'Every answer opens its source message, with the sender, the room and the goal at that time.');
+
+    // Close
+    clear(); window.scrollTo({top: 0, behavior: 'smooth'}); await sleep(900);
+    await point(document.querySelector('.hero h1'));
+    await say('Under the hood', 'It all runs in FalkorDB: connected components, PageRank, full text search and graph copies. The same tools are served over MCP, and the agent was also tested with a local model choosing the tools itself. There are 16 tests, reads are read only, and blocks run on throwaway copies.');
+    await say('Thanks', 'The code, the Cypher queries and the honest limits are in the README. Thanks for watching.');
+    clear(); cur.style.display = 'none'; await sleep(1500); cap.style.display = 'none';
+  }
+
+  $('demoStart').style.display = 'flex';
+  $('demoGo').onclick = () => run().catch(e => { $('demoTxt').textContent = 'Demo error: ' + e.message; cap.style.display = 'block'; });
+})();
+</script>
 </body>
 </html>
